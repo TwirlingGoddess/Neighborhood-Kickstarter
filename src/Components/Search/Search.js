@@ -13,6 +13,11 @@ class Search extends Component {
       value
     })
   }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state.value)
+  }
     render() {
     return(
       <div>
