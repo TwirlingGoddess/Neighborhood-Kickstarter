@@ -7,9 +7,10 @@ class Landing extends Component {
     super()
     this.state = ''
   }
-    render() {
+  
+  render() {
     return(
-      <div>
+      <div className='Landing'>
         <h1>Landing</h1>
         <Search />
         <ProjectsContainer />

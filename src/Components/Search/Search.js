@@ -5,6 +5,7 @@ class Search extends Component {
     super()
     this.state = {
       value: ''
+    }
   }
 
   handleChange = (event) => {
@@ -16,11 +17,14 @@ class Search extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.value)
+    console.log(this.state.value);
+    this.setState({
+      value: ''
+    })
   }
-    render() {
+  render() {
     return(
-      <div>
+      <div className='Search'>
         <h3>Search:</h3>
         <form onSubmit={this.handleSubmit}>
           <input value={this.state.value} placeholder='Enter your location' onChange={this.handleChange}/>

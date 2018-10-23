@@ -1,4 +1,5 @@
 import React from 'react';
+import ProjectCard from '../ProjectCard/ProjectCard';
 const fakeArray = [
   {name: 'Fix my door', id: 1, email: 'Terry@aol.com', owner: 'Terry', description: 'Fix my door', materials:['nails', 'hammer', 'eggs']},
   {name: 'Fix roof', id: 2, email: 'Bob@aol.com', owner: 'Bob', description: 'Fix roof', materials:['nails', 'hammer', 'eggs']},
@@ -11,14 +12,13 @@ const fakeArray = [
 
 export const ProjectsContainer = () => {
   const displayProjects = fakeArray.map(project => {
-    return <ProjecCards {...project}
+    return <ProjectCard {...project}
                         key={project.id}
-                        addNeeds={addNeeds}
     />
   })
 
   return(
-    <div>
+    <div className='Container'>
       {displayProjects}
     </div>
   )
