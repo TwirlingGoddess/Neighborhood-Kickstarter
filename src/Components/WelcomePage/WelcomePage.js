@@ -5,6 +5,13 @@ class WelcomePage extends Component {
     super()
     this.state = ''
   }
+  render() {
+    return(
+      <div>
+        WelcomePage
+      </div>
+    )
+  }
 }
 
 export default WelcomePage
