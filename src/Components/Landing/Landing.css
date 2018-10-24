@@ -1,0 +1,7 @@
+.Landing {
+  position: fixed;
+  width: 60%;
+  height: 100vh;
+  /*overflow: scroll;*/
+}
+
