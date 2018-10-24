@@ -8,7 +8,7 @@ class CreateUser extends Component {
       firstName: '',
       lastName: '',
       email: '',
-      password: ''
+      neighborhood: ''
     }
   }
 
@@ -50,7 +50,7 @@ class CreateUser extends Component {
             placeholder='last name'
             onChange={this.handleChange}
           />
-            <input 
+          <input 
             className='input-fields email-input'
             name='email'
             type='email'
@@ -58,12 +58,12 @@ class CreateUser extends Component {
             placeholder='email'
             onChange={this.handleChange}
           />
-            <input 
+          <input 
             className='input-fields password-input'
-            name='password'
-            type='password'
-            value={this.state.password}
-            placeholder='password'
+            name='neighborhood'
+            type='text'
+            value={this.state.neighborhood}
+            placeholder='Select your neighborhood'
             onChange={this.handleChange}
           />
           <button className='sign-up-button'>Sign Up</button>

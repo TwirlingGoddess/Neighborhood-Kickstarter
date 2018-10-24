@@ -5,7 +5,9 @@ import { ProjectsContainer } from '../ProjectsContainer/ProjectsContainer';
 class Landing extends Component {
   constructor() {
     super()
-    this.state = ''
+    this.state = {
+      currentUser: ''
+    }
   }
   
   render() {
