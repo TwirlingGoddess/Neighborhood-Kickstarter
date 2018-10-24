@@ -46,6 +46,16 @@ class CreateProject extends Component {
     }
   }
 
+  deleteMaterial = (item) => {
+    console.log(match)
+    let materials = this.state.materials.filter(material => {
+      return material.material !== item;
+    })
+    this.setState({
+      materials
+    })
+  }
+
   render() {
     return(
       <div className='create-project-section'>
@@ -82,8 +92,9 @@ class CreateProject extends Component {
           <h1>Materials:</h1>
             {this.state.materials.map((material, index) => {
               return <div 
+                      key={index}
                       className='list-item'>{`${index+1}. ${material.material}`}
-                      <img className='delete-material' src={deleteButton}/>
+                      <img onClick={() => this.deleteMaterial(material.material)} className='delete-material' src={deleteButton}/>
                     </div>
             })}
         </div>
