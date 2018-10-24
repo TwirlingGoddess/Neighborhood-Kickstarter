@@ -6,6 +6,7 @@ class CreateProject extends Component {
   constructor() {
     super();
     this.state = {
+      currentUser: 'Dennis Miller',
       projectName: '',
       projectDescription: '',
       newMaterial: '',
@@ -23,10 +24,20 @@ class CreateProject extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    
     if(event.target.className === 'submit-project-button') {
+      const { projectName, projectDescription, materials, currentUser } = this.state; 
+      const newProject = {
+        projectLead: currentUser,
+        projectName,
+        projectDescription,
+        materials
+      }
+
       this.setState({
         projectName: '',
         projectDescription: '',
+        newMaterial: '',
         materials: []
       })
     }
@@ -47,7 +58,6 @@ class CreateProject extends Component {
   }
 
   deleteMaterial = (item) => {
-    console.log(match)
     let materials = this.state.materials.filter(material => {
       return material.material !== item;
     })
@@ -59,7 +69,7 @@ class CreateProject extends Component {
   render() {
     return(
       <div className='create-project-section'>
-        <form className='create-project-form' onSubmit={this.handleSubmit}>
+        <form className='create-project-form'>
           <h1>Create Project</h1>
           <input
             className='project-inputs'
@@ -86,7 +96,7 @@ class CreateProject extends Component {
             onChange={this.handleChange}
           />
           <button className='add-material-button' onClick={(event) => this.addMaterial(event, this.state.newMaterial)}>Add Material</button>
-          <button className='submit-project-button'>Submit Project</button>
+          <button className='submit-project-button' onClick={this.handleSubmit}>Submit Project</button>
         </form>
         <div className='listed-materials'>
           <h1>Materials:</h1>
@@ -94,7 +104,7 @@ class CreateProject extends Component {
               return <div 
                       key={index}
                       className='list-item'>{`${index+1}. ${material.material}`}
-                      <img onClick={() => this.deleteMaterial(material.material)} className='delete-material' src={deleteButton}/>
+                      <img onClick={() => this.deleteMaterial(material.material)} alt='remove button' className='delete-material' src={deleteButton}/>
                     </div>
             })}
         </div>
