@@ -33,6 +33,13 @@ h1 {
   border: none;
 }
 
+.select-input {
+  width: 20.2rem;
+  margin-top: .5rem;
+  font-size: .7rem;
+  border-radius: 0;
+}
+
 .sign-up-button {
   box-sizing: border-box;
   appearance: none;

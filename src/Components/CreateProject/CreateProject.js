@@ -6,7 +6,7 @@ class CreateProject extends Component {
   constructor() {
     super();
     this.state = {
-      currentUser: 'Dennis Miller',
+      currentUser: 'Joe Shmo',
       projectName: '',
       projectDescription: '',
       newMaterial: '',
@@ -24,9 +24,10 @@ class CreateProject extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    
+
     if(event.target.className === 'submit-project-button') {
       const { projectName, projectDescription, materials, currentUser } = this.state; 
+
       const newProject = {
         projectLead: currentUser,
         projectName,
@@ -99,7 +100,7 @@ class CreateProject extends Component {
           <button className='submit-project-button' onClick={this.handleSubmit}>Submit Project</button>
         </form>
         <div className='listed-materials'>
-          <h1>Materials:</h1>
+          <h1>Materials Needed:</h1>
             {this.state.materials.map((material, index) => {
               return <div 
                       key={index}
