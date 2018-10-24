@@ -35,7 +35,8 @@ class CreateUser extends Component {
   }
 
   handleSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
+
     this.setState({
       firstName:'',
       lastName: '',
@@ -43,6 +44,7 @@ class CreateUser extends Component {
       password: '',
       neighborhood: ''
     })
+    this.props.history.push('/Landing')
   }
 
   render() {
