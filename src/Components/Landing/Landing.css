@@ -1,7 +1,6 @@
-.Landing {
-  position: fixed;
-  width: 60%;
+.landing-page {
+  margin: auto;
+  width: 100vw;
   height: 100vh;
-  /*overflow: scroll;*/
+  overflow: scroll;
 }
-

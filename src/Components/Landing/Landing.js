@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from'../Search/Search';
 import { ProjectsContainer } from '../ProjectsContainer/ProjectsContainer';
+import './Landing.css'
 
 class Landing extends Component {
   constructor() {
@@ -12,7 +13,7 @@ class Landing extends Component {
   
   render() {
     return(
-      <div className='Landing'>
+      <div className='landing-page'>
         <h1>Landing</h1>
         <Search />
         <ProjectsContainer />
