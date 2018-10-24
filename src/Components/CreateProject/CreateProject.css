@@ -6,6 +6,25 @@
   justify-content: center;
 }
 
+
+.listed-materials {
+  display: flex;
+  width: 30rem;
+  margin: 2rem;
+  height: 35rem;
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  flex-direction: column;
+  border-radius: 0.7em;
+  overflow-wrap: break-word;
+  overflow: scroll;
+}
+
+.list-item {
+  max-width: 30rem;
+  font-size: 1.9rem;
+  margin: .4rem;
+}
+
 .create-project-form {
   display: flex;
   align-items: center;
@@ -13,6 +32,98 @@
   background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
   justify-content: flex-start;
   width: 30rem;
-  height: 28rem;
+  height: 35rem;
   flex-direction: column;
+}
+
+.project-inputs {
+  margin: .3rem;
+  color: black;
+  padding-left: .4rem;
+  width: 20rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  background-image: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);
+  border-radius: 0.6em;
+  border: none;
+}
+
+.materials {
+  height: 5rem;
+}
+
+.description {
+  height: 5rem;
+}
+
+.add-material-button {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border-radius: 0.6em;
+  cursor: pointer;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-top: 25px;
+  padding: 1em 1em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border-color: #3498db;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  transition: all 150ms ease-in-out;
+  width: 19.8rem;
+  max-height: 4rem;
+}
+
+.add-material-button:hover {
+  color: #fff;
+  outline: 0;
+  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+}
+
+.submit-project-button {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border-radius: 0.6em;
+  cursor: pointer;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-top: 25px;
+  padding: 1em 1em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border-color: #3498db;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  transition: all 150ms ease-in-out;
+  width: 19.8rem;
+  max-height: 4rem;
+}
+
+.submit-project-button:hover {
+  color: #fff;
+  outline: 0;
+  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+}
+
+.delete-material {
+  margin-left: .4rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.delete-material {
+  cursor: pointer;
 }
