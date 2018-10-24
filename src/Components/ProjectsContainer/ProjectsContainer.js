@@ -1,5 +1,6 @@
 import React from 'react';
 import ProjectCard from '../ProjectCard/ProjectCard';
+import './ProjectsContainer.css';
 const fakeArray = [
   {name: 'Fix my door', id: 1, email: 'Terry@aol.com', owner: 'Terry', description: 'Fix my door', materials:['nails', 'hammer', 'eggs']},
   {name: 'Fix roof', id: 2, email: 'Bob@aol.com', owner: 'Bob', description: 'Fix roof', materials:['nails', 'hammer', 'eggs']},

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Search.css'
 
 class Search extends Component {
   constructor() {
@@ -25,9 +26,8 @@ class Search extends Component {
   render() {
     return(
       <div className='Search'>
-        <h3>Search:</h3>
         <form onSubmit={this.handleSubmit}>
-          <input value={this.state.value} placeholder='Enter your location' onChange={this.handleChange}/>
+          <input value={this.state.value} placeholder='Enter your neighborhood' onChange={this.handleChange}/>
           <button>Submit</button>
         </form>
       </div>
