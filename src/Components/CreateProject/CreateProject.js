@@ -6,11 +6,11 @@ class CreateProject extends Component {
   constructor() {
     super();
     this.state = {
-      currentUser: 'Joe Shmo',
-      projectName: '',
-      projectDescription: '',
-      newMaterial: '',
-      materials: []
+      currentUserId: 1,
+      title: '',
+      description: '',
+      newResource: '',
+      resources: []
     }
   }
 
@@ -26,44 +26,44 @@ class CreateProject extends Component {
     event.preventDefault();
 
     if(event.target.className === 'submit-project-button') {
-      const { projectName, projectDescription, materials, currentUser } = this.state; 
+      const { title, description, resources, currentUserId } = this.state; 
 
       const newProject = {
-        projectLead: currentUser,
-        projectName,
-        projectDescription,
-        materials
+        projectLead: currentUserId,
+        title,
+        description,
+        resources
       }
-
+      console.log(newProject)
       this.setState({
-        projectName: '',
-        projectDescription: '',
-        newMaterial: '',
-        materials: []
+        title: '',
+        description: '',
+        newResource: '',
+        resources: []
       })
     }
     return
   }
 
-  addMaterial = (event, material) => {
+  addResource = (event, resource) => {
     event.preventDefault();
     if(event.target.className === 'add-material-button') {
-      let newMaterial = {material};
-      let materials = [...this.state.materials, newMaterial];
+      let newResource = {name: resource};
+      let resources = [...this.state.resources, newResource];
   
       this.setState({
-        materials, 
-        newMaterial: ''
+        resources, 
+        newResource: ''
       })
     }
   }
 
   deleteMaterial = (item) => {
-    let materials = this.state.materials.filter(material => {
-      return material.material !== item;
+    let resources = this.state.resources.filter(resource => {
+      return resource.name !== item;
     })
     this.setState({
-      materials
+      resources
     })
   }
 
@@ -74,38 +74,38 @@ class CreateProject extends Component {
           <h1>Create Project</h1>
           <input
             className='project-inputs'
-            name='projectName'
+            name='title'
             type='text'
             placeholder='Project Name'
-            value={this.state.projectName}
+            value={this.state.title}
             onChange={this.handleChange}
           />
           <textarea
             className='project-inputs description'
-            name='projectDescription'
+            name='description'
             type='text'
             placeholder='Project description:'
-            value={this.state.projectDescription}
+            value={this.state.description}
             onChange={this.handleChange}
           />
           <textarea
             className='project-inputs materials'
-            name='newMaterial'
+            name='newResource'
             type='text'
             placeholder='Add new material'
-            value={this.state.newMaterial}
+            value={this.state.newResource}
             onChange={this.handleChange}
           />
-          <button className='add-material-button' onClick={(event) => this.addMaterial(event, this.state.newMaterial)}>Add Material</button>
+          <button className='add-material-button' onClick={(event) => this.addResource(event, this.state.newResource)}>Add Resource</button>
           <button className='submit-project-button' onClick={this.handleSubmit}>Submit Project</button>
         </form>
         <div className='listed-materials'>
           <h1>Materials Needed:</h1>
-            {this.state.materials.map((material, index) => {
+            {this.state.resources.map((resource, index) => {
               return <div 
                       key={index}
-                      className='list-item'>{`${index+1}. ${material.material}`}
-                      <img onClick={() => this.deleteMaterial(material.material)} alt='remove button' className='delete-material' src={deleteButton}/>
+                      className='list-item'>{`${index+1}. ${resource.name}`}
+                      <img onClick={() => this.deleteMaterial(resource.name)} alt='remove button' className='delete-material' src={deleteButton}/>
                     </div>
             })}
         </div>
