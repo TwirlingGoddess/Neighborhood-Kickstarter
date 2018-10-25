@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import GoogleLogin from 'react-google-login';
 
 import { getNeighborhoods } from '../../utilities/apiCalls/apiCalls'
 
 import './CreateUser.css'
-
-const options = [
-  { value: 'Arvada', label: 'Arvada' },
-  { value: 'Denver', label: 'Denver' },
-  { value: 'Golden', label: 'Golden' }
-];
 
 class CreateUser extends Component {
   constructor() {
@@ -17,6 +12,7 @@ class CreateUser extends Component {
     this.state = {
       firstName: '',
       lastName: '',
+      userName: '',
       email: '',
       neighborhood: '',
       neighborhoods: []
@@ -27,9 +23,20 @@ class CreateUser extends Component {
     this.setNeighborhoods()
   }
 
+  responseGoogle = (response) => {
+    console.log(response);
+  }
+
   setNeighborhoods = async() => {
-    const neighborhoods = await getNeighborhoods()
-    console.log(neighborhoods)
+    const response = await getNeighborhoods();
+
+    const neighborhoods = response.map(neighborhood => {
+      return { value: neighborhood.name, label: neighborhood.name }
+    })
+
+    this.setState({
+      neighborhoods
+    })
   }
 
   handleChange = (event) => {
@@ -56,7 +63,7 @@ class CreateUser extends Component {
       password: '',
       neighborhood: ''
     })
-    this.props.history.push('/Landing')
+    // this.props.history.push('/Landing')
   }
 
   render() {
@@ -81,6 +88,14 @@ class CreateUser extends Component {
             onChange={this.handleChange}
           />
           <input 
+            className='input-fields'
+            name='userName'
+            type='text'
+            value={this.state.userName}
+            placeholder='User Name'
+            onChange={this.handleChange}
+          />
+          <input 
             className='input-fields email-input'
             name='email'
             type='email'
@@ -93,7 +108,13 @@ class CreateUser extends Component {
             placeholder='Select your neighborhood'
             value={this.state.neighborhood}
             onChange={this.handleSelectChange}
-            options={options}
+            options={this.state.neighborhoods}
+          />
+          <GoogleLogin
+            clientId="603748791729-1qgv1pg7tl426jut42re2tnub34nu0hu.apps.googleusercontent.com"
+            buttonText="Login with Google"
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
           />
           {/* <input 
             className='input-fields password-input'
