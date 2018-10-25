@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 
+import { getNeighborhoods } from '../../utilities/apiCalls/apiCalls'
+
 import './CreateUser.css'
 
 const options = [
@@ -16,8 +18,18 @@ class CreateUser extends Component {
       firstName: '',
       lastName: '',
       email: '',
-      neighborhood: ''
+      neighborhood: '',
+      neighborhoods: []
     }
+  }
+
+  componentDidMount = () => {
+    this.setNeighborhoods()
+  }
+
+  setNeighborhoods = async() => {
+    const neighborhoods = await getNeighborhoods()
+    console.log(neighborhoods)
   }
 
   handleChange = (event) => {
