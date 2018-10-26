@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import GoogleLogin from 'react-google-login';
 
-import { getNeighborhoods } from '../../utilities/apiCalls/apiCalls'
+import { getNeighborhoods, getProjects } from '../../utilities/apiCalls/apiCalls'
 
 import './CreateUser.css'
 
@@ -20,7 +20,7 @@ class CreateUser extends Component {
   }
 
   componentDidMount = () => {
-    this.setNeighborhoods()
+    this.setNeighborhoods();
   }
 
   responseGoogle = (response) => {
