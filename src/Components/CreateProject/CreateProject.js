@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './CreateProject.css'
 import deleteButton from '../../images/x-button.svg'
+import { postNewProject } from '../../utilities/apiCalls/apiCalls'
 
 class CreateProject extends Component {
   constructor() {
@@ -29,12 +30,13 @@ class CreateProject extends Component {
       const { title, description, resources, currentUserId } = this.state; 
 
       const newProject = {
-        projectLead: currentUserId,
         title,
         description,
+        photo: 'https://www.nycgovparks.org/photo_gallery/full_size/23026.jpg',
         resources
-      }
-      console.log(newProject)
+      };
+      postNewProject(newProject, currentUserId);
+
       this.setState({
         title: '',
         description: '',

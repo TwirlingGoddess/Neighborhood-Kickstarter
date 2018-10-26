@@ -17,7 +17,7 @@ h1 {
   background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
   justify-content: flex-start;
   width: 30rem;
-  height: 28rem;
+  height: 32rem;
   flex-direction: column;
 }
 
@@ -31,6 +31,11 @@ h1 {
   background-image: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);
   border-radius: 0.6em;
   border: none;
+}
+
+button {
+  margin: .5rem;
+  cursor: pointer;
 }
 
 .select-input {
