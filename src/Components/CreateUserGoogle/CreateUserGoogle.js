@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import GoogleLogin from 'react-google-login';
 
 import { getNeighborhoods } from '../../utilities/apiCalls/apiCalls'
 
-import './CreateUser.css'
+import './CreateUserGoogle.css'
 
-class CreateUser extends Component {
+class CreateUserGoogle extends Component {
   constructor() {
     super()
     this.state = {
-      firstName: '',
-      lastName: '',
       userName: '',
-      email: '',
       neighborhood: '',
       neighborhoods: []
     }
@@ -20,6 +18,18 @@ class CreateUser extends Component {
 
   componentDidMount = () => {
     this.setNeighborhoods();
+  }
+
+  responseGoogle = (response) => {
+    let googleSignIn = {
+      firstName: response.profileObj.givenName,
+      lastName: response.profileObj.familyName,
+      email: response.profileObj.email,
+      userName: this.state.userName,
+      neighborhood: this.state.neighborhood.value,
+      token: response.accessToken
+    }
+    console.log(googleSignIn)
   }
 
   setNeighborhoods = async() => {
@@ -52,50 +62,24 @@ class CreateUser extends Component {
     event.preventDefault();
 
     this.setState({
-      firstName:'',
-      lastName: '',
-      email: '',
-      password: '',
+      userName: '',
       neighborhood: ''
     })
-    // this.props.history.push('/Landing')
+
+    this.props.history.push('/Landing')
   }
 
   render() {
     return (
       <div className='create-user-section'>
-        <form className='create-user-form' onSubmit={this.handleSubmit}>
+        <form className='create-user-form-google' onSubmit={this.handleSubmit}>
           <h1>Create Account</h1>
           <input
-            className='input-fields first-name-input'
-            name='firstName'
-            type='text'
-            value={this.state.firstName}
-            placeholder='first name'
-            onChange={this.handleChange}
-          />
-          <input 
-            className='input-fields last-name-input'
-            name='lastName'
-            type='text'
-            value={this.state.lastName}
-            placeholder='last name'
-            onChange={this.handleChange}
-          />
-          <input 
-            className='input-fields'
+            className='input-fields-google'
             name='userName'
             type='text'
             value={this.state.userName}
             placeholder='User Name'
-            onChange={this.handleChange}
-          />
-          <input 
-            className='input-fields email-input'
-            name='email'
-            type='email'
-            value={this.state.email}
-            placeholder='email'
             onChange={this.handleChange}
           />
           <Select
@@ -105,11 +89,16 @@ class CreateUser extends Component {
             onChange={this.handleSelectChange}
             options={this.state.neighborhoods}
           />
-          <button className='sign-up-button'>Sign Up</button>
+          <GoogleLogin
+            clientId="603748791729-1qgv1pg7tl426jut42re2tnub34nu0hu.apps.googleusercontent.com"
+            buttonText="Login with Google"
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
+          />
         </form>
       </div>
     )
   }
 }
 
-export default CreateUser
+export default CreateUserGoogle
