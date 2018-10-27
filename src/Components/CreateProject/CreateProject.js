@@ -23,7 +23,7 @@ class CreateProject extends Component {
     })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
 
     if(event.target.className === 'submit-project-button') {
@@ -35,7 +35,7 @@ class CreateProject extends Component {
         photo: 'https://www.nycgovparks.org/photo_gallery/full_size/23026.jpg',
         resources
       };
-      postNewProject(newProject, currentUserId);
+      await postNewProject(newProject, currentUserId);
 
       this.setState({
         title: '',
