@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import GoogleLogin from 'react-google-login';
-import { getUser } from '../../utilities/apiCalls/apiCalls'
+import { getUser, getAllUsers } from '../../utilities/apiCalls/apiCalls'
 import './SignIn.css'
 
 class SignIn extends Component {
@@ -8,7 +8,30 @@ class SignIn extends Component {
     super();
     this.state = {
       userName: '',
-      password: ''
+      password: '',
+      allUsers: []
+    }
+  }
+
+  componentDidMount = () => {
+    this.setUsers();
+  }
+
+  setUsers = async () => {
+    let allUsers = await getAllUsers();
+    console.log(allUsers)
+    this.setState({
+      allUsers
+    })
+  }
+
+  getCurrentUser = (token) => {
+    let foundUser = this.state.allUsers.find(user => {
+      return user.token === token
+    })
+    if(foundUser) {
+      this.props.updateUser(foundUser)
+      this.props.history.push('/Landing')
     }
   }
 
@@ -32,9 +55,7 @@ class SignIn extends Component {
       token: response.accessToken
     };
 
-    const user = await getUser();
-    console.log(user)
-    console.log(googleSignIn)
+    this.getCurrentUser(response.profileObj.googleId)
   }
 
   render() {
@@ -64,7 +85,6 @@ class SignIn extends Component {
             clientId="603748791729-1qgv1pg7tl426jut42re2tnub34nu0hu.apps.googleusercontent.com"
             buttonText="Login with Google"
             onClick={this.responseGoogle}
-            // disabled={this.state.userName ? false : true}
             onSuccess={this.responseGoogle}
             onFailure={this.responseGoogle}
           />
