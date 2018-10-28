@@ -22,6 +22,44 @@ export const getUserProjects = async (userId) => {
   return userProjects
 }
 
+export const getAllUsers = async () => {
+  const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/users`);
+  const users = await response.json();
+  return users
+}
+
+export const addNewUser = async (user) => {
+  console.log(JSON.stringify(user))
+  try {
+    const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/users`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+    const currentUser = await response.json();
+    return currentUser
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}
+
+export const getUser = async (user) => {
+  try {
+    const response = await fetch(``, {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+    return console.log(response)
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}
+
 export const postNewProject = async (newProject, id) => {
   let userId = id
   try {

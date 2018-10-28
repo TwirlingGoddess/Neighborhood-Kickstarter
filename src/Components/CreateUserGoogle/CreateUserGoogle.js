@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import GoogleLogin from 'react-google-login';
 
-import { getNeighborhoods } from '../../utilities/apiCalls/apiCalls'
+import { getNeighborhoods, addNewUser, getAllUsers } from '../../utilities/apiCalls/apiCalls'
 
 import './CreateUserGoogle.css'
 
@@ -20,23 +20,25 @@ class CreateUserGoogle extends Component {
     this.setNeighborhoods();
   }
 
-  responseGoogle = (response) => {
+  responseGoogle = async (response) => {
     let googleSignIn = {
-      firstName: response.profileObj.givenName,
-      lastName: response.profileObj.familyName,
+      first_name: response.profileObj.givenName,
+      last_name: response.profileObj.familyName,
       email: response.profileObj.email,
-      userName: this.state.userName,
-      neighborhood: this.state.neighborhood.value,
+      username: this.state.userName,
+      district_id: this.state.neighborhood.id,
       token: response.accessToken
-    }
-    console.log(googleSignIn)
+    };
+    // const users = await getAllUsers();
+    const user = await addNewUser(googleSignIn);
+    console.log(user)
   }
 
   setNeighborhoods = async() => {
     const response = await getNeighborhoods();
 
     const neighborhoods = response.map(neighborhood => {
-      return { value: neighborhood.name, label: neighborhood.name }
+      return { value: neighborhood.name, label: neighborhood.name, id: neighborhood.id }
     })
 
     this.setState({
@@ -92,6 +94,8 @@ class CreateUserGoogle extends Component {
           <GoogleLogin
             clientId="603748791729-1qgv1pg7tl426jut42re2tnub34nu0hu.apps.googleusercontent.com"
             buttonText="Login with Google"
+            onClick={this.responseGoogle}
+            disabled={this.state.neighborhood && this.state.userName ? false : true}
             onSuccess={this.responseGoogle}
             onFailure={this.responseGoogle}
           />

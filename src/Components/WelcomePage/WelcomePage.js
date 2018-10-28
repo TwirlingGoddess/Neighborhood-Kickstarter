@@ -29,8 +29,8 @@ class WelcomePage extends Component {
     return(
       <div className='user-link-section'>
         <NavLink className='user-link' to='/Landing'>View Projects</NavLink>
-        {/* <NavLink className='user-link' to='/CreateUser'>Create User</NavLink> */}
-        <button onClick={this.handleLogin} className='user-link' to='/SignIn'>Sign In</button>
+        <NavLink className='user-link' to='/SignIn'>Sign In</NavLink>
+        <button onClick={this.handleLogin} className='user-link' to='/SignIn'>Create Account</button>
       </div>
     )
   }

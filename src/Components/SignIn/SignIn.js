@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import GoogleLogin from 'react-google-login';
+import { getUser } from '../../utilities/apiCalls/apiCalls'
+import './SignIn.css'
 
 class SignIn extends Component {
   constructor() {
@@ -24,11 +27,23 @@ class SignIn extends Component {
     })
   }
 
+  responseGoogle = async (response) => {
+    let googleSignIn = {
+      token: response.accessToken
+    };
+
+    const user = await getUser();
+    console.log(user)
+    console.log(googleSignIn)
+  }
+
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className='sign-in-section'>
+        <form className='sign-in-form' onSubmit={this.handleSubmit}>
+          <h1>Sign In</h1>
           <input
+            className='signin-input-fields'
             name='userName'
             type='text'
             placeholder='user name'
@@ -36,13 +51,23 @@ class SignIn extends Component {
             onChange={this.handleChange}
           />
           <input
+            className='signin-input-fields'
             name='password'
             type='password'
             placeholder='password'
             value={this.state.password}
             onChange={this.handleChange}
           />
-          <button>Sign In</button>
+          <button className='sign-in-button'>Sign In</button>
+          <span>OR</span>
+          <GoogleLogin
+            clientId="603748791729-1qgv1pg7tl426jut42re2tnub34nu0hu.apps.googleusercontent.com"
+            buttonText="Login with Google"
+            onClick={this.responseGoogle}
+            // disabled={this.state.userName ? false : true}
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
+          />
         </form>
       </div>
     )
