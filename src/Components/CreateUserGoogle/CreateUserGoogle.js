@@ -21,6 +21,7 @@ class CreateUserGoogle extends Component {
   }
 
   responseGoogle = async (response) => {
+    console.log(response)
     let { updateUser } = this.props;
     let googleSignIn = {
       first_name: response.profileObj.givenName,
