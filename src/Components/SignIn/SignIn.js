@@ -53,8 +53,8 @@ class SignIn extends Component {
   }
 
   responseGoogle = async (response) => {
-    console.log(resposne)
-    console.log(response.profileObj.googleId)
+    console.log(response)
+    // console.log(response.profileObj.googleId)
     let googleSignIn = {
       token: response.accessToken
     };
