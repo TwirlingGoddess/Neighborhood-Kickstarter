@@ -1,12 +1,18 @@
 .Card {  
   display: inline-block;
-  position: relative;
-  height: 20rem;
+  /* position: relative; */
+  /* height: 20rem; */
   width: 45rem;
   background-image: radial-gradient(to top, #09203f 0%, #537895 100%);
   margin: 1rem 3rem;
   color: white;
   font-size: x-large;
   border-radius: 0.7em;
-
 }
+
+.project-image {
+  border-radius: 0.7em 0.7em 0 0;
+  width: 45rem;
+  height: 20rem;
+}
+

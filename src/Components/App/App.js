@@ -20,8 +20,13 @@ class App extends Component {
   updateUser = (user) => {
     this.setState({
       currentUser: user
+    }) 
+  }
+
+  logOutUser = () => {
+    this.setState({
+      currentUser: {}
     })
-    
   }
 
   render() {
@@ -34,7 +39,7 @@ class App extends Component {
            <CreateUserGoogle updateUser={this.updateUser} history={history}/>
          } />
          <Route exact path= '/Landing' render={() => 
-           <Landing currentUser={currentUser} />
+           <Landing currentUser={currentUser} logOutUser={this.logOutUser}/>
          } />
          <Route exaxt path= '/SignIn' render={({history}) => 
           <SignIn currentUser={currentUser} updateUser={this.updateUser} history={history}/>
