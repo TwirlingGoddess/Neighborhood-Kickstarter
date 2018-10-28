@@ -7,16 +7,27 @@ class ProjectCard extends Component {
     this.state = ''
   }
   render() {
-    const { name, owner, email, description, materials } = this.props
-    return(
-      <div className='Card'>
-        <h2>project: {name}</h2>
-        <h3>neighbor: {owner}</h3>
-        <h4>contact: {email}</h4>
-        <h5>description: {description}</h5>
-        <h5>needs: {materials[0]}, {materials[1]}, {materials[2]}</h5>
-      </div>
-    )
+    const { title, email, description, photo, resources } = this.props;
+    if(title) {
+      return (
+        <div className='Card'>
+          <img className='project-image' src={photo} alt='picture of the project'/>
+          <h2>project: {title}</h2>
+          <h3>neighbor: </h3>
+          <h4>contact: </h4>
+          <h5>description: {description}</h5>
+          {/* {resources.map((resource, index) => {
+            return <h5 key={index}>{resource.name}</h5>
+          })} */}
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <h1>No Projects for this neighborhood</h1>
+        </div>
+      )
+    }
   }
 }
 

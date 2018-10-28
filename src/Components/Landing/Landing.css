@@ -1,8 +1,15 @@
 .landing-page {
+  display: flex;
+  flex-direction: column;
   margin: auto;
   width: 100vw;
   height: 100vh;
+  align-items: center;
   /*overflow: scroll;*/
+}
+
+.welcome-header {
+  margin:.2rem;
 }
 
 .user-buttons-section {

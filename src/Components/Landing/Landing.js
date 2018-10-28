@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Select from 'react-select';
 import { NavLink } from 'react-router-dom'
+import Select from 'react-select';
 import Search from'../Search/Search';
 import { ProjectsContainer } from '../ProjectsContainer/ProjectsContainer';
 import { getNeighborhoods, getNeighborhoodProjectsById, getProjects } from '../../utilities/apiCalls/apiCalls'
@@ -33,6 +33,10 @@ class Landing extends Component {
     return 
   }
 
+  logOut = () => {
+    this.props.logOutUser();
+  }
+
   
   setNeighborhoods = async () => {
     if(!this.state.neighborhoods.length) {
@@ -47,15 +51,15 @@ class Landing extends Component {
       })
     }
 
-    if(this.state.currentUser.neighborhood) {
+    if(this.state.neighborhood) {
 
       let neighborhoodId = this.state.neighborhoods.find(neighborhood => {
         return neighborhood.value === this.state.neighborhood
       })
-      console.log(neighborhoodId.id)
       let neighborhoodProjects = await getNeighborhoodProjectsById(neighborhoodId.id)
       console.log(neighborhoodProjects.projects)
-
+      console.log(neighborhoodId.id)
+      
       this.setState({
         projects: neighborhoodProjects.projects
       })
@@ -64,7 +68,6 @@ class Landing extends Component {
 
   handleSelectChange = (selectedOption) => {
     let neighborhood = selectedOption.value;
-    console.log(neighborhood)
     this.setState({
       neighborhood
     },() => this.setNeighborhoods())
@@ -101,11 +104,12 @@ class Landing extends Component {
     return (
       <div className='landing-page'>
         <div className='user-buttons-section'>
-          <NavLink className='user-link-buttons' to=''>My Projects</NavLink>
-          <h1>Welcome {name}</h1>
+          <NavLink className='user-link-buttons' to=''>View My Projects</NavLink>
           <NavLink className='user-link-buttons' to=''>View Contributions</NavLink>
           <NavLink className='user-link-buttons' to='/CreateProject'>Create A Project</NavLink>
+          <NavLink onClick={this.logOut} className='user-link-buttons sign-out' to='/'>Log Out</NavLink>
         </div>
+          <h1 className='welcome-header'>Welcome {name}</h1>
         <Select
             className='select-input' 
             placeholder={`Projects in ${this.state.neighborhood}`}
