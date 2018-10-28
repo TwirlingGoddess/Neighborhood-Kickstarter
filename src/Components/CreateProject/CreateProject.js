@@ -7,12 +7,28 @@ class CreateProject extends Component {
   constructor() {
     super();
     this.state = {
-      currentUserId: 1,
+      currentUserId:'',
       title: '',
       description: '',
       newResource: '',
       resources: []
     }
+  }
+
+  componentDidMount = () => {
+    this.updateCurrentUser();
+  }
+
+  updateCurrentUser = () => {
+    let currentUserId = this.props.currentUser.id;
+    console.log(currentUserId)
+
+    if(currentUserId) {
+      this.setState({
+        currentUserId
+      })
+    }
+    return 
   }
 
   handleChange = (event) => {
@@ -30,11 +46,14 @@ class CreateProject extends Component {
       const { title, description, resources, currentUserId } = this.state; 
 
       const newProject = {
-        title,
-        description,
-        photo: 'https://www.nycgovparks.org/photo_gallery/full_size/23026.jpg',
-        resources
+        project: {
+          title,
+          description,
+          photo: 'https://www.nycgovparks.org/photo_gallery/full_size/23026.jpg',
+          resources
+        }
       };
+
       await postNewProject(newProject, currentUserId);
 
       this.setState({

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import GoogleLogin from 'react-google-login';
 
-import { getNeighborhoods, addNewUser, getAllUsers } from '../../utilities/apiCalls/apiCalls'
+import { getNeighborhoods, addNewUser } from '../../utilities/apiCalls/apiCalls'
 
 import './CreateUserGoogle.css'
 
@@ -21,17 +21,22 @@ class CreateUserGoogle extends Component {
   }
 
   responseGoogle = async (response) => {
+    let { updateUser } = this.props;
     let googleSignIn = {
       first_name: response.profileObj.givenName,
       last_name: response.profileObj.familyName,
       email: response.profileObj.email,
       username: this.state.userName,
       district_id: this.state.neighborhood.id,
-      token: response.accessToken
+      token: response.profileObj.googleId
     };
-    // const users = await getAllUsers();
+    
     const user = await addNewUser(googleSignIn);
-    console.log(user)
+
+    if(user) {
+      updateUser(user);
+      this.props.history.push('/Landing')
+    }
   }
 
   setNeighborhoods = async() => {
