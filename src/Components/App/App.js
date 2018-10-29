@@ -8,13 +8,15 @@ import Landing from '../Landing/Landing';
 import CreateProject from '../CreateProject/CreateProject'
 import CreateUserGoogle from '../CreateUserGoogle/CreateUserGoogle';
 import UserProjects from '../UserProjects/UserProjects';
+import Contributions from '../Contributions/Contributions'
 import { GoogleLogin } from 'react-google-login';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentUser: {}
+      currentUser: {},
+      currentProject : {}
     };
   }
 
@@ -30,6 +32,12 @@ class App extends Component {
     })
   }
 
+  updateProject = (project) => {
+    this.setState({
+      currentProject: project
+    })
+  }
+
   render() {
     const currentUser = this.state.currentUser;
     return (
@@ -42,7 +50,7 @@ class App extends Component {
            <CreateUserGoogle updateUser={this.updateUser} history={history}/>
          } />
          <Route exact path= '/Landing' render={() => 
-           <Landing currentUser={currentUser} logOutUser={this.logOutUser}/>
+           <Landing currentUser={currentUser} logOutUser={this.logOutUser} updateProject={this.updateProject}/>
          } />
          <Route exaxt path= '/SignIn' render={({history}) => 
           <SignIn currentUser={currentUser} updateUser={this.updateUser} history={history}/>
@@ -53,6 +61,9 @@ class App extends Component {
         <Route exact path= '/UserProjects' render={() => 
           <UserProjects currentUser={currentUser}/>
         }/>
+        <Route exact path= '/Contributions' render={({history}) => 
+         <Contributions currentProject={this.state.currentProject} updateproject={this.updateproject}/>
+      } />
       </div>
     );
   }

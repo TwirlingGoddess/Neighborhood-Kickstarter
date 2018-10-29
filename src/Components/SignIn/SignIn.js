@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import GoogleLogin from 'react-google-login';
-import { getUser, getAllUsers } from '../../utilities/apiCalls/apiCalls'
+import { getUser, getAllUsers, addNewUser, addNewUserLocal } from '../../utilities/apiCalls/apiCalls'
 import './SignIn.css'
 
 class SignIn extends Component {
@@ -24,11 +24,12 @@ class SignIn extends Component {
     })
   }
 
-  getCurrentUser = (token) => {
-    let foundUser = this.state.allUsers.find(user => {
-      return user.token === token
-    })
-    if(foundUser) {
+  getCurrentUser = async (id, email) => {
+    let user = {password: id, email}
+  
+    let foundUser = await addNewUser(user)
+
+    if(foundUser.id) {
       this.props.updateUser(foundUser)
       this.props.history.push('/Landing')
     }
@@ -37,29 +38,27 @@ class SignIn extends Component {
   handleChange = (event) => {
     const { name, value } = event.target;
 
-    // let foundUser = this.state.allUsers.find(user => {
-    //   return user
-    // })
-
     this.setState({
       [name]: value
     })
   }
 
-  handleSubmitLogin = (event) => {
+  handleSubmitLogin = async (event) => {
     event.preventDefault();
-    this.setState({
-      userName: '',
-      password: ''
-    })
+    let { userName, password } = this.state; 
+    let user = {username: userName, password}
+
+    let foundUser = await addNewUserLocal(user);
+
+    if(foundUser.id) {
+      this.props.updateUser(foundUser);
+      this.props.history.push('/Landing');
+    }
   }
 
   responseGoogle = async (response) => {
-    let googleSignIn = {
-      token: response.accessToken
-    };
-
-    this.getCurrentUser(response.profileObj.googleId)
+   let email = response.profileObj.email;
+   this.getCurrentUser(response.profileObj.googleId, email)
   }
 
   render() {
