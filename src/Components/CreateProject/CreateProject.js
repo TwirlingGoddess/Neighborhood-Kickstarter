@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom'
-import './CreateProject.css'
-import deleteButton from '../../images/x-button.svg'
-import { postNewProject } from '../../utilities/apiCalls/apiCalls'
+import { NavLink } from 'react-router-dom';
+import './CreateProject.css';
+import deleteButton from '../../images/x-button.svg';
+import { postNewProject } from '../../utilities/apiCalls/apiCalls';
+import axios from 'axios';
 
 class CreateProject extends Component {
   constructor() {
@@ -12,7 +13,8 @@ class CreateProject extends Component {
       title: '',
       description: '',
       newResource: '',
-      resources: []
+      resources: [],
+      photo: null,
     }
   }
 
@@ -34,7 +36,6 @@ class CreateProject extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
-
     this.setState({
       [name]: value
     })
@@ -44,16 +45,17 @@ class CreateProject extends Component {
     event.preventDefault();
 
     if(event.target.className === 'submit-project-button') {
-      const { title, description, resources, currentUserId } = this.state; 
+      const { title, description, resources, currentUserId, photo} = this.state; 
 
       const newProject = {
         project: {
           title,
           description,
-          photo: 'https://www.nycgovparks.org/photo_gallery/full_size/23026.jpg',
+          photo,
           resources
         }
       };
+      console.log(newProject)
 
       await postNewProject(newProject, currentUserId);
 
@@ -61,7 +63,8 @@ class CreateProject extends Component {
         title: '',
         description: '',
         newResource: '',
-        resources: []
+        resources: [],
+        photo: null,
       })
     }
     return
@@ -78,6 +81,16 @@ class CreateProject extends Component {
         newResource: ''
       })
     }
+  }
+
+  handlePhoto = (event) => {
+    this.setState({
+      photo: event.target.files[0]
+    })
+  }
+
+  photoUploadHandler = () => {
+    axios.post('')
   }
 
   deleteMaterial = (item) => {
@@ -123,8 +136,9 @@ class CreateProject extends Component {
             <label for="choose-file" class="file-label">Upload Image</label>
             <input 
               className="choose-file" 
-              type="File" 
-              name="choose-file" 
+              type="file"
+              value=''
+              onChange={this.handlePhoto}
             />
             <button className='add-material-button' onClick={(event) => this.addResource(event, this.state.newResource)}>Add Resource</button>
             <button className='submit-project-button' onClick={this.handleSubmit}>Submit Project</button>
