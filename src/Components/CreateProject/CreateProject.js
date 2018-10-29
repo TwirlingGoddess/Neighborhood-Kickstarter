@@ -87,10 +87,16 @@ class CreateProject extends Component {
     this.setState({
       photo: event.target.files[0]
     })
+    this.photoUploadHandler()
   }
 
   photoUploadHandler = () => {
-    axios.post('')
+    const formData = new FormData();
+    formData.append('image', this.state.photo, this.state.photo.name)
+    axios.post('https://us-central1-fir-demo-85716.cloudfunctions.net/uploadFile')
+      .then(res => {
+        console.log(res)
+      })
   }
 
   deleteMaterial = (item) => {
