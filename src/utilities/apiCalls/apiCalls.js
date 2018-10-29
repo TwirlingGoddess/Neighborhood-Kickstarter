@@ -45,11 +45,13 @@ export const addNewUser = async (user) => {
 }
 
 export const addNewUserLocal = async (user) => {
+  console.log(JSON.stringify(user))
   try {
     const response = await fetch('https://guarded-garden-68388.herokuapp.com/api/v1/app_users', {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json'
+        'Content-type': 'application/json',
+        'Accept': 'application/json'
       },
       body: JSON.stringify(user)
     })
@@ -61,7 +63,6 @@ export const addNewUserLocal = async (user) => {
 }
 
 export const postNewProject = async (newProject, id) => {
-  console.log(newProject, id)
   try {
     await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/users/${id}/projects`, {
       method: 'POST',

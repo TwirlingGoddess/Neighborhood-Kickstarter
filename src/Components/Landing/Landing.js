@@ -57,7 +57,6 @@ class Landing extends Component {
         return neighborhood.value === this.state.neighborhood
       })
       let neighborhoodProjects = await getNeighborhoodProjectsById(neighborhoodId.id)
-      console.log(neighborhoodProjects)
       
       this.setState({
         projects: neighborhoodProjects.projects

@@ -36,12 +36,17 @@ class SignIn extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
+
+    // let foundUser = this.state.allUsers.find(user => {
+    //   return user
+    // })
+
     this.setState({
       [name]: value
     })
   }
 
-  handleSubmit = (event) => {
+  handleSubmitLogin = (event) => {
     event.preventDefault();
     this.setState({
       userName: '',
@@ -78,7 +83,7 @@ class SignIn extends Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
-          <button className='sign-in-button'>Sign In</button>
+          <button onClick={this.handleSubmitLogin} className='sign-in-button'>Sign In</button>
           <span>OR</span>
           <GoogleLogin
             clientId="603748791729-1qgv1pg7tl426jut42re2tnub34nu0hu.apps.googleusercontent.com"

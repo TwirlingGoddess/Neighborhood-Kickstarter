@@ -18,7 +18,9 @@ class UserProjects extends Component {
     let userId = this.props.currentUser.id;
 
     if(userId) {
+
       let userProjects = await getUserProjects(userId);
+      console.log(userProjects)
   
       this.setState({
         userProjects

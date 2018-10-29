@@ -9,6 +9,7 @@ class CreateUser extends Component {
   constructor() {
     super()
     this.state = {
+      allUsers: [],
       firstName: '',
       lastName: '',
       userName: '',
@@ -107,7 +108,7 @@ class CreateUser extends Component {
             name='userName'
             type='text'
             value={this.state.userName}
-            placeholder='User Name'
+            placeholder='user name'
             onChange={this.handleChange}
           />
           <input 
