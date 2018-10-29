@@ -9,6 +9,7 @@ import CreateProject from '../CreateProject/CreateProject'
 import CreateUserGoogle from '../CreateUserGoogle/CreateUserGoogle';
 import UserProjects from '../UserProjects/UserProjects';
 import Contributions from '../Contributions/Contributions'
+// import EditProject from '../EditProject/EditProject'
 import { GoogleLogin } from 'react-google-login';
 
 class App extends Component {
@@ -64,6 +65,9 @@ class App extends Component {
         <Route exact path= '/Contributions' render={({history}) => 
          <Contributions currentProject={this.state.currentProject} updateproject={this.updateproject}/>
       } />
+        {/* <Route exact path= '/EditProject' render={() => 
+          <EditProject />
+        }/> */}
       </div>
     );
   }
