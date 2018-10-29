@@ -19,6 +19,7 @@ class SignIn extends Component {
 
   setUsers = async () => {
     let allUsers = await getAllUsers();
+    console.log(allUsers)
     this.setState({
       allUsers
     })
@@ -26,11 +27,8 @@ class SignIn extends Component {
 
   getCurrentUser = (token) => {
     let foundUser = this.state.allUsers.find(user => {
-      console.log(token)
-      console.log(user.token)
       return user.token === token
     })
-    console.log(foundUser)
     if(foundUser) {
       this.props.updateUser(foundUser)
       this.props.history.push('/Landing')
@@ -53,8 +51,6 @@ class SignIn extends Component {
   }
 
   responseGoogle = async (response) => {
-    console.log(response)
-    // console.log(response.profileObj.googleId)
     let googleSignIn = {
       token: response.accessToken
     };

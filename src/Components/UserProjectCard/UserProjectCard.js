@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import './ProjectCard.css';
 
-class ProjectCard extends Component {
+class UserProjectCard extends Component {
   constructor() {
     super()
     this.state = ''
   }
   render() {
-    const { title, neighbor, contact, description, photo, resources } = this.props;
+    const { title, neighbor, project_role, description, photo, resources } = this.props;
     if(title) {
       return (
         <div className='Card'>
           <img className='project-image' src={photo} alt='picture of the project'/>
           <h2>project: {title}</h2>
           <h3>neighbor: {neighbor}</h3>
-          <h4>contact: {contact}</h4>
+          <h4>role {project_role}</h4>
           <h5>description: {description}</h5>
           {resources.map((resource, index) => {
             return <h5 key={index}>{resource.name}</h5>
@@ -24,11 +23,11 @@ class ProjectCard extends Component {
     } else {
       return (
         <div>
-          <h1>No Projects for this neighborhood</h1>
+          <h1>No Projects Created</h1>
         </div>
       )
     }
   }
 }
 
-export default ProjectCard
+export default UserProjectCard

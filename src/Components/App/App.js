@@ -6,7 +6,8 @@ import CreateUser from '../CreateUser/CreateUser';
 import SignIn from '../SignIn/SignIn'
 import Landing from '../Landing/Landing';
 import CreateProject from '../CreateProject/CreateProject'
-import CreateUserGoogle from '../CreateUserGoogle/CreateUserGoogle'
+import CreateUserGoogle from '../CreateUserGoogle/CreateUserGoogle';
+import UserProjects from '../UserProjects/UserProjects';
 import { GoogleLogin } from 'react-google-login';
 
 class App extends Component {
@@ -46,6 +47,9 @@ class App extends Component {
          } />
          <Route exact path= '/CreateProject' render={() => 
           <CreateProject currentUser={currentUser}/>
+        }/>
+        <Route exact path= '/UserProjects' render={() => 
+          <UserProjects currentUser={currentUser}/>
         }/>
       </div>
     );
