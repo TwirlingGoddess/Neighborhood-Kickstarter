@@ -84,15 +84,17 @@ class CreateProject extends Component {
   }
 
   handlePhoto = (event) => {
+    const image = event.target.files[0]
+    console.log(image)
     this.setState({
-      photo: event.target.files[0]
+      photo: image
     })
-    this.photoUploadHandler()
+    this.photoUploadHandler(image)
   }
 
-  photoUploadHandler = () => {
+  photoUploadHandler = (image) => {
     const formData = new FormData();
-    formData.append('image', this.state.photo, this.state.photo.name)
+    formData.append('image', image, image.name)
     axios.post('https://us-central1-fir-demo-85716.cloudfunctions.net/uploadFile')
       .then(res => {
         console.log(res)
@@ -139,7 +141,7 @@ class CreateProject extends Component {
               value={this.state.newResource}
               onChange={this.handleChange}
             />          
-            <label for="choose-file" class="file-label">Upload Image</label>
+            <label htmlFor="choose-file" className="file-label">Upload Image</label>
             <input 
               className="choose-file" 
               type="file"

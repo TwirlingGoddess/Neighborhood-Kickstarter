@@ -59,13 +59,14 @@ exports.uploadFile = functions.https.onRequest((req, res) => {
     let uploadData = null;
 
     busboy.on("file", (fieldname, file, filename, encoding, mimetype) => {
+      console.log(mimetype, busboy)
       const filepath = path.join(os.tmpdir(), filename);
       uploadData = { file: filepath, type: mimetype };
       file.pipe(fs.createWriteStream(filepath));
     });
 
     busboy.on("finish", () => {
-      const bucket = gcs.bucket("fb-cloud-functions-demo.appspot.com");
+      const bucket = gcs.bucket("fir-demo-85716.appspot.com");
       bucket
         .upload(uploadData.file, {
           uploadType: "media",
