@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 
-import { getNeighborhoods } from '../../utilities/apiCalls/apiCalls'
+import { getNeighborhoods, addNewUserLocal } from '../../utilities/apiCalls/apiCalls'
 
 import './CreateUser.css'
 
@@ -9,10 +9,12 @@ class CreateUser extends Component {
   constructor() {
     super()
     this.state = {
+      allUsers: [],
       firstName: '',
       lastName: '',
       userName: '',
       email: '',
+      password: '',
       neighborhood: '',
       neighborhoods: []
     }
@@ -26,7 +28,7 @@ class CreateUser extends Component {
     const response = await getNeighborhoods();
 
     const neighborhoods = response.map(neighborhood => {
-      return { value: neighborhood.name, label: neighborhood.name }
+      return { value: neighborhood.name, label: neighborhood.name, id: neighborhood.id }
     })
 
     this.setState({
@@ -48,17 +50,36 @@ class CreateUser extends Component {
     })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async(event) => {
     event.preventDefault();
+    let {firstName, lastName, email, password, neighborhood, userName} = this.state;
+    let { updateUser } = this.props;
 
-    this.setState({
-      firstName:'',
-      lastName: '',
-      email: '',
-      password: '',
-      neighborhood: ''
-    })
-    // this.props.history.push('/Landing')
+    let localSignIn = {
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      username: userName,
+      district_id: neighborhood.id,
+      password
+    }
+    console.log(localSignIn)
+
+    let user = await addNewUserLocal(localSignIn)
+    console.log(user)
+
+    if (user) {
+      updateUser(user)
+      this.props.history.push('/Landing')
+      // this.setState({
+        //   firstName:'',
+      //   lastName: '',
+      //   email: '',
+      //   userName: '',
+      //   password: '',
+      //   neighborhood: ''
+      // })
+    }
   }
 
   render() {
@@ -87,7 +108,7 @@ class CreateUser extends Component {
             name='userName'
             type='text'
             value={this.state.userName}
-            placeholder='User Name'
+            placeholder='user name'
             onChange={this.handleChange}
           />
           <input 
@@ -96,6 +117,14 @@ class CreateUser extends Component {
             type='email'
             value={this.state.email}
             placeholder='email'
+            onChange={this.handleChange}
+          />
+          <input
+            className='input-fields'
+            name='password'
+            type='text'
+            value={this.state.password}
+            placeholder='password'
             onChange={this.handleChange}
           />
           <Select
