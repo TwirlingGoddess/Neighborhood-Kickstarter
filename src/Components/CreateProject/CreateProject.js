@@ -120,7 +120,7 @@ class CreateProject extends Component {
               value={this.state.newResource}
               onChange={this.handleChange}
             />          
-            <label for="choose-file" class="file-label">Choose File</label>
+            <label for="choose-file" class="file-label">Upload Image</label>
             <input 
               className="choose-file" 
               type="File" 
