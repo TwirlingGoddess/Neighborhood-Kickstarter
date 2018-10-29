@@ -57,8 +57,7 @@ class Landing extends Component {
         return neighborhood.value === this.state.neighborhood
       })
       let neighborhoodProjects = await getNeighborhoodProjectsById(neighborhoodId.id)
-      console.log(neighborhoodProjects.projects)
-      console.log(neighborhoodId.id)
+      console.log(neighborhoodProjects)
       
       this.setState({
         projects: neighborhoodProjects.projects
@@ -104,7 +103,7 @@ class Landing extends Component {
     return (
       <div className='landing-page'>
         <div className='user-buttons-section'>
-          <NavLink className='user-link-buttons' to=''>View My Projects</NavLink>
+          <NavLink className='user-link-buttons' to='UserProjects'>View My Projects</NavLink>
           <NavLink className='user-link-buttons' to=''>View Contributions</NavLink>
           <NavLink className='user-link-buttons' to='/CreateProject'>Create A Project</NavLink>
           <NavLink onClick={this.logOut} className='user-link-buttons sign-out' to='/'>Log Out</NavLink>

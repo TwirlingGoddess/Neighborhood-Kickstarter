@@ -17,6 +17,7 @@ export const getNeighborhoodProjectsById = async (id) => {
 }
 
 export const getUserProjects = async (userId) => {
+  console.log(userId)
   const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/users/${userId}/projects`);
   const userProjects = await response.json();
   return userProjects
