@@ -119,10 +119,17 @@ class CreateProject extends Component {
               placeholder='Add new material'
               value={this.state.newResource}
               onChange={this.handleChange}
+            />          
+            <label for="choose-file" class="file-label">Choose File</label>
+            <input 
+              className="choose-file" 
+              type="File" 
+              name="choose-file" 
             />
             <button className='add-material-button' onClick={(event) => this.addResource(event, this.state.newResource)}>Add Resource</button>
             <button className='submit-project-button' onClick={this.handleSubmit}>Submit Project</button>
           </form>
+
           <div className='listed-materials'>
             <h1>Materials Needed:</h1>
               {this.state.resources.map((resource, index) => {
