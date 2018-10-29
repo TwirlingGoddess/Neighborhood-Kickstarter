@@ -19,7 +19,6 @@ class SignIn extends Component {
 
   setUsers = async () => {
     let allUsers = await getAllUsers();
-    console.log(allUsers)
     this.setState({
       allUsers
     })

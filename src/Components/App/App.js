@@ -35,7 +35,9 @@ class App extends Component {
     return (
       <div className="App">
          <Route exact path= '/' component={WelcomePage} />
-         <Route exact path= '/CreateUser' component={CreateUser} />
+         <Route exact path= '/CreateUser' render={({history}) => 
+           <CreateUser updateUser={this.updateUser} history={history}/>
+        } />
          <Route exact path = '/CreateUserGoogle' render={({history}) => 
            <CreateUserGoogle updateUser={this.updateUser} history={history}/>
          } />

@@ -17,7 +17,6 @@ export const getNeighborhoodProjectsById = async (id) => {
 }
 
 export const getUserProjects = async (userId) => {
-  console.log(userId)
   const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/users/${userId}/projects`);
   const userProjects = await response.json();
   return userProjects
@@ -45,19 +44,21 @@ export const addNewUser = async (user) => {
   }
 }
 
-// export const getUser = async (user) => {
-//   try {
-//     const response = await fetch(``, {
-//       method: 'GET',
-//       headers: {
-//         'Content-type': 'application/json'
-//       },
-//       body: JSON.stringify(user)
-//     })
-//   } catch (error) {
-//     throw new Error(error.message)
-//   }
-// }
+export const addNewUserLocal = async (user) => {
+  try {
+    const response = await fetch('https://guarded-garden-68388.herokuapp.com/api/v1/app_users', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+    const currentUser = await response.json();
+    return currentUser
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}
 
 export const postNewProject = async (newProject, id) => {
   console.log(newProject, id)

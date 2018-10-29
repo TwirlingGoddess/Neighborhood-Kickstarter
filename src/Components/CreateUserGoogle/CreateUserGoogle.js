@@ -33,7 +33,7 @@ class CreateUserGoogle extends Component {
     
     const user = await addNewUser(googleSignIn);
 
-    if(user) {
+    if (user) {
       updateUser(user);
       this.props.history.push('/Landing')
     }
