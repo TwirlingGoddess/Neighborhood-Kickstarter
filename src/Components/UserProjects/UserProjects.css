@@ -1,3 +1,10 @@
+.user-selected-projects-section {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  /* padding: 2rem; */
+}
+
 .edit-project-section {
   display: flex;
   flex-direction: row;
@@ -6,7 +13,7 @@
 }
 
 .selected-project {
-  height: 100vh;
+  height: 80vh;
   width: 50%;
 }
 

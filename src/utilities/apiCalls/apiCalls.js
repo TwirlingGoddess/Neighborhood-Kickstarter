@@ -28,14 +28,14 @@ export const getAllUsers = async () => {
   return users
 }
 
-export const getProjectComments = async (id) => {
+export const getProjectsComments = async (id) => {
+  console.log(id)
   const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/projects/${id}/comments`)
   const comments = response.json();
   return comments
 }
 
 export const addNewUser = async (user) => {
-  console.log(JSON.stringify(user))
   try {
     const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/google_users`, {
       method: 'POST',
@@ -52,7 +52,6 @@ export const addNewUser = async (user) => {
 }
 
 export const addNewUserLocal = async (user) => {
-  console.log(JSON.stringify(user))
   try {
     const response = await fetch('https://guarded-garden-68388.herokuapp.com/api/v1/users', {
       method: 'POST',
@@ -70,6 +69,7 @@ export const addNewUserLocal = async (user) => {
 }
 
 export const postNewProject = async (newProject, id) => {
+  console.log(id)
   try {
     await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/users/${id}/projects`, {
       method: 'POST',
@@ -80,6 +80,21 @@ export const postNewProject = async (newProject, id) => {
     })
   } catch (error) {
     throw new Error(error.message);
+  }
+}
+
+export const postNewComment = async (content, projectId) => {
+  console.log(JSON.stringify(content))
+  try { 
+    await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/projects/${projectId}/comments`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(content)
+    })
+  } catch (error) {
+    throw new Error(error.message)
   }
 }
 

@@ -61,11 +61,8 @@ class App extends Component {
           <UserProjects currentUser={currentUser}/>
         }/>
         <Route exact path= '/Contributions' render={({history}) => 
-         <Contributions currentProject={this.state.currentProject} updateproject={this.updateproject}/>
-      } />
-        {/* <Route exact path= '/EditProject' render={() => 
-          <EditProject />
-        }/> */}
+         <Contributions currentUser={currentUser} currentProject={this.state.currentProject} updateproject={this.updateproject}/>
+        }/>
       </div>
     );
   }
