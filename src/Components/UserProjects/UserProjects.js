@@ -84,9 +84,11 @@ class UserProjects extends Component {
               <h2 className='selected-info'>Title: {title}</h2>
               <h2 className='selected-info'>Description: {description}</h2>
               <h2 className='selected-info'>Resources:</h2>
-              {resources.map((resource, index) => {
-                return <h2 className='selected-info' key={index}>{resource.name}</h2>
-              })}
+              <div className='selected-info-resources'>
+                {resources.map((resource, index) => {
+                  return <h1 key={index}>{resource.name}</h1>    
+                })}
+              </div>
             </div>
           </div>
           <div className='edit-resources'>

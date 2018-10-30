@@ -46,6 +46,11 @@
   color: white;
 }
 
+.selected-info-resources {
+  height: 10rem;
+  overflow: scroll;
+}
+
 .resources {
   width: 80%;
   height: 10rem;
