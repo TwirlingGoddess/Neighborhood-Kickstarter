@@ -65,10 +65,11 @@ class UserProjects extends Component {
   }
   
   render() {
+    let currentUser = this.props.currentUser;
     if(!this.state.selectedProject.id) {
       return (
-        <div className='user-projects-section'>
-          <UserProjectsContainer userProjects={this.state.userProjects} selectProject={this.selectProject}/>
+        <div className='user-selected-projects-section'>
+          <UserProjectsContainer userProjects={this.state.userProjects} selectProject={this.selectProject} currentUser={currentUser}/>
         </div>
       )
     } else {
@@ -76,6 +77,7 @@ class UserProjects extends Component {
         <div className='edit-project-section'>
           <div className='selected-project'>
             <h1>project</h1>
+            
           </div>
           <div className='edit-resources'>
             <h1>Resources</h1>

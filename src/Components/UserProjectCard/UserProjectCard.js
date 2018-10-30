@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import './UserProjectCard.css'
 
 class UserProjectCard extends Component {
   constructor() {
@@ -12,19 +12,17 @@ class UserProjectCard extends Component {
   }
 
   render() {
-    const { title, neighbor, project_role, description, photo, resources } = this.props;
+    const { title, neighbor, description, photo, resources } = this.props;
     if(title) {
       return (
-        <div className='Card'>
+        <div className='selected-project-card'>
           <img className='project-image' src={photo} alt='picture of the project'/>
           <h2>project: {title}</h2>
-          <h3>neighbor: {neighbor}</h3>
-          <h4>role {project_role}</h4>
           <h5>description: {description}</h5>
           {resources.map((resource, index) => {
             return <h5 key={index}>{resource.name}</h5>
           })}
-          <button onClick={() => this.handleClick(this.props)}>Edit Project</button>
+          <button className='edit-project-button' onClick={() => this.handleClick(this.props)}>Edit Project</button>
         </div>
       )
     } else {

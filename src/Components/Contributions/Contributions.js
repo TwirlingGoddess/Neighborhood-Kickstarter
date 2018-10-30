@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getProjectComments } from '../../utilities/apiCalls/apiCalls'
+import { getProjectsComments, postNewComment } from '../../utilities/apiCalls/apiCalls'
 import './Contributions.css'
 
 class Contributions extends Component {
@@ -18,9 +18,10 @@ class Contributions extends Component {
 
   setCurrentProject = () => {
     if(this.props.currentProject.id) {
+      let id = this.props.currentProject.id
       this.setState({
         selectedProject: this.props.currentProject
-      },() => getProjectComments())
+      },() => this.getProjectComments(id))
     }
     return 
   }
@@ -29,8 +30,8 @@ class Contributions extends Component {
     if(this.state.selectedProject.id) {
       let projectId = this.state.selectedProject.id;
   
-      let projectComments = await getProjectComments(projectId);
-  
+      let projectComments = await getProjectsComments(projectId);
+
       this.setState({
         projectComments
       })
@@ -46,9 +47,16 @@ class Contributions extends Component {
     })
   }
 
-  handleSubmit = (event) => {
-    event.prevent.default();
+  handleSubmit = async () => {
+    let user_id = this.props.currentUser.id;
+    let projectId = this.props.currentProject.id;
+    let newComment = {content: this.state.comment, user_id}
 
+    await postNewComment(newComment, projectId);
+    await this.getProjectComments()
+    this.setState({
+      comment: ''
+    })
   }
 
 
@@ -70,20 +78,21 @@ class Contributions extends Component {
             })}
           </div>
           <div className='comment-section'>
-            <button className='submit-comment'>Submit Comment</button>
+            <button onClick={this.handleSubmit} className='submit-comment'>Submit Comment</button>
             <textarea
               className='add-comment-input'
               type='text'
-              onClick={this.handleChange}
+              onChange={this.handleChange}
               placeholder='leave a comment'
               name='comment'
+              value={this.state.comment}
             />
             <div className='comment-box'>
               <h1 className='comment-header'>Comments</h1>
               {this.state.projectComments.map((comment, index) => {
-                return <div>
-                         <h2 className='comment-owner' key={index}>{comment.owner} said</h2>
-                         <h2 className='comment' key={index}>{comment.content}</h2>
+                return <div className='comment-div' key={index}>
+                         <h2 className='comment-owner'>{comment.author} said:</h2>
+                         <h2 className='comment'>{comment.content}</h2>
                       </div>
               })}
             </div>

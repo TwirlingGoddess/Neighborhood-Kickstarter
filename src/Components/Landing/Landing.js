@@ -126,12 +126,11 @@ class Landing extends Component {
         <div className='user-buttons-section'>
           <button className='user-link-buttons' onClick={this.viewAllProjects}>View All Projects</button>
           <NavLink className='user-link-buttons' to='UserProjects'>View My Projects</NavLink>
-          <NavLink className='user-link-buttons' to=''>View Contributions</NavLink>
           <NavLink className='user-link-buttons' to='/CreateProject'>Create A Project</NavLink>
           <NavLink onClick={this.logOut} className='user-link-buttons sign-out' to='/'>Log Out</NavLink>
         </div>
           <h1 className='welcome-header'>Welcome {name}</h1>
-        <Select
+          <Select
             className='select-input' 
             placeholder={`Projects in ${this.state.neighborhood}`}
             value={this.state.neighborhood}

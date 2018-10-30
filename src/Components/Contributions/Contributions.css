@@ -11,20 +11,22 @@
   margin: 1rem 3rem;
   color: white;
   font-size: x-large;
-  border-radius: 0.7em;
   overflow: scroll;
 }
 
 .comment-section {
   margin: 1rem 3rem;
-  height: 100vh;
+  height: 95vh;
   display: flex;
   justify-content: space-around;
   flex-direction: column-reverse;
   width: 65%;
+  border-radius: 0.7em;
+
 }
 
 .add-comment-input {
+  border-radius: 0.7em;
   font-size: 2rem;
   height: 10rem;
   width: 80.5%;
@@ -38,18 +40,30 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  padding-left: 1rem;
+  padding: 1rem;
   width: 79%;
   background-repeat: no-repeat;
   height: 30rem;
   overflow: scroll;
   border: 1px solid white;
   margin-bottom: 1rem;
+  border-radius: 0.7em;
+
 }
 
 .comment,
 .comment-owner {
   color: white;
+  margin-bottom: .2rem
+}
+
+.comment-div {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  border-bottom: 1px solid #fff;
+  
 }
 
 .selected-image {
@@ -82,10 +96,6 @@
   max-height: 4rem;
   margin-right: 10rem;
 }
-
-/* ::placeholder {
-  color: white;
-} */
 
 .comment-header {
   color: white;
