@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class UserProjectCard extends Component {
   constructor() {
     super()
     this.state = ''
   }
+
+  handleClick = (project) => {
+    this.props.selectProject(project)
+  }
+
   render() {
     const { title, neighbor, project_role, description, photo, resources } = this.props;
     if(title) {
@@ -18,6 +24,7 @@ class UserProjectCard extends Component {
           {resources.map((resource, index) => {
             return <h5 key={index}>{resource.name}</h5>
           })}
+          <button onClick={() => this.handleClick(this.props)}>Edit Project</button>
         </div>
       )
     } else {

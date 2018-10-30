@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import Select from 'react-select';
-import Search from'../Search/Search';
 import { ProjectsContainer } from '../ProjectsContainer/ProjectsContainer';
-import { getNeighborhoods, getNeighborhoodProjectsById, getProjects } from '../../utilities/apiCalls/apiCalls'
+import { getNeighborhoods, getNeighborhoodProjectsById, getProjects, getAllUsers } from '../../utilities/apiCalls/apiCalls';
 import './Landing.css';
 
 class Landing extends Component {
@@ -13,7 +12,8 @@ class Landing extends Component {
       currentUser: {},
       neighborhood: '',
       neighborhoods: [],
-      projects: []
+      projects: [],
+      allUsers: []
     }
   }
   
@@ -21,6 +21,7 @@ class Landing extends Component {
     this.updateUser();
     this.setNeighborhoods();
     this.updateProjects();
+    this.getAllUsers();
   }
 
   updateUser = () => {
@@ -31,6 +32,14 @@ class Landing extends Component {
       })
     }
     return 
+  }
+
+  getAllUsers = async () => {
+    let allUsers = await getAllUsers()
+
+    this.setState({
+      allUsers
+    })
   }
 
   logOut = () => {
@@ -46,6 +55,7 @@ class Landing extends Component {
       let neighborhoods = response.map(neighborhood => {
         return { value: neighborhood.name, label: neighborhood.name, id: neighborhood.id }
       })
+
       this.setState({
         neighborhoods
       })
@@ -89,6 +99,10 @@ class Landing extends Component {
       projects: allProjects
     })
   }
+
+  selectProject = (project) => {
+    this.props.updateProject(project);
+  }
   
   render() {
     const name = this.state.currentUser.first_name;
@@ -103,7 +117,7 @@ class Landing extends Component {
             onChange={this.handleSelectChange}
             options={this.state.neighborhoods}
           />
-          <ProjectsContainer projects={this.state.projects}/>
+          <ProjectsContainer projects={this.state.projects} allUsers={this.state.allUsers}/>
         </div>
       )
     }
@@ -124,7 +138,7 @@ class Landing extends Component {
             onChange={this.handleSelectChange}
             options={this.state.neighborhoods}
           />
-          <ProjectsContainer projects={this.state.projects}/>
+          <ProjectsContainer projects={this.state.projects} selectProject={this.selectProject} allUsers={this.state.allUsers}/>
      </div>
     )
   }

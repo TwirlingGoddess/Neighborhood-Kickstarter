@@ -71,14 +71,6 @@ class CreateUser extends Component {
     if (user) {
       updateUser(user)
       this.props.history.push('/Landing')
-      // this.setState({
-        //   firstName:'',
-      //   lastName: '',
-      //   email: '',
-      //   userName: '',
-      //   password: '',
-      //   neighborhood: ''
-      // })
     }
   }
 

@@ -28,12 +28,12 @@ class CreateUserGoogle extends Component {
       email: response.profileObj.email,
       username: this.state.userName,
       district_id: this.state.neighborhood.id,
-      token: response.profileObj.googleId
+      password: response.profileObj.googleId
     };
     
     const user = await addNewUser(googleSignIn);
 
-    if (user) {
+    if (user.id) {
       updateUser(user);
       this.props.history.push('/Landing')
     }

@@ -1,0 +1,15 @@
+.check-button {
+  width: 2rem;
+  height: 2rem;
+}
+
+.edit-resource {
+  border: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+
