@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import Select from 'react-select';
-import Search from'../Search/Search';
 import { ProjectsContainer } from '../ProjectsContainer/ProjectsContainer';
 import { getNeighborhoods, getNeighborhoodProjectsById, getProjects, getAllUsers } from '../../utilities/apiCalls/apiCalls';
 import './Landing.css';

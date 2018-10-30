@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { UserProjectsContainer } from '../UserProjectsContainer/UserProjectsContainer'
-import { getUserProjects } from '../../utilities/apiCalls/apiCalls'
+import { getUserProjects, editPostedProject } from '../../utilities/apiCalls/apiCalls'
+import EditResource from '../EditResource/EditResource'
 import './UserProjects.css'
 
 class UserProjects extends Component {
@@ -8,7 +9,8 @@ class UserProjects extends Component {
     super();
     this.state = {
       userProjects: [],
-      selectedProject: {}
+      selectedProject: {}, 
+      editedResources: []
     }
   }
 
@@ -23,9 +25,7 @@ class UserProjects extends Component {
     let userId = this.props.currentUser.id;
 
     if(userId) {
-
       let userProjects = await getUserProjects(userId);
-      console.log(userProjects)
   
       this.setState({
         userProjects
@@ -34,10 +34,34 @@ class UserProjects extends Component {
   }
 
   selectProject = (selectedProject) => {
-    console.log(selectedProject)
     this.setState({
       selectedProject
     })
+  }
+
+  updateResources = (editedResource, completed) => {
+    let status = completed;
+
+    let editedResources = this.state.selectedProject.resources.map(resource => {
+      if(resource.id === editedResource.resource.id) {
+        resource.status = status
+      }
+      return editedResources
+    })
+  }
+
+  patchResources = async () => {
+    let { title, description, photo, resources, id} = this.state.selectedProject;
+
+    let editedProject = {
+      project: {
+        title,
+        description,
+        photo, 
+        resources
+      }
+    }
+    await editPostedProject(editedProject, id)
   }
   
   render() {
@@ -54,7 +78,13 @@ class UserProjects extends Component {
             <h1>project</h1>
           </div>
           <div className='edit-resources'>
-            <h1>edit</h1>
+            <h1>Resources</h1>
+            {this.state.selectedProject.resources.map((resource, index) => {
+              return <div className='resources' key={index}>  
+                       <EditResource updateResources={this.updateResources} resource={resource}/>
+                     </div>
+            })}
+            <button onClick={this.patchResources}>Submit Resources</button>
           </div>
         </div>
       )

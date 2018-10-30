@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import GoogleLogin from 'react-google-login';
-import { getUser, getAllUsers, addNewUser, addNewUserLocal } from '../../utilities/apiCalls/apiCalls'
+import { getAllUsers, addNewUser, addNewUserLocal } from '../../utilities/apiCalls/apiCalls'
 import './SignIn.css'
 
 class SignIn extends Component {

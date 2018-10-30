@@ -82,3 +82,17 @@ export const postNewProject = async (newProject, id) => {
     throw new Error(error.message);
   }
 }
+
+export const editPostedProject = async (project, id) => {
+  try {
+    await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/projects/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(project)
+    })
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}
