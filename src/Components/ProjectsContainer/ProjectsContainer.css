@@ -1,5 +1,5 @@
 .Container {
   height: 90vh;
-  width: 100vw;
+  max-width: 50rem;
   overflow: scroll;
 }

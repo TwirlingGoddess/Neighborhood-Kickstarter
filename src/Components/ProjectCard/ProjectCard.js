@@ -24,6 +24,7 @@ class ProjectCard extends Component {
           <h3>neighbor: {neighbor ? neighbor : first_name + ' ' + last_name}</h3>
           <h4>contact: {contact ? contact : email}</h4>
           <h5>description: {description}</h5>
+          <h5>resources: </h5>
           {resources.map((resource, index) => {
             return <h5 key={index}>{resource.name}</h5>
           })}

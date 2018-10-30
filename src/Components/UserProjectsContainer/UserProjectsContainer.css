@@ -1,4 +1,8 @@
 .user-projects-container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
   width: 100vw;
   overflow: scroll;
 }

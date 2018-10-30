@@ -66,6 +66,8 @@ class UserProjects extends Component {
   
   render() {
     let currentUser = this.props.currentUser;
+    let { description, title, resources, photo } = this.state.selectedProject;
+    
     if(!this.state.selectedProject.id) {
       return (
         <div className='user-selected-projects-section'>
@@ -75,9 +77,17 @@ class UserProjects extends Component {
     } else {
       return (
         <div className='edit-project-section'>
-          <div className='selected-project'>
-            <h1>project</h1>
-            
+          <div className='edit-selected-project'>
+            <div className='edit-project-info'>
+              <h1 className='selected-info'>project</h1>
+              <img className='project-photo' src={photo} alt='a pic of a project uploaded'/> 
+              <h2 className='selected-info'>Title: {title}</h2>
+              <h2 className='selected-info'>Description: {description}</h2>
+              <h2 className='selected-info'>Resources:</h2>
+              {resources.map((resource, index) => {
+                return <h2 className='selected-info' key={index}>{resource.name}</h2>
+              })}
+            </div>
           </div>
           <div className='edit-resources'>
             <h1>Resources</h1>
@@ -86,7 +96,7 @@ class UserProjects extends Component {
                        <EditResource updateResources={this.updateResources} resource={resource}/>
                      </div>
             })}
-            <button onClick={this.patchResources}>Submit Resources</button>
+            <button className='edit-resource-button' onClick={this.patchResources}>Submit Resources</button>
           </div>
         </div>
       )
