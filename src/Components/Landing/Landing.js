@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 import Select from 'react-select';
 import { ProjectsContainer } from '../ProjectsContainer/ProjectsContainer';
 import { getNeighborhoods, getNeighborhoodProjectsById, getProjects, getAllUsers } from '../../utilities/apiCalls/apiCalls';
 import './Landing.css';
+import PropTypes from 'prop-types';
 
 class Landing extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       currentUser: {},
       neighborhood: '',
       neighborhoods: [],
       projects: [],
       allUsers: []
-    }
+    };
   }
   
   componentDidMount = () => {
@@ -25,21 +26,21 @@ class Landing extends Component {
   }
 
   updateUser = () => {
-    if(this.props.currentUser.first_name) {
+    if (this.props.currentUser.first_name) {
       this.setState({
         currentUser: this.props.currentUser,
         neighborhood: this.props.currentUser.neighborhood
-      })
+      });
     }
-    return 
+    return; 
   }
 
   getAllUsers = async () => {
-    let allUsers = await getAllUsers()
+    let allUsers = await getAllUsers();
 
     this.setState({
       allUsers
-    })
+    });
   }
 
   logOut = () => {
@@ -48,29 +49,29 @@ class Landing extends Component {
 
   
   setNeighborhoods = async () => {
-    if(!this.state.neighborhoods.length) {
+    if (!this.state.neighborhoods.length) {
       
       let response = await getNeighborhoods();
   
       let neighborhoods = response.map(neighborhood => {
-        return { value: neighborhood.name, label: neighborhood.name, id: neighborhood.id }
-      })
+        return { value: neighborhood.name, label: neighborhood.name, id: neighborhood.id };
+      });
 
       this.setState({
         neighborhoods
-      })
+      });
     }
 
-    if(this.state.neighborhood) {
+    if (this.state.neighborhood) {
 
       let neighborhoodId = this.state.neighborhoods.find(neighborhood => {
-        return neighborhood.value === this.state.neighborhood
-      })
-      let neighborhoodProjects = await getNeighborhoodProjectsById(neighborhoodId.id)
+        return neighborhood.value === this.state.neighborhood;
+      });
+      let neighborhoodProjects = await getNeighborhoodProjectsById(neighborhoodId.id);
       
       this.setState({
         projects: neighborhoodProjects.projects
-      })
+      });
     }
   }
 
@@ -78,16 +79,16 @@ class Landing extends Component {
     let neighborhood = selectedOption.value;
     this.setState({
       neighborhood
-    },() => this.setNeighborhoods())
+    }, () => this.setNeighborhoods());
   }
 
   updateProjects = async () => {
-    if(!this.state.currentUser.first_name) {
+    if (!this.state.currentUser.first_name) {
       let allProjects = await getProjects();
 
       this.setState({
         projects: allProjects
-      })
+      });
     }
     this.setNeighborhoods();
   }
@@ -97,7 +98,7 @@ class Landing extends Component {
     
     this.setState({
       projects: allProjects
-    })
+    });
   }
 
   selectProject = (project) => {
@@ -107,7 +108,7 @@ class Landing extends Component {
   render() {
     const name = this.state.currentUser.first_name;
 
-    if(!name) {
+    if (!name) {
       return (
         <div className='landing-page'>
           <Select
@@ -119,7 +120,7 @@ class Landing extends Component {
           />
           <ProjectsContainer projects={this.state.projects} allUsers={this.state.allUsers}/>
         </div>
-      )
+      );
     }
     return (
       <div className='landing-page'>
@@ -129,18 +130,24 @@ class Landing extends Component {
           <NavLink className='user-link-buttons' to='/CreateProject'>Create A Project</NavLink>
           <NavLink onClick={this.logOut} className='user-link-buttons sign-out' to='/'>Log Out</NavLink>
         </div>
-          <h1 className='welcome-header'>Welcome {name}</h1>
-          <Select
-            className='select-input' 
-            placeholder={`Projects in ${this.state.neighborhood}`}
-            value={this.state.neighborhood}
-            onChange={this.handleSelectChange}
-            options={this.state.neighborhoods}
-          />
-          <ProjectsContainer projects={this.state.projects} selectProject={this.selectProject} allUsers={this.state.allUsers}/>
-     </div>
-    )
+        <h1 className='welcome-header'>Welcome {name}</h1>
+        <Select
+          className='select-input' 
+          placeholder={`Projects in ${this.state.neighborhood}`}
+          value={this.state.neighborhood}
+          onChange={this.handleSelectChange}
+          options={this.state.neighborhoods}
+        />
+        <ProjectsContainer projects={this.state.projects} selectProject={this.selectProject} allUsers={this.state.allUsers}/>
+      </div>
+    );
   }
 }
+
+Landing.propTypes = {
+  currentUser: PropTypes.array,
+  logOutUser: PropTypes.func,
+  updateProject: PropTypes.func
+};
 
 export default Landing;

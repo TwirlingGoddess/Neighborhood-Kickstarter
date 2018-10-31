@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { getProjectsComments, postNewComment } from '../../utilities/apiCalls/apiCalls'
-import './Contributions.css'
+import { getProjectsComments, postNewComment } from '../../utilities/apiCalls/apiCalls';
+import './Contributions.css';
+import PropTypes from 'prop-types';
+
 
 class Contributions extends Component {
   constructor() {
@@ -9,7 +11,7 @@ class Contributions extends Component {
       comment: '',
       selectedProject: {},
       projectComments: []
-    }
+    };
   }
 
   componentDidMount = () => {
@@ -17,26 +19,26 @@ class Contributions extends Component {
   }
 
   setCurrentProject = () => {
-    if(this.props.currentProject.id) {
-      let id = this.props.currentProject.id
+    if (this.props.currentProject.id) {
+      let id = this.props.currentProject.id;
       this.setState({
         selectedProject: this.props.currentProject
-      },() => this.getProjectComments(id))
+      }, () => this.getProjectComments(id));
     }
-    return 
+    return; 
   }
 
   getProjectComments = async () => {
-    if(this.state.selectedProject.id) {
+    if (this.state.selectedProject.id) {
       let projectId = this.state.selectedProject.id;
   
       let projectComments = await getProjectsComments(projectId);
 
       this.setState({
         projectComments
-      })
+      });
     }
-    return 
+    return; 
   }
 
   handleChange = (event) => {
@@ -44,26 +46,26 @@ class Contributions extends Component {
 
     this.setState({
       comment: value
-    })
+    });
   }
 
   handleSubmit = async () => {
     let user_id = this.props.currentUser.id;
     let projectId = this.props.currentProject.id;
-    let newComment = {content: this.state.comment, user_id}
+    let newComment = {content: this.state.comment, user_id};
 
     await postNewComment(newComment, projectId);
-    await this.getProjectComments()
+    await this.getProjectComments();
     this.setState({
       comment: ''
-    })
+    });
   }
 
 
 
   render () {
     let { contact, description, id, photo, resources, title, neighbor } = this.state.selectedProject;
-    if(id) {
+    if (id) {
       return (
         <div className='project-comment-section'>
           <div className='project-section'>
@@ -74,7 +76,7 @@ class Contributions extends Component {
             <h2>description: {description}</h2>
             <h2>needs:</h2>
             {resources.map((resource, index) => {
-              return <h3 key={index}>{resource.name}</h3>
+              return <h3 key={index}>{resource.name}</h3>;
             })}
           </div>
           <div className='comment-section'>
@@ -91,22 +93,27 @@ class Contributions extends Component {
               <h1 className='comment-header'>Comments</h1>
               {this.state.projectComments.map((comment, index) => {
                 return <div className='comment-div' key={index}>
-                         <h2 className='comment-owner'>{comment.author} said:</h2>
-                         <h2 className='comment'>{comment.content}</h2>
-                      </div>
+                  <h2 className='comment-owner'>{comment.author} said:</h2>
+                  <h2 className='comment'>{comment.content}</h2>
+                </div>;
               })}
             </div>
           </div>
         </div>
-      )
+      );
     } else {
       return (
         <div>
           <h1>no selected project</h1>
         </div>
-      )
+      );
     }
   }
 }
 
-export default Contributions
+Contributions.propTypes = {
+  currentProject: PropTypes.object,
+  currentUser: PropTypes.object
+};
+
+export default Contributions;

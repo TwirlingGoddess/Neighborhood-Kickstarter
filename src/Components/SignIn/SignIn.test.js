@@ -3,9 +3,9 @@ import SignIn from './SignIn';
 import { shallow } from 'enzyme';
 
 describe('SignIn', () => {
-  let wrapper
+  let wrapper;
   it('should match the snapshot', () => {
-    wrapper = shallow(<SignIn />)
-    expect(wrapper).toMatchSnapshot()
-  })
-}) 
+    wrapper = shallow(<SignIn />);
+    expect(wrapper).toMatchSnapshot();
+  });
+}); 

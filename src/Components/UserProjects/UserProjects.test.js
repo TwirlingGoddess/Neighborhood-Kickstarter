@@ -3,9 +3,9 @@ import UserProjects  from './UserProjects';
 import { shallow } from 'enzyme';
 
 describe('UserProjects', () => {
-  let wrapper
+  let wrapper;
   it('should match the snapshot', () => {
-    wrapper = shallow(<UserProjects />)
-    expect(wrapper).toMatchSnapshot()
-  })
-})
+    wrapper = shallow(<UserProjects />);
+    expect(wrapper).toMatchSnapshot();
+  });
+});

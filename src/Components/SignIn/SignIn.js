@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
-import { getAllUsers, addNewUser, addNewUserLocal } from '../../utilities/apiCalls/apiCalls'
-import './SignIn.css'
+import { getAllUsers, addNewUser, addNewUserLocal } from '../../utilities/apiCalls/apiCalls';
+import './SignIn.css';
+import PropTypes from 'prop-types';
 
 class SignIn extends Component {
   constructor() {
@@ -10,7 +11,7 @@ class SignIn extends Component {
       userName: '',
       password: '',
       allUsers: []
-    }
+    };
   }
 
   componentDidMount = () => {
@@ -21,17 +22,17 @@ class SignIn extends Component {
     let allUsers = await getAllUsers();
     this.setState({
       allUsers
-    })
+    });
   }
 
   getCurrentUser = async (id, email) => {
-    let user = {password: id, email}
+    let user = {password: id, email};
   
-    let foundUser = await addNewUser(user)
+    let foundUser = await addNewUser(user);
 
-    if(foundUser.id) {
-      this.props.updateUser(foundUser)
-      this.props.history.push('/Landing')
+    if (foundUser.id) {
+      this.props.updateUser(foundUser);
+      this.props.history.push('/Landing');
     }
   }
 
@@ -40,25 +41,25 @@ class SignIn extends Component {
 
     this.setState({
       [name]: value
-    })
+    });
   }
 
   handleSubmitLogin = async (event) => {
     event.preventDefault();
     let { userName, password } = this.state; 
-    let user = {username: userName, password}
+    let user = {username: userName, password};
 
     let foundUser = await addNewUserLocal(user);
 
-    if(foundUser.id) {
+    if (foundUser.id) {
       this.props.updateUser(foundUser);
       this.props.history.push('/Landing');
     }
   }
 
   responseGoogle = async (response) => {
-   let email = response.profileObj.email;
-   this.getCurrentUser(response.profileObj.googleId, email)
+    let email = response.profileObj.email;
+    this.getCurrentUser(response.profileObj.googleId, email);
   }
 
   render() {
@@ -93,7 +94,13 @@ class SignIn extends Component {
           />
         </form>
       </div>
-    )
+    );
   }
 }
-export default SignIn
+
+SignIn.propTypes = {
+  updateUser: PropTypes.func,
+  history: PropTypes.array
+};
+
+export default SignIn;

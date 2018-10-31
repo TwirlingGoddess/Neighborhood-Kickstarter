@@ -3,10 +3,10 @@ import EditResource from './EditResource';
 import { shallow } from 'enzyme';
 
 describe('EditResource', () => {
-  let wrapper
-  let mockResource = {}
+  let wrapper;
+  let mockResource = {};
   it('should match the snapshot', () => {
-    wrapper = shallow(<EditResource resource={mockResource}/>)
-    expect(wrapper).toMatchSnapshot()
-  })
-}) 
+    wrapper = shallow(<EditResource resource={mockResource}/>);
+    expect(wrapper).toMatchSnapshot();
+  });
+}); 

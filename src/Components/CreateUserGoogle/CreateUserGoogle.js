@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import GoogleLogin from 'react-google-login';
-
-import { getNeighborhoods, addNewUser } from '../../utilities/apiCalls/apiCalls'
-
-import './CreateUserGoogle.css'
+import { getNeighborhoods, addNewUser } from '../../utilities/apiCalls/apiCalls';
+import './CreateUserGoogle.css';
+import PropTypes from 'prop-types';
 
 class CreateUserGoogle extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       userName: '',
       neighborhood: '',
       neighborhoods: []
-    }
+    };
   }
 
   componentDidMount = () => {
@@ -35,7 +34,7 @@ class CreateUserGoogle extends Component {
 
     if (user.id) {
       updateUser(user);
-      this.props.history.push('/Landing')
+      this.props.history.push('/Landing');
     }
   }
 
@@ -43,26 +42,26 @@ class CreateUserGoogle extends Component {
     const response = await getNeighborhoods();
 
     const neighborhoods = response.map(neighborhood => {
-      return { value: neighborhood.name, label: neighborhood.name, id: neighborhood.id }
-    })
+      return { value: neighborhood.name, label: neighborhood.name, id: neighborhood.id };
+    });
 
     this.setState({
       neighborhoods
-    })
+    });
   }
 
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
-    })
+    });
   }
 
   handleSelectChange = (selectedOption) => {
     const neighborhood = selectedOption;
     this.setState({
       neighborhood
-    })
+    });
   }
 
   handleSubmit = (event) => {
@@ -71,9 +70,9 @@ class CreateUserGoogle extends Component {
     this.setState({
       userName: '',
       neighborhood: ''
-    })
+    });
 
-    this.props.history.push('/Landing')
+    this.props.history.push('/Landing');
   }
 
   render() {
@@ -106,8 +105,12 @@ class CreateUserGoogle extends Component {
           />
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default CreateUserGoogle
+CreateUserGoogle.propTypes = {
+  history: PropTypes.array
+};
+
+export default CreateUserGoogle;
