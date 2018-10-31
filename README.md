@@ -25,3 +25,9 @@ Additional enhancements could include:
 * Allow users to send direct messages to one another  
 
 ## Screenshots  
+Create Project Page
+<img width="1223" alt="screen shot 2018-10-31 at 2 38 38 pm" src="https://user-images.githubusercontent.com/30483194/47817407-25a18d00-dd1b-11e8-964c-5b876fe529bc.png">  
+Neighborhood Projects Page  
+<img width="1266" alt="screen shot 2018-10-31 at 2 39 07 pm" src="https://user-images.githubusercontent.com/30483194/47817414-289c7d80-dd1b-11e8-8912-0dd2d4a1c5da.png">  
+Project Comments Page
+<img width="1319" alt="screen shot 2018-10-31 at 2 35 24 pm" src="https://user-images.githubusercontent.com/30483194/47817417-29cdaa80-dd1b-11e8-9fc9-d758702c592b.png">
