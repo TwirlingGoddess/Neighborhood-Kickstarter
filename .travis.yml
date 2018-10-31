@@ -1,11 +1,16 @@
 language: node_js
 node_js:
-  - "10" 
-chache: 
+- '10'
+chache:
   directories:
-    - node_modules
+  - node_modules
 script:
-  - npm test
-  - npm run build
+- npm test
+- npm run build
 notifications:
   email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: w1DnIpOBNx93EQ1/iWl7w5MkDPfia4FGkeP/ilo1fUddT+bbX7iRaB0qSkSfeWBxcBl84IV3RVMuM1O/IS1gyLCjk0oUVK0AK0RXWfBRdRLCArgTZUgsIvuZ7epF2K8DK8aya9OVxbaeWeWx09NAZWHPboodtuBE23hrl7HC8efsqc2gztoCOfLlSet88IeekYO7kB2ix/L+sSmpm1RADtbLNCElZ3qB22z5vlcKnAvAWFIfeG7d2csVzWPm1nuFt+H4GJR8yVqbU18Hp13xzJLcFO3tukQH3StgvExc0NOwdJEE0IXJsSVI+1XE6NCiyQFJuc93Wh49156N+rjQdzafxLaTOG0I7m8I607sXizPixXVC5phrJBPqPl+gqnxpt4Ovpo4E4Rpp3OA0BOUIgnKIUz9YxCB9w03LhnzCKS5aGJD4eoJYLIX9zJL3KZVGgxFKK5xCfVLuFS9UaE8KdYDht0PwDKn1YDBNOj2rVQARV91yyioW+uMfwGwwfod8I8YFlr/UJnxQBb7mtRsdG9uXb/tMKjKb3NcKfLdNQw3fHQICkkjS12WY7Y718psKBL8ArKivlM3cWdkw/+AEbkGMZIjtycu6X6kyfNgbp06aBF9C+Kg/vPJgdcsg7kf/Ir8IG1R56zZWbXKj/tbWBGA1FNmgS9sGOiS1JOl/TY=
+  app: neighborhood-kickstarter
