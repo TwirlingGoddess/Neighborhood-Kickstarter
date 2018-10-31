@@ -8,4 +8,9 @@ describe('CreateUser', () => {
     wrapper = shallow(<CreateUser />)
     expect(wrapper).toMatchSnapshot()
   })
+
+  it('should update state with the neighborhood selected', () => {
+    wrapper = shallow(<CreateUser />)
+    wrapper.find('Select').simulate('click')
+  })
 }) 

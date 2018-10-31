@@ -1,7 +1,6 @@
 import React from 'react';
 import CreateProject from './CreateProject';
 import { shallow } from 'enzyme';
-import { wrap } from 'module';
 
 describe('CreateProject', () => {
   let wrapper;
@@ -44,10 +43,14 @@ describe('CreateProject', () => {
 
   it('should add a resource if the submit resource button is clicked', () => {
     mockCurrentUser = {id: 1};
+    let mockedEvent = { target: {className: 'add-material-button'}, preventDefault: () => {} }
+    let newResource = 'wood'
+    let resource = { name: newResource}
     wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
 
-    wrapper.setState({newResource: 'wood'})
-    wrapper.find('.add-material-button').simulate('click')
+    wrapper.setState({ newResource })
+    wrapper.instance().addResource(mockedEvent, resource)
     
+    expect(wrapper.state('resources')).toHaveLength(1)
   })
 }) 

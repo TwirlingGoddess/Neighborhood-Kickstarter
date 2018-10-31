@@ -63,10 +63,8 @@ class CreateUser extends Component {
       district_id: neighborhood.id,
       password
     }
-    console.log(localSignIn)
 
     let user = await addNewUserLocal(localSignIn)
-    console.log(user)
 
     if (user) {
       updateUser(user)
