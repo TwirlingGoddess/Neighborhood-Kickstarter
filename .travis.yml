@@ -1,9 +1,9 @@
 language: node_js
 node_js:
+- stable
 chache: 
   directories:
     - node_modules
-- stable
 script:
 - npm test
 - npm run build
