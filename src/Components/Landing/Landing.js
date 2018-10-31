@@ -145,7 +145,7 @@ class Landing extends Component {
 }
 
 Landing.propTypes = {
-  currentUser: PropTypes.array,
+  currentUser: PropTypes.object,
   logOutUser: PropTypes.func,
   updateProject: PropTypes.func
 };
