@@ -110,8 +110,3 @@ class Contributions extends Component {
 }
 
 export default Contributions
-
-// content: 'i got the wood', owner: 'Bobby'}, {content: 'ill bring the beer', owner: 'John'}
-
-// contact: 'assas', description: 'cdscsdc', id: 1, photo: 'https://media-cdn.tripadvisor.com/media/photo-s/0e/6c/23/9e/covered-bbq-area-and.jpg', resources: [{name: 'beer'}, {name: 'wood'}, {name: 'hammer'}, {name: 'screwdriver'}, {name: 'tape measure'}], title: 'assacd', neighbor: 'acds'
-      // },

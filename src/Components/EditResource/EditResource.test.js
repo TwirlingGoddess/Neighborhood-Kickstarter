@@ -1,11 +1,12 @@
 import React from 'react';
-import CreateUser from './CreateUser';
+import EditResource from './EditResource';
 import { shallow } from 'enzyme';
 
-describe('CreateUser', () => {
+describe('EditResource', () => {
   let wrapper
+  let mockResource = {}
   it('should match the snapshot', () => {
-    wrapper = shallow(<CreateUser />)
+    wrapper = shallow(<EditResource resource={mockResource}/>)
     expect(wrapper).toMatchSnapshot()
   })
 }) 
