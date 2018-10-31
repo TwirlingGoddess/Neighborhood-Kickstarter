@@ -22,7 +22,6 @@ class CreateProject extends Component {
 
   updateCurrentUser = () => {
     let currentUserId = this.props.currentUser.id;
-    console.log(currentUserId)
 
     if(currentUserId) {
       this.setState({
