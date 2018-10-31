@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { UserProjectsContainer } from '../UserProjectsContainer/UserProjectsContainer'
-import { getUserProjects, editPostedProject } from '../../utilities/apiCalls/apiCalls'
-import EditResource from '../EditResource/EditResource'
-import './UserProjects.css'
+import { UserProjectsContainer } from '../UserProjectsContainer/UserProjectsContainer';
+import { getUserProjects, editPostedProject } from '../../utilities/apiCalls/apiCalls';
+import EditResource from '../EditResource/EditResource';
+import './UserProjects.css';
+import PropTypes from 'prop-types';
 
 class UserProjects extends Component {
   constructor() {
@@ -11,12 +12,12 @@ class UserProjects extends Component {
       userProjects: [],
       selectedProject: {}, 
       editedResources: []
-    }
+    };
   }
 
   componentDidMount = () => {
-    if(this.state.userProjects.length)  {
-      return 
+    if (this.state.userProjects.length)  {
+      return; 
     }
     this.getUserProjects();
   }
@@ -24,30 +25,30 @@ class UserProjects extends Component {
   getUserProjects = async () => {
     let userId = this.props.currentUser.id;
 
-    if(userId) {
+    if (userId) {
       let userProjects = await getUserProjects(userId);
   
       this.setState({
         userProjects
-      })
+      });
     }
   }
 
   selectProject = (selectedProject) => {
     this.setState({
       selectedProject
-    })
+    });
   }
 
   updateResources = (editedResource, completed) => {
     let status = completed;
 
     let editedResources = this.state.selectedProject.resources.map(resource => {
-      if(resource.id === editedResource.resource.id) {
-        resource.status = status
+      if (resource.id === editedResource.resource.id) {
+        resource.status = status;
       }
-      return editedResources
-    })
+      return editedResources;
+    });
   }
 
   patchResources = async () => {
@@ -60,20 +61,20 @@ class UserProjects extends Component {
         photo, 
         resources
       }
-    }
-    await editPostedProject(editedProject, id)
+    };
+    await editPostedProject(editedProject, id);
   }
   
   render() {
     let currentUser = this.props.currentUser;
     let { description, title, resources, photo } = this.state.selectedProject;
     
-    if(!this.state.selectedProject.id) {
+    if (!this.state.selectedProject.id) {
       return (
         <div className='user-selected-projects-section'>
           <UserProjectsContainer userProjects={this.state.userProjects} selectProject={this.selectProject} currentUser={currentUser}/>
         </div>
-      )
+      );
     } else {
       return (
         <div className='edit-project-section'>
@@ -86,7 +87,7 @@ class UserProjects extends Component {
               <h2 className='selected-info'>Resources:</h2>
               <div className='selected-info-resources'>
                 {resources.map((resource, index) => {
-                  return <h1 key={index}>{resource.name}</h1>    
+                  return <h1 key={index}>{resource.name}</h1>;    
                 })}
               </div>
             </div>
@@ -95,15 +96,19 @@ class UserProjects extends Component {
             <h1>Resources</h1>
             {this.state.selectedProject.resources.map((resource, index) => {
               return <div className='resources' key={index}>  
-                       <EditResource updateResources={this.updateResources} resource={resource}/>
-                     </div>
+                <EditResource updateResources={this.updateResources} resource={resource}/>
+              </div>;
             })}
             <button className='edit-resource-button' onClick={this.patchResources}>Submit Resources</button>
           </div>
         </div>
-      )
+      );
     }
   }
 }
+
+UserProjects.propTypes = {
+  currentUser: PropTypes.object
+};
 
 export default UserProjects;

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './ProjectCard.css';
+import PropTypes from 'prop-types';
 
 class ProjectCard extends Component {
   constructor() {
-    super()
-    this.state = {
-    
-    }
+    super();
   }
   
   viewComments = (project) => {
@@ -16,7 +14,7 @@ class ProjectCard extends Component {
 
   render() {
     const { title, neighbor, contact, description, photo, resources, first_name, last_name, email } = this.props;
-    if(title) {
+    if (title) {
       return (
         <div className='Card'>
           <img className='project-image' src={photo} alt='pciture of the project'/>
@@ -26,19 +24,32 @@ class ProjectCard extends Component {
           <h5>description: {description}</h5>
           <h5>resources: </h5>
           {resources.map((resource, index) => {
-            return <h5 key={index}>{resource.name}</h5>
+            return <h5 key={index}>{resource.name}</h5>;
           })}
-        <NavLink onClick={() => this.viewComments(this.props)} to='/Contributions'>Comments</NavLink>
+          <NavLink onClick={() => this.viewComments(this.props)} to='/Contributions'>Comments</NavLink>
         </div>
-      )
+      );
     } else {
       return (
         <div>
           <h1>No Projects for this neighborhood</h1>
         </div>
-      )
+      );
     }
   }
 }
 
-export default ProjectCard
+ProjectCard.propTypes = {
+  selectProject: PropTypes.func,
+  title: PropTypes.string,
+  neighbor: PropTypes.string,
+  contact: PropTypes.string,
+  description: PropTypes.string,
+  photo: PropTypes.string,
+  resources: PropTypes.array,
+  first_name: PropTypes.string,
+  last_name: PropTypes.string,
+  email: PropTypes.string
+};
+
+export default ProjectCard;

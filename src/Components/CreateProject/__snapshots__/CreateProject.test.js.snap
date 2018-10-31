@@ -1,0 +1,681 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateProject should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CreateProject
+    currentUser={Object {}}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="view-projects-button"
+          to="/Landing"
+        >
+          View Projects
+        </NavLink>,
+        <div
+          className="main-section"
+        >
+          <form
+            className="create-project-form"
+          >
+            <h1>
+              Create Project
+            </h1>
+            <input
+              className="project-inputs"
+              name="title"
+              onChange={[Function]}
+              placeholder="Project Name"
+              type="text"
+              value=""
+            />
+            <textarea
+              className="project-inputs description"
+              name="description"
+              onChange={[Function]}
+              placeholder="Project description:"
+              type="text"
+              value=""
+            />
+            <textarea
+              className="project-inputs materials"
+              name="newResource"
+              onChange={[Function]}
+              placeholder="Add new material"
+              type="text"
+              value=""
+            />
+            <button
+              className="add-material-button"
+              onClick={[Function]}
+            >
+              Add Resource
+            </button>
+            <button
+              className="submit-project-button"
+              onClick={[Function]}
+            >
+              Submit Project
+            </button>
+          </form>
+          <div
+            className="listed-materials"
+          >
+            <h1>
+              Materials Needed:
+            </h1>
+          </div>
+        </div>,
+      ],
+      "className": "create-project-section",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "aria-current": "page",
+          "children": "View Projects",
+          "className": "view-projects-button",
+          "to": "/Landing",
+        },
+        "ref": null,
+        "rendered": "View Projects",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <form
+              className="create-project-form"
+            >
+              <h1>
+                Create Project
+              </h1>
+              <input
+                className="project-inputs"
+                name="title"
+                onChange={[Function]}
+                placeholder="Project Name"
+                type="text"
+                value=""
+              />
+              <textarea
+                className="project-inputs description"
+                name="description"
+                onChange={[Function]}
+                placeholder="Project description:"
+                type="text"
+                value=""
+              />
+              <textarea
+                className="project-inputs materials"
+                name="newResource"
+                onChange={[Function]}
+                placeholder="Add new material"
+                type="text"
+                value=""
+              />
+              <button
+                className="add-material-button"
+                onClick={[Function]}
+              >
+                Add Resource
+              </button>
+              <button
+                className="submit-project-button"
+                onClick={[Function]}
+              >
+                Submit Project
+              </button>
+            </form>,
+            <div
+              className="listed-materials"
+            >
+              <h1>
+                Materials Needed:
+              </h1>
+            </div>,
+          ],
+          "className": "main-section",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h1>
+                  Create Project
+                </h1>,
+                <input
+                  className="project-inputs"
+                  name="title"
+                  onChange={[Function]}
+                  placeholder="Project Name"
+                  type="text"
+                  value=""
+                />,
+                <textarea
+                  className="project-inputs description"
+                  name="description"
+                  onChange={[Function]}
+                  placeholder="Project description:"
+                  type="text"
+                  value=""
+                />,
+                <textarea
+                  className="project-inputs materials"
+                  name="newResource"
+                  onChange={[Function]}
+                  placeholder="Add new material"
+                  type="text"
+                  value=""
+                />,
+                <button
+                  className="add-material-button"
+                  onClick={[Function]}
+                >
+                  Add Resource
+                </button>,
+                <button
+                  className="submit-project-button"
+                  onClick={[Function]}
+                >
+                  Submit Project
+                </button>,
+              ],
+              "className": "create-project-form",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Create Project",
+                },
+                "ref": null,
+                "rendered": "Create Project",
+                "type": "h1",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "project-inputs",
+                  "name": "title",
+                  "onChange": [Function],
+                  "placeholder": "Project Name",
+                  "type": "text",
+                  "value": "",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "project-inputs description",
+                  "name": "description",
+                  "onChange": [Function],
+                  "placeholder": "Project description:",
+                  "type": "text",
+                  "value": "",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "textarea",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "project-inputs materials",
+                  "name": "newResource",
+                  "onChange": [Function],
+                  "placeholder": "Add new material",
+                  "type": "text",
+                  "value": "",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "textarea",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Add Resource",
+                  "className": "add-material-button",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Add Resource",
+                "type": "button",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Submit Project",
+                  "className": "submit-project-button",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Submit Project",
+                "type": "button",
+              },
+            ],
+            "type": "form",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h1>
+                  Materials Needed:
+                </h1>,
+                Array [],
+              ],
+              "className": "listed-materials",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Materials Needed:",
+                },
+                "ref": null,
+                "rendered": "Materials Needed:",
+                "type": "h1",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="view-projects-button"
+            to="/Landing"
+          >
+            View Projects
+          </NavLink>,
+          <div
+            className="main-section"
+          >
+            <form
+              className="create-project-form"
+            >
+              <h1>
+                Create Project
+              </h1>
+              <input
+                className="project-inputs"
+                name="title"
+                onChange={[Function]}
+                placeholder="Project Name"
+                type="text"
+                value=""
+              />
+              <textarea
+                className="project-inputs description"
+                name="description"
+                onChange={[Function]}
+                placeholder="Project description:"
+                type="text"
+                value=""
+              />
+              <textarea
+                className="project-inputs materials"
+                name="newResource"
+                onChange={[Function]}
+                placeholder="Add new material"
+                type="text"
+                value=""
+              />
+              <button
+                className="add-material-button"
+                onClick={[Function]}
+              >
+                Add Resource
+              </button>
+              <button
+                className="submit-project-button"
+                onClick={[Function]}
+              >
+                Submit Project
+              </button>
+            </form>
+            <div
+              className="listed-materials"
+            >
+              <h1>
+                Materials Needed:
+              </h1>
+            </div>
+          </div>,
+        ],
+        "className": "create-project-section",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": "View Projects",
+            "className": "view-projects-button",
+            "to": "/Landing",
+          },
+          "ref": null,
+          "rendered": "View Projects",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <form
+                className="create-project-form"
+              >
+                <h1>
+                  Create Project
+                </h1>
+                <input
+                  className="project-inputs"
+                  name="title"
+                  onChange={[Function]}
+                  placeholder="Project Name"
+                  type="text"
+                  value=""
+                />
+                <textarea
+                  className="project-inputs description"
+                  name="description"
+                  onChange={[Function]}
+                  placeholder="Project description:"
+                  type="text"
+                  value=""
+                />
+                <textarea
+                  className="project-inputs materials"
+                  name="newResource"
+                  onChange={[Function]}
+                  placeholder="Add new material"
+                  type="text"
+                  value=""
+                />
+                <button
+                  className="add-material-button"
+                  onClick={[Function]}
+                >
+                  Add Resource
+                </button>
+                <button
+                  className="submit-project-button"
+                  onClick={[Function]}
+                >
+                  Submit Project
+                </button>
+              </form>,
+              <div
+                className="listed-materials"
+              >
+                <h1>
+                  Materials Needed:
+                </h1>
+              </div>,
+            ],
+            "className": "main-section",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h1>
+                    Create Project
+                  </h1>,
+                  <input
+                    className="project-inputs"
+                    name="title"
+                    onChange={[Function]}
+                    placeholder="Project Name"
+                    type="text"
+                    value=""
+                  />,
+                  <textarea
+                    className="project-inputs description"
+                    name="description"
+                    onChange={[Function]}
+                    placeholder="Project description:"
+                    type="text"
+                    value=""
+                  />,
+                  <textarea
+                    className="project-inputs materials"
+                    name="newResource"
+                    onChange={[Function]}
+                    placeholder="Add new material"
+                    type="text"
+                    value=""
+                  />,
+                  <button
+                    className="add-material-button"
+                    onClick={[Function]}
+                  >
+                    Add Resource
+                  </button>,
+                  <button
+                    className="submit-project-button"
+                    onClick={[Function]}
+                  >
+                    Submit Project
+                  </button>,
+                ],
+                "className": "create-project-form",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Create Project",
+                  },
+                  "ref": null,
+                  "rendered": "Create Project",
+                  "type": "h1",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "project-inputs",
+                    "name": "title",
+                    "onChange": [Function],
+                    "placeholder": "Project Name",
+                    "type": "text",
+                    "value": "",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "input",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "project-inputs description",
+                    "name": "description",
+                    "onChange": [Function],
+                    "placeholder": "Project description:",
+                    "type": "text",
+                    "value": "",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "textarea",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "project-inputs materials",
+                    "name": "newResource",
+                    "onChange": [Function],
+                    "placeholder": "Add new material",
+                    "type": "text",
+                    "value": "",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "textarea",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Add Resource",
+                    "className": "add-material-button",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "Add Resource",
+                  "type": "button",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Submit Project",
+                    "className": "submit-project-button",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "Submit Project",
+                  "type": "button",
+                },
+              ],
+              "type": "form",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h1>
+                    Materials Needed:
+                  </h1>,
+                  Array [],
+                ],
+                "className": "listed-materials",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Materials Needed:",
+                  },
+                  "ref": null,
+                  "rendered": "Materials Needed:",
+                  "type": "h1",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

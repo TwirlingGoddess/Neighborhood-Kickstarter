@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom'
-import './CreateProject.css'
-import deleteButton from '../../images/x-button.svg'
-import { postNewProject } from '../../utilities/apiCalls/apiCalls'
+import { NavLink } from 'react-router-dom';
+import './CreateProject.css';
+import deleteButton from '../../images/x-button.svg';
+import { postNewProject } from '../../utilities/apiCalls/apiCalls';
+import PropTypes from 'prop-types';
 
 class CreateProject extends Component {
   constructor() {
@@ -13,7 +14,7 @@ class CreateProject extends Component {
       description: '',
       newResource: '',
       resources: []
-    }
+    };
   }
 
   componentDidMount = () => {
@@ -22,14 +23,13 @@ class CreateProject extends Component {
 
   updateCurrentUser = () => {
     let currentUserId = this.props.currentUser.id;
-    console.log(currentUserId)
 
-    if(currentUserId) {
+    if (currentUserId) {
       this.setState({
         currentUserId
-      })
+      });
     }
-    return 
+    return; 
   }
 
   handleChange = (event) => {
@@ -37,13 +37,13 @@ class CreateProject extends Component {
 
     this.setState({
       [name]: value
-    })
+    });
   }
 
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    if(event.target.className === 'submit-project-button') {
+    if (event.target.className === 'submit-project-button') {
       const { title, description, resources, currentUserId } = this.state; 
 
       const newProject = {
@@ -62,35 +62,35 @@ class CreateProject extends Component {
         description: '',
         newResource: '',
         resources: []
-      })
+      });
     }
-    return
+    return;
   }
 
   addResource = (event, resource) => {
     event.preventDefault();
-    if(event.target.className === 'add-material-button') {
+    if (event.target.className === 'add-material-button') {
       let newResource = {name: resource};
       let resources = [...this.state.resources, newResource];
   
       this.setState({
         resources, 
         newResource: ''
-      })
+      });
     }
   }
 
   deleteMaterial = (item) => {
     let resources = this.state.resources.filter(resource => {
       return resource.name !== item;
-    })
+    });
     this.setState({
       resources
-    })
+    });
   }
 
   render() {
-    return(
+    return (
       <div className='create-project-section'>
         <NavLink className='view-projects-button' to='/Landing'>View Projects</NavLink>
         <div className='main-section'>
@@ -125,18 +125,22 @@ class CreateProject extends Component {
           </form>
           <div className='listed-materials'>
             <h1>Materials Needed:</h1>
-              {this.state.resources.map((resource, index) => {
-                return <div 
-                        key={index}
-                        className='list-item'>{`${index+1}. ${resource.name}`}
-                        <img onClick={() => this.deleteMaterial(resource.name)} alt='remove button' className='delete-material' src={deleteButton}/>
-                      </div>
-              })}
+            {this.state.resources.map((resource, index) => {
+              return <div 
+                key={index}
+                className='list-item'>{`${index+1}. ${resource.name}`}
+                <img onClick={() => this.deleteMaterial(resource.name)} alt='remove button' className='delete-material' src={deleteButton}/>
+              </div>;
+            })}
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
+
+CreateProject.propTypes = {
+  currentUser: PropTypes.object
+};
 
 export default CreateProject;

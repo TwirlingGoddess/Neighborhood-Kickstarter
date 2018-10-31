@@ -1,11 +1,12 @@
 import React from 'react';
-import UserProjectCard from './UserProjectCard';
+import EditResource from './EditResource';
 import { shallow } from 'enzyme';
 
-describe('UserProjectCard', () => {
+describe('EditResource', () => {
   let wrapper;
+  let mockResource = {};
   it('should match the snapshot', () => {
-    wrapper = shallow(<UserProjectCard />);
+    wrapper = shallow(<EditResource resource={mockResource}/>);
     expect(wrapper).toMatchSnapshot();
   });
 }); 

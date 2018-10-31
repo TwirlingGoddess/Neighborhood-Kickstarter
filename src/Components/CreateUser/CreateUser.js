@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-
-import { getNeighborhoods, addNewUserLocal } from '../../utilities/apiCalls/apiCalls'
-
-import './CreateUser.css'
+import { getNeighborhoods, addNewUserLocal } from '../../utilities/apiCalls/apiCalls';
+import './CreateUser.css';
+import PropTypes from 'prop-types';
 
 class CreateUser extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       allUsers: [],
       firstName: '',
@@ -17,7 +16,7 @@ class CreateUser extends Component {
       password: '',
       neighborhood: '',
       neighborhoods: []
-    }
+    };
   }
 
   componentDidMount = () => {
@@ -28,29 +27,29 @@ class CreateUser extends Component {
     const response = await getNeighborhoods();
 
     const neighborhoods = response.map(neighborhood => {
-      return { value: neighborhood.name, label: neighborhood.name, id: neighborhood.id }
-    })
+      return { value: neighborhood.name, label: neighborhood.name, id: neighborhood.id };
+    });
 
     this.setState({
       neighborhoods
-    })
+    });
   }
 
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
-    })
+    });
   }
 
   handleSelectChange = (selectedOption) => {
     const neighborhood = selectedOption;
     this.setState({
       neighborhood
-    })
+    });
   }
 
-  handleSubmit = async(event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
     let {firstName, lastName, email, password, neighborhood, userName} = this.state;
     let { updateUser } = this.props;
@@ -62,15 +61,13 @@ class CreateUser extends Component {
       username: userName,
       district_id: neighborhood.id,
       password
-    }
-    console.log(localSignIn)
+    };
 
-    let user = await addNewUserLocal(localSignIn)
-    console.log(user)
+    let user = await addNewUserLocal(localSignIn);
 
     if (user) {
-      updateUser(user)
-      this.props.history.push('/Landing')
+      updateUser(user);
+      this.props.history.push('/Landing');
     }
   }
 
@@ -129,8 +126,12 @@ class CreateUser extends Component {
           <button className='sign-up-button'>Sign Up</button>
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default CreateUser
+CreateUser.propTypes = {
+  history: PropTypes.array
+};
+
+export default CreateUser;
