@@ -5,9 +5,6 @@ import './ProjectCard.css';
 class ProjectCard extends Component {
   constructor() {
     super()
-    this.state = {
-    
-    }
   }
   
   viewComments = (project) => {
