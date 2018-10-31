@@ -1,11 +1,11 @@
 language: node_js
 node_js:
-- stable
+  - "10" 
 chache: 
   directories:
     - node_modules
 script:
-- npm test
-- npm run build
+  - npm test
+  - npm run build
 notifications:
   email: false
