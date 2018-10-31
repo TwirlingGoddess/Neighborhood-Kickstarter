@@ -21,7 +21,7 @@ Additional enhancements could include:
 * Incorporate separate Web Sockets service for real time chat for project members  
 * Image hosting for photos uploaded for a project, user profile photo
 * User profile where a user can update profile information like photo, or password
-* Encorporate a project schedule for when a task is going to be completed and who is completing it
+* Incorporate a project schedule for when a task is going to be completed and who is completing it
 * Allow users to send direct messages to one another  
 
 ## Screenshots  
