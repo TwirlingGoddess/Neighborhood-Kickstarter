@@ -24,7 +24,7 @@ ShallowWrapper {
           Sign In
         </h1>
         <input
-          className="signin-input-fields"
+          className="signin-input-fields username"
           name="userName"
           onChange={[Function]}
           placeholder="user name"
@@ -85,7 +85,7 @@ ShallowWrapper {
             Sign In
           </h1>,
           <input
-            className="signin-input-fields"
+            className="signin-input-fields username"
             name="userName"
             onChange={[Function]}
             placeholder="user name"
@@ -154,7 +154,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "className": "signin-input-fields",
+            "className": "signin-input-fields username",
             "name": "userName",
             "onChange": [Function],
             "placeholder": "user name",
@@ -252,7 +252,7 @@ ShallowWrapper {
             Sign In
           </h1>
           <input
-            className="signin-input-fields"
+            className="signin-input-fields username"
             name="userName"
             onChange={[Function]}
             placeholder="user name"
@@ -313,7 +313,7 @@ ShallowWrapper {
               Sign In
             </h1>,
             <input
-              className="signin-input-fields"
+              className="signin-input-fields username"
               name="userName"
               onChange={[Function]}
               placeholder="user name"
@@ -382,7 +382,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "className": "signin-input-fields",
+              "className": "signin-input-fields username",
               "name": "userName",
               "onChange": [Function],
               "placeholder": "user name",

@@ -68,7 +68,7 @@ class SignIn extends Component {
         <form className='sign-in-form' onSubmit={this.handleSubmit}>
           <h1>Sign In</h1>
           <input
-            className='signin-input-fields'
+            className='signin-input-fields username'
             name='userName'
             type='text'
             placeholder='user name'
