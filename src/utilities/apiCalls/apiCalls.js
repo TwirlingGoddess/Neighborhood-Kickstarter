@@ -108,3 +108,17 @@ export const editPostedProject = async (project, id) => {
     throw new Error(error.message);
   }
 };
+
+export const sendEmailConfirmation = async (user) => {
+  try {
+    await fetch(`https://shrieking-chupacabra-95509.herokuapp.com/api/v1/notification`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    });
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};

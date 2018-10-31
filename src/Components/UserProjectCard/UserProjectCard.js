@@ -17,7 +17,7 @@ class UserProjectCard extends Component {
     if (title) {
       return (
         <div className='selected-project-card'>
-          <img className='project-image' src={photo} alt='picture of the project'/>
+          <img className='project-image' src={photo} alt='view  of the project'/>
           <h2>project: {title}</h2>
           <h5>description: {description}</h5>
           {resources.map((resource, index) => {

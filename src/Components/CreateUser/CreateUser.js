@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import { getNeighborhoods, addNewUserLocal } from '../../utilities/apiCalls/apiCalls';
+import { getNeighborhoods, addNewUserLocal, sendEmailConfirmation } from '../../utilities/apiCalls/apiCalls';
 import './CreateUser.css';
 import PropTypes from 'prop-types';
 
@@ -66,6 +66,8 @@ class CreateUser extends Component {
     let user = await addNewUserLocal(localSignIn);
 
     if (user) {
+      let emailUser = {user_name: user.first_name, user_email: user.email};
+      await sendEmailConfirmation(emailUser);
       updateUser(user);
       this.props.history.push('/Landing');
     }
