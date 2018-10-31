@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import GoogleLogin from 'react-google-login';
-import { getNeighborhoods, addNewUser } from '../../utilities/apiCalls/apiCalls';
+import { getNeighborhoods, addNewUser, sendEmailConfirmation } from '../../utilities/apiCalls/apiCalls';
 import './CreateUserGoogle.css';
 import PropTypes from 'prop-types';
 
@@ -33,6 +33,8 @@ class CreateUserGoogle extends Component {
     const user = await addNewUser(googleSignIn);
 
     if (user.id) {
+      let emailUser = {user_name: user.first_name, user_email: user.email};
+      await sendEmailConfirmation(emailUser);
       updateUser(user);
       this.props.history.push('/Landing');
     }
