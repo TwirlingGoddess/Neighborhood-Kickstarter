@@ -69,7 +69,7 @@ class Contributions extends Component {
       return (
         <div className='project-comment-section'>
           <div className='project-section'>
-            <img className='selected-image' src={photo} alt='picture of the project'/>
+            <img className='selected-image' src={photo} alt='view if the project'/>
             <h2>title: {title}</h2>
             <h2>owner: {neighbor}</h2>
             <h2>contact: {contact}</h2>

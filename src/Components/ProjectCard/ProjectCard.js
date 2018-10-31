@@ -4,9 +4,6 @@ import './ProjectCard.css';
 import PropTypes from 'prop-types';
 
 class ProjectCard extends Component {
-  constructor() {
-    super();
-  }
   
   viewComments = (project) => {
     this.props.selectProject(project);
@@ -17,7 +14,7 @@ class ProjectCard extends Component {
     if (title) {
       return (
         <div className='Card'>
-          <img className='project-image' src={photo} alt='pciture of the project'/>
+          <img className='project-image' src={photo} alt='uploaded view of the project'/>
           <h2>project: {title}</h2>
           <h3>neighbor: {neighbor ? neighbor : first_name + ' ' + last_name}</h3>
           <h4>contact: {contact ? contact : email}</h4>

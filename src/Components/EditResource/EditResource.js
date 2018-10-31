@@ -46,7 +46,7 @@ class EditResource extends Component {
     return (
       <div className='edit-resource' onClick={() => this.switchStatus(this.props)}>
         <h1>{name}</h1>
-        {this.state.completed === 'fulfilled' ? <img className='check-button' src={check}/> : <h1>Status: {status}</h1>}
+        {this.state.completed === 'fulfilled' ? <img className='check-button' alt='description of the status' src={check}/> : <h1>Status: {status}</h1>}
       </div>
     );
   }
