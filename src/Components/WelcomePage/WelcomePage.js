@@ -12,6 +12,7 @@ class WelcomePage extends Component {
 
   handleLogin = () => {
     let loggingIn = !this.state.loggingIn;
+    
     this.setState({
       loggingIn
     }); 
