@@ -63,7 +63,7 @@ class UserProjects extends Component {
       }
     };
     await editPostedProject(editedProject, id);
-    this.props.history.push('/Landing')
+    this.props.history.push('/Landing');
   }
   
   render() {
@@ -109,7 +109,8 @@ class UserProjects extends Component {
 }
 
 UserProjects.propTypes = {
-  currentUser: PropTypes.object
+  currentUser: PropTypes.object,
+  history: PropTypes.array
 };
 
 export default UserProjects;

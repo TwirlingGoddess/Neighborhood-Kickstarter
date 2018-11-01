@@ -17,11 +17,13 @@ class EditResource extends Component {
 
   getResourceStatus = () => {
     let completed;
+
     if (this.props.resource.status === 'fulfilled') {
       completed = 'fulfilled';
     } else {
       completed = 'unfulfilled';
     }
+
     this.setState({
       completed
     });
@@ -29,6 +31,7 @@ class EditResource extends Component {
 
   switchStatus = (resource) => {
     let completed;
+
     if (this.state.completed === 'fulfilled') {
       completed = 'unfulfilled';
     } else if (this.state.completed === 'unfulfilled') {
@@ -38,6 +41,7 @@ class EditResource extends Component {
     this.setState({
       completed
     });
+    
     this.props.updateResources(resource, completed);
   }
 

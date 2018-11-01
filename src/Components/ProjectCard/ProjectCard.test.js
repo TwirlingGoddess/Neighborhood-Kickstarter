@@ -20,9 +20,9 @@ describe('ProjectCard', () => {
   });
 
   it('should only render a view comments button if there is a current user', () => {
-    let mockCurrentUser = {}
-    wrapper = shallow(<ProjectCard currentUser={mockCurrentUser}/>)
+    let mockCurrentUser = {};
+    wrapper = shallow(<ProjectCard currentUser={mockCurrentUser}/>);
 
-    expect(wrapper.find(NavLink)).toHaveLength(0)
-  })
+    expect(wrapper.find(NavLink)).toHaveLength(0);
+  });
 }); 

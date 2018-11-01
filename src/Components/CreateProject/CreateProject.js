@@ -69,6 +69,7 @@ class CreateProject extends Component {
 
   addResource = (event, resource) => {
     event.preventDefault();
+
     if (event.target.className === 'add-material-button') {
       let newResource = {name: resource};
       let resources = [...this.state.resources, newResource];
@@ -84,6 +85,7 @@ class CreateProject extends Component {
     let resources = this.state.resources.filter(resource => {
       return resource.name !== item;
     });
+    
     this.setState({
       resources
     });

@@ -21,6 +21,7 @@ class CreateUserGoogle extends Component {
 
   responseGoogle = async (response) => {
     let { updateUser } = this.props;
+
     let googleSignIn = {
       first_name: response.profileObj.givenName,
       last_name: response.profileObj.familyName,
@@ -34,8 +35,11 @@ class CreateUserGoogle extends Component {
 
     if (user.id) {
       let emailUser = {user_name: user.first_name, user_email: user.email};
+
       await sendEmailConfirmation(emailUser);
+
       updateUser(user);
+
       this.props.history.push('/Landing');
     }
   }
@@ -54,6 +58,7 @@ class CreateUserGoogle extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
+
     this.setState({
       [name]: value
     });
@@ -61,6 +66,7 @@ class CreateUserGoogle extends Component {
 
   handleSelectChange = (selectedOption) => {
     const neighborhood = selectedOption;
+    
     this.setState({
       neighborhood
     });

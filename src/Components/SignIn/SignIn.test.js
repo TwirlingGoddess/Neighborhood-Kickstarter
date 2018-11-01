@@ -1,6 +1,5 @@
 import React from 'react';
 import SignIn from './SignIn';
-import GoogleLogin from 'react-google-login';
 import { shallow } from 'enzyme';
 
 describe('SignIn', () => {
@@ -14,7 +13,7 @@ describe('SignIn', () => {
     let eventObject = { target: { name: 'userName', value: 'a' } };
 
     wrapper = shallow(<SignIn />);
-    wrapper.find('.username').simulate('change', eventObject)
+    wrapper.find('.username').simulate('change', eventObject);
     expect(wrapper.state('userName')).toEqual('a');
   });
 }); 

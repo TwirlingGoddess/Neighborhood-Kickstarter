@@ -26,8 +26,8 @@ describe('CreateUserGoogle', () => {
   });
 
   it('should call addNewUser after googleResponse is called', () => {
-    let mockAddUser = jest.fn()
+    let mockAddUser = jest.fn();
     wrapper = shallow(<CreateUserGoogle addNewUser={mockAddUser}/>);
 
-  })
+  });
 }); 

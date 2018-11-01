@@ -16,7 +16,7 @@ describe('UserProjectCard', () => {
 
     wrapper.instance().handleClick();
     expect(mockSelectProject).toHaveBeenCalled();
-  })
+  });
 
   
 }); 

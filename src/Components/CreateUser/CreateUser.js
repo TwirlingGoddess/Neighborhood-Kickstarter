@@ -37,6 +37,7 @@ class CreateUser extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
+
     this.setState({
       [name]: value
     });
@@ -44,6 +45,7 @@ class CreateUser extends Component {
 
   handleSelectChange = (selectedOption) => {
     const neighborhood = selectedOption;
+
     this.setState({
       neighborhood
     });
@@ -51,6 +53,7 @@ class CreateUser extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
+
     let {firstName, lastName, email, password, neighborhood, userName} = this.state;
     let { updateUser } = this.props;
 
@@ -67,8 +70,11 @@ class CreateUser extends Component {
 
     if (user) {
       let emailUser = {user_name: user.first_name, user_email: user.email};
+
       await sendEmailConfirmation(emailUser);
+
       updateUser(user);
+      
       this.props.history.push('/Landing');
     }
   }

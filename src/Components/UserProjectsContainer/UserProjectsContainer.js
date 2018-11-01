@@ -9,7 +9,6 @@ export const UserProjectsContainer = ({ userProjects, selectProject, currentUser
       key={index}
       selectProject={selectProject}
       currentUser={currentUser}
-
     />;
   });
 

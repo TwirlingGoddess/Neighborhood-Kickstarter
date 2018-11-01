@@ -20,6 +20,7 @@ class SignIn extends Component {
 
   setUsers = async () => {
     let allUsers = await getAllUsers();
+
     this.setState({
       allUsers
     });
@@ -32,6 +33,7 @@ class SignIn extends Component {
 
     if (foundUser.id) {
       this.props.updateUser(foundUser);
+
       this.props.history.push('/Landing');
     }
   }
@@ -46,6 +48,7 @@ class SignIn extends Component {
 
   handleSubmitLogin = async (event) => {
     event.preventDefault();
+
     let { userName, password } = this.state; 
     let user = {username: userName, password};
 
@@ -53,6 +56,7 @@ class SignIn extends Component {
 
     if (foundUser.id) {
       this.props.updateUser(foundUser);
+      
       this.props.history.push('/Landing');
     }
   }
