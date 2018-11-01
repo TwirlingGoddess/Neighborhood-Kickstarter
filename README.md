@@ -1,5 +1,8 @@
 # :house:	**NeighborHub**
 
+## Contributors
+Dennis Miller, LeeLee Graham, Stephen Malek, Angela Duran
+
 ## Background / About  
 NeighborHub is an application where users volunteer their help on neighborhood projects. Whether it be fixing an old bench in your neighborhood or painting an elderly neighbors fence, NeighborHub allows neighbors to come together to better their community. A user has the ability to create a project of their own, set the resources needed for the project, and allow other neighbors to write comments on a project with help and/or services they may be able to provide.
 
@@ -7,8 +10,8 @@ NeighborHub is an application where users volunteer their help on neighborhood p
 [NeighborHub](https://neighborhood-kickstarter.herokuapp.com/) on Heroku  
 
 ## APIs Used  
-* [NeighborHub API](https://guarded-garden-68388.herokuapp.com/) on Heroku  
-* [NeighborHubMail API](https://shrieking-chupacabra-95509.herokuapp.com/api/v1/) on Heroku  
+* [NeighborHub API](https://guarded-garden-68388.herokuapp.com/) on Heroku, repo is here: https://github.com/duranangela/neighborhood . 
+* [NeighborHubMail API](https://shrieking-chupacabra-95509.herokuapp.com/api/v1/) on Heroku, repo is here:https://github.com/duranangela/NeighborHubEmail . 
 
 ## Primary Technologies Used  
 * React  
