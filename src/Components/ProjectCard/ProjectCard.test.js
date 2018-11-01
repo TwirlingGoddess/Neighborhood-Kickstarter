@@ -1,7 +1,6 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
 import { shallow } from 'enzyme';
-import { NavLink } from 'react-router-dom';
 
 describe('ProjectCard', () => {
   let wrapper;

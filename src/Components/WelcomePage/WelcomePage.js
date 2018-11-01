@@ -30,7 +30,7 @@ class WelcomePage extends Component {
     return (
       <div className='user-link-section'>
         <div className='welcome-heading-section'>
-          <h1 className='welcome-heading'>Welome to</h1>
+          <h1 className='welcome-heading'>Welcome to</h1>
           <h1 className='welcome-heading'>NeighborHub</h1>
         </div>
         <div className='welcome-button-section'>
