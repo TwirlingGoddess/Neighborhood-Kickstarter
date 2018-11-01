@@ -1,7 +1,6 @@
 import React from 'react';
 import Landing from './Landing';
 import { shallow } from 'enzyme';
-import { wrap } from 'module';
 
 describe('Landing', () => {
   let wrapper;

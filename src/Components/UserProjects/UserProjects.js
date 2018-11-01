@@ -63,6 +63,7 @@ class UserProjects extends Component {
       }
     };
     await editPostedProject(editedProject, id);
+    this.props.history.push('/Landing')
   }
   
   render() {

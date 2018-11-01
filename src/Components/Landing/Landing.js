@@ -77,6 +77,7 @@ class Landing extends Component {
 
   handleSelectChange = (selectedOption) => {
     let neighborhood = selectedOption.value;
+    
     this.setState({
       neighborhood
     }, () => this.setNeighborhoods());

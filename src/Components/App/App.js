@@ -57,8 +57,8 @@ class App extends Component {
         <Route exact path= '/CreateProject' render={() => 
           <CreateProject currentUser={currentUser}/>
         }/>
-        <Route exact path= '/UserProjects' render={() => 
-          <UserProjects currentUser={currentUser}/>
+        <Route exact path= '/UserProjects' render={({history}) => 
+          <UserProjects currentUser={currentUser} history={history}/>
         }/>
         <Route exact path= '/Contributions' render={() => 
           <Contributions currentUser={currentUser} currentProject={this.state.currentProject} updateproject={this.updateproject}/>
