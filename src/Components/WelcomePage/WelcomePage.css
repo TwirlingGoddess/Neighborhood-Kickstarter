@@ -1,8 +1,28 @@
 .user-link-section {
   display: flex;
   width: 100%;
+  flex-direction: column;
   height: 100vh;
   justify-content: center;
+}
+
+.welcome-heading-section {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+}
+
+.welcome-heading {
+  font-family: 'Space Mono', monospace;
+  font-size: 6rem;
+  margin: 0;
+}
+
+.welcome-button-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 50%;
 }
 
 .user-link {
