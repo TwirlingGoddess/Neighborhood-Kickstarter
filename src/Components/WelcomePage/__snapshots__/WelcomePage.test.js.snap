@@ -18,29 +18,47 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <NavLink
-          activeClassName="active"
-          aria-current="page"
-          className="user-link"
-          to="/Landing"
+        <div
+          className="welcome-heading-section"
         >
-          View Projects
-        </NavLink>,
-        <NavLink
-          activeClassName="active"
-          aria-current="page"
-          className="user-link"
-          to="/SignIn"
+          <h1
+            className="welcome-heading"
+          >
+            Welome to
+          </h1>
+          <h1
+            className="welcome-heading"
+          >
+            NeighborHub
+          </h1>
+        </div>,
+        <div
+          className="welcome-button-section"
         >
-          Sign In
-        </NavLink>,
-        <button
-          className="user-link"
-          onClick={[Function]}
-          to="/SignIn"
-        >
-          Create Account
-        </button>,
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="user-link"
+            to="/Landing"
+          >
+            View Projects
+          </NavLink>
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="user-link"
+            to="/SignIn"
+          >
+            Sign In
+          </NavLink>
+          <button
+            className="user-link"
+            onClick={[Function]}
+            to="/SignIn"
+          >
+            Create Account
+          </button>
+        </div>,
       ],
       "className": "user-link-section",
     },
@@ -49,46 +67,131 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "activeClassName": "active",
-          "aria-current": "page",
-          "children": "View Projects",
-          "className": "user-link",
-          "to": "/Landing",
+          "children": Array [
+            <h1
+              className="welcome-heading"
+            >
+              Welome to
+            </h1>,
+            <h1
+              className="welcome-heading"
+            >
+              NeighborHub
+            </h1>,
+          ],
+          "className": "welcome-heading-section",
         },
         "ref": null,
-        "rendered": "View Projects",
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "activeClassName": "active",
-          "aria-current": "page",
-          "children": "Sign In",
-          "className": "user-link",
-          "to": "/SignIn",
-        },
-        "ref": null,
-        "rendered": "Sign In",
-        "type": [Function],
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Welome to",
+              "className": "welcome-heading",
+            },
+            "ref": null,
+            "rendered": "Welome to",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "NeighborHub",
+              "className": "welcome-heading",
+            },
+            "ref": null,
+            "rendered": "NeighborHub",
+            "type": "h1",
+          },
+        ],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Create Account",
-          "className": "user-link",
-          "onClick": [Function],
-          "to": "/SignIn",
+          "children": Array [
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="user-link"
+              to="/Landing"
+            >
+              View Projects
+            </NavLink>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="user-link"
+              to="/SignIn"
+            >
+              Sign In
+            </NavLink>,
+            <button
+              className="user-link"
+              onClick={[Function]}
+              to="/SignIn"
+            >
+              Create Account
+            </button>,
+          ],
+          "className": "welcome-button-section",
         },
         "ref": null,
-        "rendered": "Create Account",
-        "type": "button",
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": "View Projects",
+              "className": "user-link",
+              "to": "/Landing",
+            },
+            "ref": null,
+            "rendered": "View Projects",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": "Sign In",
+              "className": "user-link",
+              "to": "/SignIn",
+            },
+            "ref": null,
+            "rendered": "Sign In",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Create Account",
+              "className": "user-link",
+              "onClick": [Function],
+              "to": "/SignIn",
+            },
+            "ref": null,
+            "rendered": "Create Account",
+            "type": "button",
+          },
+        ],
+        "type": "div",
       },
     ],
     "type": "div",
@@ -100,29 +203,47 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <NavLink
-            activeClassName="active"
-            aria-current="page"
-            className="user-link"
-            to="/Landing"
+          <div
+            className="welcome-heading-section"
           >
-            View Projects
-          </NavLink>,
-          <NavLink
-            activeClassName="active"
-            aria-current="page"
-            className="user-link"
-            to="/SignIn"
+            <h1
+              className="welcome-heading"
+            >
+              Welome to
+            </h1>
+            <h1
+              className="welcome-heading"
+            >
+              NeighborHub
+            </h1>
+          </div>,
+          <div
+            className="welcome-button-section"
           >
-            Sign In
-          </NavLink>,
-          <button
-            className="user-link"
-            onClick={[Function]}
-            to="/SignIn"
-          >
-            Create Account
-          </button>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="user-link"
+              to="/Landing"
+            >
+              View Projects
+            </NavLink>
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="user-link"
+              to="/SignIn"
+            >
+              Sign In
+            </NavLink>
+            <button
+              className="user-link"
+              onClick={[Function]}
+              to="/SignIn"
+            >
+              Create Account
+            </button>
+          </div>,
         ],
         "className": "user-link-section",
       },
@@ -131,46 +252,131 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "activeClassName": "active",
-            "aria-current": "page",
-            "children": "View Projects",
-            "className": "user-link",
-            "to": "/Landing",
+            "children": Array [
+              <h1
+                className="welcome-heading"
+              >
+                Welome to
+              </h1>,
+              <h1
+                className="welcome-heading"
+              >
+                NeighborHub
+              </h1>,
+            ],
+            "className": "welcome-heading-section",
           },
           "ref": null,
-          "rendered": "View Projects",
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "activeClassName": "active",
-            "aria-current": "page",
-            "children": "Sign In",
-            "className": "user-link",
-            "to": "/SignIn",
-          },
-          "ref": null,
-          "rendered": "Sign In",
-          "type": [Function],
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Welome to",
+                "className": "welcome-heading",
+              },
+              "ref": null,
+              "rendered": "Welome to",
+              "type": "h1",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "NeighborHub",
+                "className": "welcome-heading",
+              },
+              "ref": null,
+              "rendered": "NeighborHub",
+              "type": "h1",
+            },
+          ],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Create Account",
-            "className": "user-link",
-            "onClick": [Function],
-            "to": "/SignIn",
+            "children": Array [
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                className="user-link"
+                to="/Landing"
+              >
+                View Projects
+              </NavLink>,
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                className="user-link"
+                to="/SignIn"
+              >
+                Sign In
+              </NavLink>,
+              <button
+                className="user-link"
+                onClick={[Function]}
+                to="/SignIn"
+              >
+                Create Account
+              </button>,
+            ],
+            "className": "welcome-button-section",
           },
           "ref": null,
-          "rendered": "Create Account",
-          "type": "button",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "aria-current": "page",
+                "children": "View Projects",
+                "className": "user-link",
+                "to": "/Landing",
+              },
+              "ref": null,
+              "rendered": "View Projects",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "aria-current": "page",
+                "children": "Sign In",
+                "className": "user-link",
+                "to": "/SignIn",
+              },
+              "ref": null,
+              "rendered": "Sign In",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Create Account",
+                "className": "user-link",
+                "onClick": [Function],
+                "to": "/SignIn",
+              },
+              "ref": null,
+              "rendered": "Create Account",
+              "type": "button",
+            },
+          ],
+          "type": "div",
         },
       ],
       "type": "div",
