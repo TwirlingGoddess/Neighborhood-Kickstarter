@@ -12,6 +12,8 @@
   color: white;
   font-size: x-large;
   overflow: scroll;
+  border-radius: 0.7em;
+
 }
 
 .comment-section {
@@ -29,7 +31,7 @@
   border-radius: 0.7em;
   font-size: 2rem;
   height: 10rem;
-  width: 80.5%;
+  width: 82.5%;
   background-color: transparent;
   border: 1px solid white;
   color: white
@@ -67,6 +69,7 @@
 }
 
 .selected-image {
+  width: 27.5rem;
   border-radius: 0.7em 0.7em 0 0;
   height: 20rem;
 }

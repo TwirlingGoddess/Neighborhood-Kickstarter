@@ -52,7 +52,7 @@ class UserProjects extends Component {
   }
 
   patchResources = async () => {
-    let { title, description, photo, resources, id} = this.state.selectedProject;
+    let { title, description, photo, resources, id } = this.state.selectedProject;
 
     let editedProject = {
       project: {
@@ -63,6 +63,7 @@ class UserProjects extends Component {
       }
     };
     await editPostedProject(editedProject, id);
+    this.props.history.push('/Landing')
   }
   
   render() {

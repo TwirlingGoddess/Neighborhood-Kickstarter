@@ -8,7 +8,8 @@ export const ProjectsContainer = ({ projects, selectProject, allUsers }) => {
     let userInfo = allUsers.find(user => {
       return user.id === project.owner_id;
     });
-    return <ProjectCard {...project}
+    return <ProjectCard 
+      {...project}
       {...userInfo}
       selectProject={selectProject}
       key={project.id}

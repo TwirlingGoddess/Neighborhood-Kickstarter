@@ -25,5 +25,4 @@ describe('CreateUser', () => {
     expect(wrapper.state('firstName')).toEqual('a');
   });
 
-  
 }); 

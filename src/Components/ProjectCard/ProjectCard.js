@@ -23,7 +23,7 @@ class ProjectCard extends Component {
           {resources.map((resource, index) => {
             return <h5 key={index}>{resource.name}</h5>;
           })}
-          <NavLink onClick={() => this.viewComments(this.props)} to='/Contributions'>Comments</NavLink>
+          <NavLink className='comments-button' onClick={() => this.viewComments(this.props)} to='/Contributions'>Comments</NavLink>
         </div>
       );
     } else {
