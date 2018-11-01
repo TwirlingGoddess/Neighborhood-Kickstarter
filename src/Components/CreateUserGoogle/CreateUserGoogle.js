@@ -66,17 +66,6 @@ class CreateUserGoogle extends Component {
     });
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-
-    this.setState({
-      userName: '',
-      neighborhood: ''
-    });
-
-    this.props.history.push('/Landing');
-  }
-
   render() {
     return (
       <div className='create-user-section'>

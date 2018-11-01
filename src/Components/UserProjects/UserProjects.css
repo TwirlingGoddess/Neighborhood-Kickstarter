@@ -35,7 +35,8 @@
 
 .edit-project-info {
   height: 40rem;
-  background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);  width: 20rem;
+  max-width: 30rem;
+  background-image: radial-gradient(to top, #09203f 0%, #537895 100%);
   padding: 2rem;
   border-radius: .7rem;
   border: 1px solid white;

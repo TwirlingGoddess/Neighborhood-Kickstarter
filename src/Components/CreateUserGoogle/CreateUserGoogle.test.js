@@ -1,7 +1,6 @@
 import React from 'react';
 import CreateUserGoogle from './CreateUserGoogle';
 import { shallow } from 'enzyme';
-import { addNewuser } from '../../utilities/apiCalls/apiCalls'
 
 describe('CreateUserGoogle', () => {
   let wrapper;
@@ -27,7 +26,8 @@ describe('CreateUserGoogle', () => {
   });
 
   it('should call addNewUser after googleResponse is called', () => {
-    
+    let mockAddUser = jest.fn()
+    wrapper = shallow(<CreateUserGoogle addNewUser={mockAddUser}/>);
+
   })
-  
 }); 

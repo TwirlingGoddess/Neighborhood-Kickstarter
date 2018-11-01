@@ -71,10 +71,10 @@ class Contributions extends Component {
           <div className='project-section'>
             <img className='selected-image' src={photo} alt='view if the project'/>
             <h2>title: {title}</h2>
-            <h2>owner: {neighbor}</h2>
-            <h2>contact: {contact}</h2>
-            <h2>description: {description}</h2>
-            <h2>needs:</h2>
+            <h3>owner: {neighbor}</h3>
+            <h3>contact: {contact}</h3>
+            <h3>description: {description}</h3>
+            <h3>needs:</h3>
             {resources.map((resource, index) => {
               return <h3 key={index}>{resource.name}</h3>;
             })}
