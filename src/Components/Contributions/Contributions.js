@@ -3,7 +3,6 @@ import { getProjectsComments, postNewComment } from '../../utilities/apiCalls/ap
 import './Contributions.css';
 import PropTypes from 'prop-types';
 
-
 class Contributions extends Component {
   constructor() {
     super();
@@ -21,6 +20,7 @@ class Contributions extends Component {
   setCurrentProject = () => {
     if (this.props.currentProject.id) {
       let id = this.props.currentProject.id;
+
       this.setState({
         selectedProject: this.props.currentProject
       }, () => this.getProjectComments(id));
@@ -29,9 +29,9 @@ class Contributions extends Component {
   }
 
   getProjectComments = async () => {
-    if (this.state.selectedProject.id) {
-      let projectId = this.state.selectedProject.id;
-  
+    let projectId = this.state.selectedProject.id;
+    
+    if (projectId) {
       let projectComments = await getProjectsComments(projectId);
 
       this.setState({
@@ -55,7 +55,9 @@ class Contributions extends Component {
     let newComment = {content: this.state.comment, user_id};
 
     await postNewComment(newComment, projectId);
+
     await this.getProjectComments();
+
     this.setState({
       comment: ''
     });
