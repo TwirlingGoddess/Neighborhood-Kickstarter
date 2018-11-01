@@ -1,37 +1,61 @@
 export const getNeighborhoods = async () => {
-  const response = await fetch('https://guarded-garden-68388.herokuapp.com/api/v1/neighborhoods');
-  const neighborhoods = await response.json();
-  return neighborhoods;
+  try {
+    const response = await fetch('https://guarded-garden-68388.herokuapp.com/api/v1/neighborhoods');
+    const neighborhoods = await response.json();
+    return neighborhoods;
+  } catch (error) {
+    throw new Error(error.message)
+  }
 };
 
 export const getProjects = async () => {
-  const response = await fetch('https://guarded-garden-68388.herokuapp.com/api/v1/projects');
-  const projects = await response.json();
-  return projects;
+  try {
+    const response = await fetch('https://guarded-garden-68388.herokuapp.com/api/v1/projects');
+    const projects = await response.json();
+    return projects;
+  } catch (error) {
+    throw new Error(error.message)
+  }
 };
 
 export const getNeighborhoodProjectsById = async (id) => {
-  const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/neighborhoods/${id}`);
-  const neighborhoodProjects = await response.json();
-  return neighborhoodProjects;
+  try {
+    const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/neighborhoods/${id}`);
+    const neighborhoodProjects = await response.json();
+    return neighborhoodProjects;
+  } catch (error) {
+    throw new Error(error.message)
+  }
 };
 
 export const getUserProjects = async (userId) => {
-  const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/users/${userId}/projects`);
-  const userProjects = await response.json();
-  return userProjects;
+  try {
+    const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/users/${userId}/projects`);
+    const userProjects = await response.json();
+    return userProjects;
+  } catch (error) {
+    throw new Error(error.message)
+  }
 };
 
 export const getAllUsers = async () => {
-  const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/users`);
-  const users = await response.json();
-  return users;
+  try {
+    const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/users`);
+    const users = await response.json();
+    return users;
+  } catch (error) {
+    throw new Error(error.message)
+  }
 };
 
 export const getProjectsComments = async (id) => {
-  const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/projects/${id}/comments`);
-  const comments = response.json();
-  return comments;
+  try {
+    const response = await fetch(`https://guarded-garden-68388.herokuapp.com/api/v1/projects/${id}/comments`);
+    const comments = response.json();
+    return comments;
+  } catch (error) {
+    throw new Error(error.message)
+  }
 };
 
 export const addNewUser = async (user) => {
