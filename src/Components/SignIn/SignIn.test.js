@@ -17,13 +17,4 @@ describe('SignIn', () => {
     wrapper.find('.username').simulate('change', eventObject)
     expect(wrapper.state('userName')).toEqual('a');
   });
-
-  it('should sign in with google if the google button is clicked', () => {
-    let mockGetCurrentUser = jest.fn();
-
-    wrapper = shallow(<SignIn getCurrentUser={mockGetCurrentUser}/>);
-    wrapper.instance().responseGoogle();
-
-
-  })
 }); 

@@ -52,7 +52,7 @@ class UserProjects extends Component {
   }
 
   patchResources = async () => {
-    let { title, description, photo, resources, id} = this.state.selectedProject;
+    let { title, description, photo, resources, id } = this.state.selectedProject;
 
     let editedProject = {
       project: {
