@@ -10,8 +10,8 @@ NeighborHub is an application where users volunteer their help on neighborhood p
 [NeighborHub](https://neighborhood-kickstarter.herokuapp.com/) on Heroku  
 
 ## APIs Used  
-* [NeighborHub API](https://guarded-garden-68388.herokuapp.com/) on Heroku, repo is here: https://github.com/duranangela/neighborhood . 
-* [NeighborHubMail API](https://shrieking-chupacabra-95509.herokuapp.com/api/v1/) on Heroku, repo is here:https://github.com/duranangela/NeighborHubEmail . 
+* [NeighborHub API](https://guarded-garden-68388.herokuapp.com/) on Heroku, or see the [repo](https://github.com/duranangela/neighborhood) . 
+* [NeighborHubMail API](https://shrieking-chupacabra-95509.herokuapp.com/api/v1/) on Heroku, or see the [repo](https://github.com/duranangela/NeighborHubEmail) . 
 
 ## Primary Technologies Used  
 * React  
