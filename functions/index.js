@@ -50,6 +50,7 @@ exports.onFileDelete = functions.storage.object().onDelete(event => {
 
 exports.uploadFile = functions.https.onRequest((req, res) => {
   cors(req, res, () => {
+    console.log(req, res)
     if (req.method !== "POST") {
       return res.status(500).json({
         message: "Not allowed"
@@ -72,7 +73,7 @@ exports.uploadFile = functions.https.onRequest((req, res) => {
           uploadType: "media",
           metadata: {
             metadata: {
-              contentType: uploadData.type
+              'Content-Type': uploadData.type
             }
           }
         })
@@ -83,7 +84,7 @@ exports.uploadFile = functions.https.onRequest((req, res) => {
         })
         .catch(err => {
           res.status(500).json({
-            error: err
+            error: err.message
           });
         });
     });

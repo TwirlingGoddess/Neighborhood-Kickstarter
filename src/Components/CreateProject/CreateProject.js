@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import './CreateProject.css';
 import deleteButton from '../../images/x-button.svg';
 import { postNewProject } from '../../utilities/apiCalls/apiCalls';
-import axios from 'axios';
 
 class CreateProject extends Component {
   constructor() {
@@ -83,22 +82,48 @@ class CreateProject extends Component {
     }
   }
 
-  handlePhoto = (event) => {
+  handlePhoto = async (event) => {
     const image = event.target.files[0]
-    console.log(image)
-    this.setState({
-      photo: image
-    })
-    this.photoUploadHandler(image)
-  }
 
-  photoUploadHandler = (image) => {
-    const formData = new FormData();
-    formData.append('image', image, image.name)
-    axios.post('https://us-central1-fir-demo-85716.cloudfunctions.net/uploadFile')
-      .then(res => {
-        console.log(res)
-      })
+    const xmlImage = `
+    <Contents>
+        <Key>Screen Shot 2018-05-01 at 12.24.10 PM copy.png</Key>
+        <LastModified>2018-10-31T21:48:52.000Z</LastModified>
+        <ETag>&quot;45edc57f143cf68cc42c3b1a0341958f&quot;</ETag>
+        <Size>521651</Size>
+        <StorageClass>STANDARD</StorageClass>
+    </Contents>
+    `
+    const url = 'http://neighbor-hub-images.s3.amazonaws.com'
+    const settings = {
+      method: 'POST'
+      ,
+      headers: {
+        Accept: 'application/json',
+        // 'Content-Type': 'multipart/form-data',
+        'Access-Control-Allow-Origin': '*'
+        },
+      body: xmlImage
+    }
+
+    try{
+      const response = await fetch(url, settings);
+      console.log(response)
+      const data = await response.text();
+      console.log(data)
+      const string = await (new window.DOMParser()).parseFromString(data, "text/xml")
+      console.log(string)
+
+        if (response.ok) {
+          console.log(response)
+            // return response
+        } else {
+            console.log('response is not ok')
+        }
+    } catch (error) {
+        console.log(error.message)
+    }
+
   }
 
   deleteMaterial = (item) => {
