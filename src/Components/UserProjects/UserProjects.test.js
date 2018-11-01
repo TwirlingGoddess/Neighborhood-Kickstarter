@@ -10,8 +10,8 @@ describe('UserProjects', () => {
   });
 
   it('should have a default state', () => {
-    expect(wrapper.state('userProjects')).toEqual([])
-    expect(wrapper.state('selectedProject')).toEqual({})
-    expect(wrapper.state('editedResources')).toEqual([])
-  })
+    expect(wrapper.state('userProjects')).toEqual([]);
+    expect(wrapper.state('selectedProject')).toEqual({});
+    expect(wrapper.state('editedResources')).toEqual([]);
+  });
 });

@@ -15,12 +15,19 @@ export const ProjectsContainer = ({ projects, selectProject, allUsers }) => {
       key={project.id}
     />;
   });
-
-  return (
-    <div className='Container'>
-      {displayProjects}
-    </div>
-  );
+  if (projects.length) {
+    return (
+      <div className='Container'>
+        {displayProjects}
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h1>No projects in this neighborhood</h1>
+      </div>
+    );
+  }
 };
 
 ProjectsContainer.propTypes = {
