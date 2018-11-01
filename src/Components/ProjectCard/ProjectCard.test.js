@@ -5,24 +5,18 @@ import { NavLink } from 'react-router-dom';
 
 describe('ProjectCard', () => {
   let wrapper;
+  let mockResources = []
   it('should match the snapshot', () => {
-    wrapper = shallow(<ProjectCard />);
+    wrapper = shallow(<ProjectCard resources={mockResources}/>);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should call selectProject when viewComments is called', () => {
     let mockSelectProject = jest.fn();
-    wrapper = shallow(<ProjectCard selectProject={mockSelectProject}/>);
+    wrapper = shallow(<ProjectCard selectProject={mockSelectProject} resources={mockResources}/>);
 
     wrapper.instance().viewComments();
 
     expect(mockSelectProject).toHaveBeenCalled();
-  });
-
-  it('should only render a view comments button if there is a current user', () => {
-    let mockCurrentUser = {};
-    wrapper = shallow(<ProjectCard currentUser={mockCurrentUser}/>);
-
-    expect(wrapper.find(NavLink)).toHaveLength(0);
   });
 }); 
