@@ -5,7 +5,7 @@ import deleteButton from '../../images/x-button.svg';
 import { postNewProject } from '../../utilities/apiCalls/apiCalls';
 import sha256 from 'crypto-js';
 import CryptoJS from 'crypto-js';
-
+import PropTypes from 'prop-types';
 
 class CreateProject extends Component {
   constructor() {
@@ -22,6 +22,8 @@ class CreateProject extends Component {
               '20181031/us-west-1/neighbor-hub-images/aws4_request'+
               '9bef5cbf5aa49f5a70e769ad4e8271843f06a84ac9248dd49fd80f18f729874f'
     }
+      resources: []
+    };
   }
 
   componentDidMount = () => {
@@ -30,21 +32,20 @@ class CreateProject extends Component {
 
   updateCurrentUser = () => {
     let currentUserId = this.props.currentUser.id;
-    console.log(currentUserId)
 
-    if(currentUserId) {
+    if (currentUserId) {
       this.setState({
         currentUserId
-      })
+      });
     }
-    return 
+    return; 
   }
 
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
-    })
+    });
   }
 
   handleSubmit = async (event) => {
@@ -73,19 +74,20 @@ class CreateProject extends Component {
         photo: null,
       })
     }
-    return
+    return;
   }
 
   addResource = (event, resource) => {
     event.preventDefault();
-    if(event.target.className === 'add-material-button') {
+
+    if (event.target.className === 'add-material-button') {
       let newResource = {name: resource};
       let resources = [...this.state.resources, newResource];
   
       this.setState({
         resources, 
         newResource: ''
-      })
+      });
     }
   }
 
@@ -140,10 +142,11 @@ class CreateProject extends Component {
   deleteMaterial = (item) => {
     let resources = this.state.resources.filter(resource => {
       return resource.name !== item;
-    })
+    });
+    
     this.setState({
       resources
-    })
+    });
   }
 
 
@@ -167,7 +170,7 @@ class CreateProject extends Component {
 
 
   render() {
-    return(
+    return (
       <div className='create-project-section'>
         <NavLink className='view-projects-button' to='/Landing'>View Projects</NavLink>
         <div className='main-section'>
@@ -230,18 +233,22 @@ class CreateProject extends Component {
 
           <div className='listed-materials'>
             <h1>Materials Needed:</h1>
-              {this.state.resources.map((resource, index) => {
-                return <div 
-                        key={index}
-                        className='list-item'>{`${index+1}. ${resource.name}`}
-                        <img onClick={() => this.deleteMaterial(resource.name)} alt='remove button' className='delete-material' src={deleteButton}/>
-                      </div>
-              })}
+            {this.state.resources.map((resource, index) => {
+              return <div 
+                key={index}
+                className='list-item'>{`${index+1}. ${resource.name}`}
+                <img onClick={() => this.deleteMaterial(resource.name)} alt='remove button' className='delete-material' src={deleteButton}/>
+              </div>;
+            })}
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
+
+CreateProject.propTypes = {
+  currentUser: PropTypes.object
+};
 
 export default CreateProject;

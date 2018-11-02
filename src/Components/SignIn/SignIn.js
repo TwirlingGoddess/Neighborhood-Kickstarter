@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
-import { getUser, getAllUsers } from '../../utilities/apiCalls/apiCalls'
-import './SignIn.css'
+import { getAllUsers, addNewUser, addNewUserLocal } from '../../utilities/apiCalls/apiCalls';
+import './SignIn.css';
+import PropTypes from 'prop-types';
 
 class SignIn extends Component {
   constructor() {
@@ -10,7 +11,7 @@ class SignIn extends Component {
       userName: '',
       password: '',
       allUsers: []
-    }
+    };
   }
 
   componentDidMount = () => {
@@ -19,43 +20,50 @@ class SignIn extends Component {
 
   setUsers = async () => {
     let allUsers = await getAllUsers();
-    console.log(allUsers)
+
     this.setState({
       allUsers
-    })
+    });
   }
 
-  getCurrentUser = (token) => {
-    let foundUser = this.state.allUsers.find(user => {
-      return user.token === token
-    })
-    if(foundUser) {
-      this.props.updateUser(foundUser)
-      this.props.history.push('/Landing')
+  getCurrentUser = async (id, email) => {
+    let user = {password: id, email};
+  
+    let foundUser = await addNewUser(user);
+
+    if (foundUser.id) {
+      this.props.updateUser(foundUser);
+
+      this.props.history.push('/Landing');
     }
   }
 
   handleChange = (event) => {
     const { name, value } = event.target;
+
     this.setState({
       [name]: value
-    })
+    });
   }
 
-  handleSubmit = (event) => {
+  handleSubmitLogin = async (event) => {
     event.preventDefault();
-    this.setState({
-      userName: '',
-      password: ''
-    })
+
+    let { userName, password } = this.state; 
+    let user = {username: userName, password};
+
+    let foundUser = await addNewUserLocal(user);
+
+    if (foundUser.id) {
+      this.props.updateUser(foundUser);
+      
+      this.props.history.push('/Landing');
+    }
   }
 
   responseGoogle = async (response) => {
-    let googleSignIn = {
-      token: response.accessToken
-    };
-
-    this.getCurrentUser(response.profileObj.googleId)
+    let email = response.profileObj.email;
+    this.getCurrentUser(response.profileObj.googleId, email);
   }
 
   render() {
@@ -64,7 +72,7 @@ class SignIn extends Component {
         <form className='sign-in-form' onSubmit={this.handleSubmit}>
           <h1>Sign In</h1>
           <input
-            className='signin-input-fields'
+            className='signin-input-fields username'
             name='userName'
             type='text'
             placeholder='user name'
@@ -79,7 +87,7 @@ class SignIn extends Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
-          <button className='sign-in-button'>Sign In</button>
+          <button onClick={this.handleSubmitLogin} className='sign-in-button'>Sign In</button>
           <span>OR</span>
           <GoogleLogin
             clientId="603748791729-1qgv1pg7tl426jut42re2tnub34nu0hu.apps.googleusercontent.com"
@@ -90,7 +98,13 @@ class SignIn extends Component {
           />
         </form>
       </div>
-    )
+    );
   }
 }
-export default SignIn
+
+SignIn.propTypes = {
+  updateUser: PropTypes.func,
+  history: PropTypes.array
+};
+
+export default SignIn;

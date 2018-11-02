@@ -1,0 +1,111 @@
+.project-comment-section {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.project-section {
+  width: 35%;
+  height: 90vh;
+  background-image: radial-gradient(to top, #09203f 0%, #537895 100%);
+  margin: 1rem 3rem;
+  color: white;
+  font-size: x-large;
+  overflow: scroll;
+  border-radius: 0.7em;
+
+}
+
+.comment-section {
+  margin: 1rem 3rem;
+  height: 95vh;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column-reverse;
+  width: 65%;
+  border-radius: 0.7em;
+
+}
+
+.add-comment-input {
+  border-radius: 0.7em;
+  font-size: 2rem;
+  height: 10rem;
+  width: 82.5%;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white
+}
+
+.comment-box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 1rem;
+  width: 79%;
+  background-repeat: no-repeat;
+  height: 30rem;
+  overflow: scroll;
+  border: 1px solid white;
+  margin-bottom: 1rem;
+  border-radius: 0.7em;
+
+}
+
+.comment,
+.comment-owner {
+  color: white;
+  margin-bottom: .2rem
+}
+
+.comment-div {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  border-bottom: 1px solid #fff;
+  
+}
+
+.selected-image {
+  width: 27.5rem;
+  border-radius: 0.7em 0.7em 0 0;
+  height: 20rem;
+}
+
+.submit-comment {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border-radius: 0.6em;
+  cursor: pointer;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1em 1em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border-color: #3498db;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  transition: all 150ms ease-in-out;
+  width: 20rem;
+  max-height: 4rem;
+  margin-right: 10rem;
+}
+
+.comment-header {
+  color: white;
+}
+
+.submit-comment:hover {
+  color: #fff;
+  outline: 0;
+  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+}

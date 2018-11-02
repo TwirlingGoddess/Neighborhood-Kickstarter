@@ -1,0 +1,569 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateUser should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CreateUser />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <form
+        className="create-user-form"
+        onSubmit={[Function]}
+      >
+        <h1>
+          Create Account
+        </h1>
+        <input
+          className="input-fields first-name-input"
+          name="firstName"
+          onChange={[Function]}
+          placeholder="first name"
+          type="text"
+          value=""
+        />
+        <input
+          className="input-fields last-name-input"
+          name="lastName"
+          onChange={[Function]}
+          placeholder="last name"
+          type="text"
+          value=""
+        />
+        <input
+          className="input-fields"
+          name="userName"
+          onChange={[Function]}
+          placeholder="user name"
+          type="text"
+          value=""
+        />
+        <input
+          className="input-fields email-input"
+          name="email"
+          onChange={[Function]}
+          placeholder="email"
+          type="email"
+          value=""
+        />
+        <input
+          className="input-fields"
+          name="password"
+          onChange={[Function]}
+          placeholder="password"
+          type="text"
+          value=""
+        />
+        <StateManager
+          className="select-input"
+          defaultInputValue=""
+          defaultMenuIsOpen={false}
+          defaultValue={null}
+          onChange={[Function]}
+          options={Array []}
+          placeholder="Select your neighborhood"
+          value=""
+        />
+        <button
+          className="sign-up-button"
+        >
+          Sign Up
+        </button>
+      </form>,
+      "className": "create-user-section",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            Create Account
+          </h1>,
+          <input
+            className="input-fields first-name-input"
+            name="firstName"
+            onChange={[Function]}
+            placeholder="first name"
+            type="text"
+            value=""
+          />,
+          <input
+            className="input-fields last-name-input"
+            name="lastName"
+            onChange={[Function]}
+            placeholder="last name"
+            type="text"
+            value=""
+          />,
+          <input
+            className="input-fields"
+            name="userName"
+            onChange={[Function]}
+            placeholder="user name"
+            type="text"
+            value=""
+          />,
+          <input
+            className="input-fields email-input"
+            name="email"
+            onChange={[Function]}
+            placeholder="email"
+            type="email"
+            value=""
+          />,
+          <input
+            className="input-fields"
+            name="password"
+            onChange={[Function]}
+            placeholder="password"
+            type="text"
+            value=""
+          />,
+          <StateManager
+            className="select-input"
+            defaultInputValue=""
+            defaultMenuIsOpen={false}
+            defaultValue={null}
+            onChange={[Function]}
+            options={Array []}
+            placeholder="Select your neighborhood"
+            value=""
+          />,
+          <button
+            className="sign-up-button"
+          >
+            Sign Up
+          </button>,
+        ],
+        "className": "create-user-form",
+        "onSubmit": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Create Account",
+          },
+          "ref": null,
+          "rendered": "Create Account",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "input-fields first-name-input",
+            "name": "firstName",
+            "onChange": [Function],
+            "placeholder": "first name",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "input-fields last-name-input",
+            "name": "lastName",
+            "onChange": [Function],
+            "placeholder": "last name",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "input-fields",
+            "name": "userName",
+            "onChange": [Function],
+            "placeholder": "user name",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "input-fields email-input",
+            "name": "email",
+            "onChange": [Function],
+            "placeholder": "email",
+            "type": "email",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "input-fields",
+            "name": "password",
+            "onChange": [Function],
+            "placeholder": "password",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "className": "select-input",
+            "defaultInputValue": "",
+            "defaultMenuIsOpen": false,
+            "defaultValue": null,
+            "onChange": [Function],
+            "options": Array [],
+            "placeholder": "Select your neighborhood",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sign Up",
+            "className": "sign-up-button",
+          },
+          "ref": null,
+          "rendered": "Sign Up",
+          "type": "button",
+        },
+      ],
+      "type": "form",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <form
+          className="create-user-form"
+          onSubmit={[Function]}
+        >
+          <h1>
+            Create Account
+          </h1>
+          <input
+            className="input-fields first-name-input"
+            name="firstName"
+            onChange={[Function]}
+            placeholder="first name"
+            type="text"
+            value=""
+          />
+          <input
+            className="input-fields last-name-input"
+            name="lastName"
+            onChange={[Function]}
+            placeholder="last name"
+            type="text"
+            value=""
+          />
+          <input
+            className="input-fields"
+            name="userName"
+            onChange={[Function]}
+            placeholder="user name"
+            type="text"
+            value=""
+          />
+          <input
+            className="input-fields email-input"
+            name="email"
+            onChange={[Function]}
+            placeholder="email"
+            type="email"
+            value=""
+          />
+          <input
+            className="input-fields"
+            name="password"
+            onChange={[Function]}
+            placeholder="password"
+            type="text"
+            value=""
+          />
+          <StateManager
+            className="select-input"
+            defaultInputValue=""
+            defaultMenuIsOpen={false}
+            defaultValue={null}
+            onChange={[Function]}
+            options={Array []}
+            placeholder="Select your neighborhood"
+            value=""
+          />
+          <button
+            className="sign-up-button"
+          >
+            Sign Up
+          </button>
+        </form>,
+        "className": "create-user-section",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h1>
+              Create Account
+            </h1>,
+            <input
+              className="input-fields first-name-input"
+              name="firstName"
+              onChange={[Function]}
+              placeholder="first name"
+              type="text"
+              value=""
+            />,
+            <input
+              className="input-fields last-name-input"
+              name="lastName"
+              onChange={[Function]}
+              placeholder="last name"
+              type="text"
+              value=""
+            />,
+            <input
+              className="input-fields"
+              name="userName"
+              onChange={[Function]}
+              placeholder="user name"
+              type="text"
+              value=""
+            />,
+            <input
+              className="input-fields email-input"
+              name="email"
+              onChange={[Function]}
+              placeholder="email"
+              type="email"
+              value=""
+            />,
+            <input
+              className="input-fields"
+              name="password"
+              onChange={[Function]}
+              placeholder="password"
+              type="text"
+              value=""
+            />,
+            <StateManager
+              className="select-input"
+              defaultInputValue=""
+              defaultMenuIsOpen={false}
+              defaultValue={null}
+              onChange={[Function]}
+              options={Array []}
+              placeholder="Select your neighborhood"
+              value=""
+            />,
+            <button
+              className="sign-up-button"
+            >
+              Sign Up
+            </button>,
+          ],
+          "className": "create-user-form",
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Create Account",
+            },
+            "ref": null,
+            "rendered": "Create Account",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "input-fields first-name-input",
+              "name": "firstName",
+              "onChange": [Function],
+              "placeholder": "first name",
+              "type": "text",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "input-fields last-name-input",
+              "name": "lastName",
+              "onChange": [Function],
+              "placeholder": "last name",
+              "type": "text",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "input-fields",
+              "name": "userName",
+              "onChange": [Function],
+              "placeholder": "user name",
+              "type": "text",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "input-fields email-input",
+              "name": "email",
+              "onChange": [Function],
+              "placeholder": "email",
+              "type": "email",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "input-fields",
+              "name": "password",
+              "onChange": [Function],
+              "placeholder": "password",
+              "type": "text",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "defaultInputValue": "",
+              "defaultMenuIsOpen": false,
+              "defaultValue": null,
+              "onChange": [Function],
+              "options": Array [],
+              "placeholder": "Select your neighborhood",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Sign Up",
+              "className": "sign-up-button",
+            },
+            "ref": null,
+            "rendered": "Sign Up",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

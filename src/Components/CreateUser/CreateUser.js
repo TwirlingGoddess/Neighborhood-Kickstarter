@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-
-import { getNeighborhoods } from '../../utilities/apiCalls/apiCalls'
-
-import './CreateUser.css'
+import { getNeighborhoods, addNewUserLocal, sendEmailConfirmation } from '../../utilities/apiCalls/apiCalls';
+import './CreateUser.css';
+import PropTypes from 'prop-types';
 
 class CreateUser extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
+      allUsers: [],
       firstName: '',
       lastName: '',
       userName: '',
       email: '',
+      password: '',
       neighborhood: '',
       neighborhoods: []
-    }
+    };
   }
 
   componentDidMount = () => {
@@ -26,39 +27,56 @@ class CreateUser extends Component {
     const response = await getNeighborhoods();
 
     const neighborhoods = response.map(neighborhood => {
-      return { value: neighborhood.name, label: neighborhood.name }
-    })
+      return { value: neighborhood.name, label: neighborhood.name, id: neighborhood.id };
+    });
 
     this.setState({
       neighborhoods
-    })
+    });
   }
 
   handleChange = (event) => {
     const { name, value } = event.target;
+
     this.setState({
       [name]: value
-    })
+    });
   }
 
   handleSelectChange = (selectedOption) => {
     const neighborhood = selectedOption;
+
     this.setState({
       neighborhood
-    })
+    });
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
 
-    this.setState({
-      firstName:'',
-      lastName: '',
-      email: '',
-      password: '',
-      neighborhood: ''
-    })
-    // this.props.history.push('/Landing')
+    let {firstName, lastName, email, password, neighborhood, userName} = this.state;
+    let { updateUser } = this.props;
+
+    let localSignIn = {
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      username: userName,
+      district_id: neighborhood.id,
+      password
+    };
+
+    let user = await addNewUserLocal(localSignIn);
+
+    if (user) {
+      let emailUser = {user_name: user.first_name, user_email: user.email};
+
+      await sendEmailConfirmation(emailUser);
+
+      updateUser(user);
+      
+      this.props.history.push('/Landing');
+    }
   }
 
   render() {
@@ -87,7 +105,7 @@ class CreateUser extends Component {
             name='userName'
             type='text'
             value={this.state.userName}
-            placeholder='User Name'
+            placeholder='user name'
             onChange={this.handleChange}
           />
           <input 
@@ -96,6 +114,14 @@ class CreateUser extends Component {
             type='email'
             value={this.state.email}
             placeholder='email'
+            onChange={this.handleChange}
+          />
+          <input
+            className='input-fields'
+            name='password'
+            type='text'
+            value={this.state.password}
+            placeholder='password'
             onChange={this.handleChange}
           />
           <Select
@@ -108,8 +134,12 @@ class CreateUser extends Component {
           <button className='sign-up-button'>Sign Up</button>
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default CreateUser
+CreateUser.propTypes = {
+  history: PropTypes.array
+};
+
+export default CreateUser;
