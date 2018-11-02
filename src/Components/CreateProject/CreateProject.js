@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import './CreateProject.css';
 import deleteButton from '../../images/x-button.svg';
 import { postNewProject } from '../../utilities/apiCalls/apiCalls';
-  var crypto = require("crypto-js");
+import sha256 from 'crypto-js';
+import CryptoJS from 'crypto-js';
 
 
 class CreateProject extends Component {
@@ -16,6 +17,10 @@ class CreateProject extends Component {
       newResource: '',
       resources: [],
       photo: null,
+      string: 'AWS4-HMAC-SHA256'+
+              '20181031T193600Z'+
+              '20181031/us-west-1/neighbor-hub-images/aws4_request'+
+              '9bef5cbf5aa49f5a70e769ad4e8271843f06a84ac9248dd49fd80f18f729874f'
     }
   }
 
@@ -142,20 +147,26 @@ class CreateProject extends Component {
   }
 
 
-function getSignatureKey(Crypto, key, dateStamp, regionName, serviceName) {
-    var kDate = Crypto.HmacSHA256(dateStamp, "AWS4" + key);
-    var kRegion = Crypto.HmacSHA256(regionName, kDate);
-    var kService = Crypto.HmacSHA256(serviceName, kRegion);
-    var kSigning = Crypto.HmacSHA256("aws4_request", kService);
-    return kSigning;
-}
+  getSignatureKey = (key, dateStamp, regionName, serviceName) => {
+      var kDate = sha256.HmacSHA256(dateStamp, "AWS4" + key);
+      var kRegion = sha256.HmacSHA256(regionName, kDate);
+      var kService = sha256.HmacSHA256(serviceName, kRegion);
+      var kSigning = sha256.HmacSHA256("aws4_request", kService);
+      var signature = sha256.HmacSHA256(kSigning, this.state.string)
+      const filteredSigs = signature.words.reduce((accu, element) => {
+        return accu + `${element}`
+      }, '')
+      var hexicode = filteredSigs.toString(16)
+      console.log(hexicode)
+      this.setState({
+        photo: hexicode
+      })
+      console.log(hexicode)
+      return ;
+  }
+
 
   render() {
-    const StringToSign =
-    'AWS4-HMAC-SHA256'+
-    '20181031T193600Z'+
-    '20181031/us-west-1/neighbor-hub-images/aws4_request'+
-    '9bef5cbf5aa49f5a70e769ad4e8271843f06a84ac9248dd49fd80f18f729874f'
     return(
       <div className='create-project-section'>
         <NavLink className='view-projects-button' to='/Landing'>View Projects</NavLink>
@@ -200,7 +211,7 @@ function getSignatureKey(Crypto, key, dateStamp, regionName, serviceName) {
             <button className='submit-project-button' onClick={this.handleSubmit}>Submit Project</button>
           </form>
 
-          <form action="http://neighbor-hub-images.s3.amazonaws.com/" method="post" encType="multipart/form-data">
+          <form action="http://neighbor-hub-images.s3.amazonaws.com/" method="post" encType="multipart/form-data" onClick={() => this.getSignatureKey('AKIAIXU4Q4Y4XZWUK4SQXJamJ4XXyyHKx0IeRfj05xd/585rx3aU5u7OKdam' , '20181031','us-west-1','aws4_request')}>
             <input type="input"  name="key" value="user/user1/${filename}" /><br />
             <input type="hidden" name="acl" value="public-read" />
             <input type="hidden" name="success_action_redirect" value="http://neighbor-hub-images.s3.amazonaws.com/successful_upload.html" />
@@ -211,8 +222,8 @@ function getSignatureKey(Crypto, key, dateStamp, regionName, serviceName) {
             <input type="text"   name="X-Amz-Algorithm" value="AWS4-HMAC-SHA256" />
             <input type="text"   name="X-Amz-Date" value="20181031T193600Z" />
             <input type="input"  name="x-amz-meta-tag" value="" /><br />
-            <input type="hidden" name="Policy" value="eyAiZXhwaXJhdGlvbiI6ICIyMDE1LTEyLTMwVDEyOjAwOjAwLjAwMFoiLA0KICAiY29uZGl0aW9ucyI6IFsNCiAgICB7ImJ1Y2tldCI6ICJzaWd2NGV4YW1wbGVidWNrZXQifSwNCiAgICBbInN0YXJ0cy13aXRoIiwgIiRrZXkiLCAidXNlci91c2VyMS8iXSwNCiAgICB7ImFjbCI6ICJwdWJsaWMtcmVhZCJ9LA0KICAgIHsic3VjY2Vzc19hY3Rpb25fcmVkaXJlY3QiOiAiaHR0cDovL3NpZ3Y0ZXhhbXBsZWJ1Y2tldC5zMy5hbWF6b25hd3MuY29tL3N1Y2Nlc3NmdWxfdXBsb2FkLmh0bWwifSwNCiAgICBbInN0YXJ0cy13aXRoIiwgIiRDb250ZW50LVR5cGUiLCAiaW1hZ2UvIl0sDQogICAgeyJ4LWFtei1tZXRhLXV1aWQiOiAiMTQzNjUxMjM2NTEyNzQifSwNCiAgICB7IngtYW16LXNlcnZlci1zaWRlLWVuY3J5cHRpb24iOiAiQUVTMjU2In0sDQogICAgWyJzdGFydHMtd2l0aCIsICIkeC1hbXotbWV0YS10YWciLCAiIl0sDQoNCiAgICB7IngtYW16LWNyZWRlbnRpYWwiOiAiQUtJQUlPU0ZPRE5ON0VYQU1QTEUvMjAxNTEyMjkvdXMtZWFzdC0xL3MzL2F3czRfcmVxdWVzdCJ9LA0KICAgIHsieC1hbXotYWxnb3JpdGhtIjogIkFXUzQtSE1BQy1TSEEyNTYifSwNCiAgICB7IngtYW16LWRhdGUiOiAiMjAxNTEyMjlUMDAwMDAwWiIgfQ0KICBdDQp9" />
-            <input type="hidden" name="X-Amz-Signature" value={StringToSign} />
+            <input type="hidden" name="Policy" value={this.state.string} />
+            <input type="hidden" name="X-Amz-Signature" value={this.state.photo} />
             <input type="file"   name="file" /> <br />
             <input type="submit" name="submit" value="Upload to Amazon S3" placeholder="Upload to Amazon S3" />
           </form>
