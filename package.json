@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "connect-multiparty": "^2.2.0",
+    "crypto-js": "^3.1.9-1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-google-login": "^3.2.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
-    "react-select": "^2.1.1"
+    "react-select": "^2.1.1",
+    "s3fs": "git+https://github.com/RiptideCloud/s3fs.git"
   },
   "scripts": {
     "start": "react-scripts start",

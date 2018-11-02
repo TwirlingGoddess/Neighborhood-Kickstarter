@@ -164,3 +164,7 @@
 .delete-material {
   cursor: pointer;
 }
+
+label, input {
+  color: white;
+}
