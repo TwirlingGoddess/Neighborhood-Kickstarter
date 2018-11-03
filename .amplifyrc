@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "eighborub-20181103152905-authRole",
+            "UnauthRoleArn": "arn:aws:iam::986033286205:role/eighborub-20181103152905-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::986033286205:role/eighborub-20181103152905-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "eighborub-20181103152905-deployment",
+            "UnauthRoleName": "eighborub-20181103152905-unauthRole",
+            "StackName": "eighborub-20181103152905",
+            "StackId": "arn:aws:cloudformation:us-east-2:986033286205:stack/eighborub-20181103152905/7e177ee0-dfaf-11e8-83ee-021b078b4832"
+        }
+    }
+}

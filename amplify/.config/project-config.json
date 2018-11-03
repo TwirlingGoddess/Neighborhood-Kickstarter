@@ -1,0 +1,20 @@
+{
+    "projectName": "NeighborHub",
+    "projectPath": "/Users/butchqueenindrags/turing/quatro/cross-pollination-project/Neighborhood-Kickstarter",
+    "defaultEditor": "sublime",
+    "frontendHandler": {
+        "javascript": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-javascript"
+    },
+    "javascript": {
+        "framework": "react",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "build",
+            "BuildCommand": "npm run-script build",
+            "StartCommand": "npm start"
+        }
+    },
+    "providers": {
+        "awscloudformation": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation"
+    }
+}
