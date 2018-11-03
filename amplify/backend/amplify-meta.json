@@ -1,14 +1,32 @@
 {
-    "providers": {
-        "awscloudformation": {
-            "AuthRoleName": "eighborub-20181103152905-authRole",
-            "UnauthRoleArn": "arn:aws:iam::986033286205:role/eighborub-20181103152905-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::986033286205:role/eighborub-20181103152905-authRole",
-            "Region": "us-east-2",
-            "DeploymentBucketName": "eighborub-20181103152905-deployment",
-            "UnauthRoleName": "eighborub-20181103152905-unauthRole",
-            "StackName": "eighborub-20181103152905",
-            "StackId": "arn:aws:cloudformation:us-east-2:986033286205:stack/eighborub-20181103152905/7e177ee0-dfaf-11e8-83ee-021b078b4832"
-        }
-    }
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "eighborub-20181103152905-authRole",
+			"UnauthRoleArn": "arn:aws:iam::986033286205:role/eighborub-20181103152905-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::986033286205:role/eighborub-20181103152905-authRole",
+			"Region": "us-east-2",
+			"DeploymentBucketName": "eighborub-20181103152905-deployment",
+			"UnauthRoleName": "eighborub-20181103152905-unauthRole",
+			"StackName": "eighborub-20181103152905",
+			"StackId": "arn:aws:cloudformation:us-east-2:986033286205:stack/eighborub-20181103152905/7e177ee0-dfaf-11e8-83ee-021b078b4832"
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/eighborub-20181103152905-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2018-11-03T21:35:50.054Z",
+			"output": {
+				"S3BucketSecureURL": "https://eighborub-20181103153307--hostingbucket.s3.amazonaws.com",
+				"WebsiteURL": "http://eighborub-20181103153307--hostingbucket.s3-website.us-east-2.amazonaws.com",
+				"Region": "us-east-2",
+				"HostingBucketName": "eighborub-20181103153307--hostingbucket"
+			},
+			"lastPushDirHash": "gU1QdtdKvux1yqiJOrkv7QVfpko="
+		}
+	}
 }

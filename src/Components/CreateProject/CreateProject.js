@@ -22,8 +22,6 @@ class CreateProject extends Component {
               '20181031/us-west-1/neighbor-hub-images/aws4_request'+
               '9bef5cbf5aa49f5a70e769ad4e8271843f06a84ac9248dd49fd80f18f729874f'
     }
-      resources: []
-    };
   }
 
   componentDidMount = () => {
@@ -114,8 +112,7 @@ class CreateProject extends Component {
         'If-Unmodified-Since': 'Wed, 21 Oct 2015 07:28:00 GMT',
         'If-None-Match': '*'
 
-        },
-      // body: image
+        }
     }
 
     try{
@@ -148,7 +145,6 @@ class CreateProject extends Component {
       resources
     });
   }
-
 
   getSignatureKey = (key, dateStamp, regionName, serviceName) => {
       var kDate = sha256.HmacSHA256(dateStamp, "AWS4" + key);
