@@ -28,5 +28,11 @@
 			},
 			"lastPushDirHash": "gU1QdtdKvux1yqiJOrkv7QVfpko="
 		}
+	},
+	"auth": {
+		"cognitocb0e69c9": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
 	}
 }
