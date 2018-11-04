@@ -19,11 +19,13 @@ class CreateProject extends Component {
       title: '',
       description: '',
       newResource: '',
-      resources: []
+      resources: [],
+      file: ''
     };
   }
 
   componentDidMount = () => {
+    Analytics.record('Amplify_CLI');
     this.updateCurrentUser();
   }
 
@@ -95,6 +97,15 @@ class CreateProject extends Component {
     this.setState({
       resources
     });
+  }
+
+  uploadFile = (evt) => {
+    const file = evt.target.files[0];
+    const name = file.name;
+
+    Storage.put(name, file).then(() => {
+      this.setState({ file: name });
+    })
   }
 
   render() {
