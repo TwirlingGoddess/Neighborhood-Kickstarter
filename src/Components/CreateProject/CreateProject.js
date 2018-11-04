@@ -4,6 +4,12 @@ import './CreateProject.css';
 import deleteButton from '../../images/x-button.svg';
 import { postNewProject } from '../../utilities/apiCalls/apiCalls';
 import PropTypes from 'prop-types';
+import Amplify, { Analytics, Storage } from 'aws-amplify';
+import aws_exports from './aws-exports';
+import { S3Album } from 'aws-amplify-react';
+Amplify.configure(aws_exports);
+Storage.configure({ level: 'private' });
+
 
 class CreateProject extends Component {
   constructor() {
