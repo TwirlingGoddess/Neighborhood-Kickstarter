@@ -5,7 +5,7 @@ import deleteButton from '../../images/x-button.svg';
 import { postNewProject } from '../../utilities/apiCalls/apiCalls';
 import PropTypes from 'prop-types';
 import Amplify, { Analytics, Storage } from 'aws-amplify';
-import aws_exports from './aws-exports';
+import aws_exports from '../../aws-exports';
 import { S3Album } from 'aws-amplify-react';
 Amplify.configure(aws_exports);
 Storage.configure({ level: 'private' });
@@ -58,7 +58,7 @@ class CreateProject extends Component {
         project: {
           title,
           description,
-          photo: 'https://www.nycgovparks.org/photo_gallery/full_size/23026.jpg',
+          file: `https://s3.us-east-2.amazonaws.com/ndahood2911e331951b4151a9ac01eef641ebc8/private/us-east-2%3A211dbd01-1c6e-45db-81b0-1fcc811e5481/${this.state.filename}`,
           resources
         }
       };
@@ -140,12 +140,11 @@ class CreateProject extends Component {
               onChange={this.handleChange}
             />
             <button className='add-material-button' onClick={(event) => this.addResource(event, this.state.newResource)}>Add Resource</button>
-            <label> Pick a file</label>
+            <label>Pick An Image</label>
             <input 
               type="file" 
               onChange={this.uploadFile} 
             />
-            <S3Album level="private" path='' />
             <button className='submit-project-button' onClick={this.handleSubmit}>Submit Project</button>
           </form>
           <div className='listed-materials'>
