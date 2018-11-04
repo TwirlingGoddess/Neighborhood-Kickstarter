@@ -1,0 +1,9 @@
+{
+    "bucketName": "ndahood2911e331951b4151a9ac01eef641ebc8",
+    "authPolicyName": "s3_amplify_9fe930cb",
+    "unauthPolicyName": "s3_amplify_9fe930cb",
+    "authRoleName": "dahood-20181104101446-authRole",
+    "unauthRoleName": "dahood-20181104101446-unauthRole",
+    "authPermissions": "rw",
+    "unauthPermissions": "rw"
+}

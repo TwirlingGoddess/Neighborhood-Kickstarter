@@ -1,0 +1,11 @@
+{
+    "appName": "ndahood",
+    "roleName": "pinpointLambdaRole803be64b",
+    "cloudWatchPolicyName": "cloudWatchPolicy803be64b",
+    "pinpointPolicyName": "pinpointPolicy803be64b",
+    "authPolicyName": "pinpoint_amplify_803be64b",
+    "unauthPolicyName": "pinpoint_amplify_803be64b",
+    "authRoleName": "dahood-20181104101446-authRole",
+    "unauthRoleName": "dahood-20181104101446-unauthRole",
+    "IAMPrefix": "986033286205"
+}

@@ -165,6 +165,9 @@
   cursor: pointer;
 }
 
-label, input {
+.create-project-form label {
+  color: white;
+}
+.create-project-form input {
   color: white;
 }
