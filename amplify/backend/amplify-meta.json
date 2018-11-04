@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/dahood-20181104101446-deployment/amplify-cfn-templates/hosting/template.json",
 				"logicalId": "hostingS3AndCloudFront"
 			},
-			"lastPushTimeStamp": "2018-11-04T17:19:43.609Z",
+			"lastPushTimeStamp": "2018-11-04T17:41:06.046Z",
 			"output": {
 				"S3BucketSecureURL": "https://dahood-20181104101721--hostingbucket.s3.amazonaws.com",
 				"WebsiteURL": "http://dahood-20181104101721--hostingbucket.s3-website.us-east-2.amazonaws.com",
@@ -32,13 +32,55 @@
 	"auth": {
 		"cognito9850ca53": {
 			"service": "Cognito",
-			"providerPlugin": "awscloudformation"
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/dahood-20181104101446-deployment/amplify-cfn-templates/auth/cognito9850ca53-cloudformation-template.yml",
+				"logicalId": "authcognito9850ca53"
+			},
+			"lastPushTimeStamp": "2018-11-04T17:41:06.050Z",
+			"output": {
+				"AppClientSecret": "1jrvaqfmgq5mg669afkjia414d8kjvmae1apmcm8tmsoab2s00ll",
+				"UserPoolId": "us-east-2_Ine6YT7PW",
+				"AppClientIDWeb": "5n3fifs9glnq421thspgf9iuf8",
+				"AppClientID": "cetufbec1p5oo1ghu5k458b3",
+				"IdentityPoolId": "us-east-2:c9dc3041-72da-4a33-bbf2-6590bc752101",
+				"IdentityPoolName": "cognito9850ca53_identitypool_9850ca53",
+				"UserPoolName": "cognito9850ca53_userpool_9850ca53"
+			},
+			"lastPushDirHash": "idLMQNNOy9CJp4LOMFL6XJL98zA="
 		}
 	},
 	"analytics": {
 		"ndahood": {
 			"service": "Pinpoint",
-			"providerPlugin": "awscloudformation"
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/dahood-20181104101446-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"logicalId": "analyticsndahood"
+			},
+			"lastPushTimeStamp": "2018-11-04T17:41:06.050Z",
+			"output": {
+				"appName": "ndahood",
+				"Region": "us-east-1",
+				"Id": "c58b06d22f644442a3bdb370bae28f71"
+			},
+			"lastPushDirHash": "zYCzpAryfluXYfTCQ/FkGpHLg9U="
+		}
+	},
+	"storage": {
+		"s39fe930cb": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/dahood-20181104101446-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"logicalId": "storages39fe930cb"
+			},
+			"lastPushTimeStamp": "2018-11-04T17:41:06.050Z",
+			"output": {
+				"BucketName": "ndahood2911e331951b4151a9ac01eef641ebc8",
+				"Region": "us-east-2"
+			},
+			"lastPushDirHash": "Ub4PPCUDLu/wHQQ7IMWbKdTg1n8="
 		}
 	}
 }

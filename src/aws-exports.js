@@ -4,7 +4,15 @@ const awsmobile =  {
     "aws_project_region": "us-east-2",
     "aws_content_delivery_bucket": "dahood-20181104101721--hostingbucket",
     "aws_content_delivery_bucket_region": "us-east-2",
-    "aws_content_delivery_url": "http://dahood-20181104101721--hostingbucket.s3-website.us-east-2.amazonaws.com"
+    "aws_content_delivery_url": "http://dahood-20181104101721--hostingbucket.s3-website.us-east-2.amazonaws.com",
+    "aws_cognito_identity_pool_id": "us-east-2:c9dc3041-72da-4a33-bbf2-6590bc752101",
+    "aws_cognito_region": "us-east-2",
+    "aws_user_pools_id": "us-east-2_Ine6YT7PW",
+    "aws_user_pools_web_client_id": "5n3fifs9glnq421thspgf9iuf8",
+    "aws_mobile_analytics_app_id": "c58b06d22f644442a3bdb370bae28f71",
+    "aws_mobile_analytics_app_region": "us-east-1",
+    "aws_user_files_s3_bucket": "ndahood2911e331951b4151a9ac01eef641ebc8",
+    "aws_user_files_s3_bucket_region": "us-east-2"
 };
 
 

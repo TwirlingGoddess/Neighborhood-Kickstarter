@@ -84,6 +84,88 @@
 				"TemplateURL": "https://s3.amazonaws.com/dahood-20181104101446-deployment/amplify-cfn-templates/hosting/template.json",
 				"Parameters": {}
 			}
+		},
+		"authcognito9850ca53": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/dahood-20181104101446-deployment/amplify-cfn-templates/auth/cognito9850ca53-cloudformation-template.yml",
+				"Parameters": {
+					"identityPoolName": "cognito9850ca53_identitypool_9850ca53",
+					"allowUnauthenticatedIdentities": true,
+					"thirdPartyAuth": false,
+					"lambdaLogPolicy": "cognito9850ca53_lambda_log_policy",
+					"openIdLambdaRoleName": "cognito9850ca53_openid_lambda_role",
+					"openIdRolePolicy": "cognito9850ca53_openid_pass_role_policy",
+					"openIdLambdaIAMPolicy": "cognito9850ca53_openid_lambda_iam_policy",
+					"openIdLogPolicy": "cognito9850ca53_openid_lambda_log_policy",
+					"userPoolName": "cognito9850ca53_userpool_9850ca53",
+					"autoVerifiedAttributes": "email",
+					"mfaConfiguration": "OFF",
+					"mfaTypes": "SMS Text Message",
+					"roleName": "cognito9850ca53_sns-role",
+					"roleExternalId": "cognito9850ca53_role_external_id",
+					"policyName": "cognito9850ca53-sns-policy",
+					"smsAuthenticationMessage": "Your authentication code is {####}",
+					"smsVerificationMessage": "Your verification code is {####}",
+					"emailVerificationSubject": "Your verification code",
+					"emailVerificationMessage": "Your verification code is {####}",
+					"defaultPasswordPolicy": false,
+					"passwordPolicyMinLength": 8,
+					"passwordPolicyCharacters": "Requires Lowercase,Requires Uppercase,Requires Numbers,Requires Symbols",
+					"requiredAttributes": "email",
+					"userpoolClientName": "cognito9850ca53_app_client",
+					"userpoolClientGenerateSecret": true,
+					"userpoolClientRefreshTokenValidity": 30,
+					"userpoolClientReadAttributes": "email",
+					"mfaLambdaRole": "cognito9850ca53_totp_lambda_role",
+					"mfaLambdaLogPolicy": "cognito9850ca53_totp_lambda_log_policy",
+					"mfaPassRolePolicy": "cognito9850ca53_totp_pass_role_policy",
+					"mfaLambdaIAMPolicy": "cognito9850ca53_totp_lambda_iam_policy",
+					"userpoolClientLambdaRole": "cognito9850ca53_userpoolclient_lambda_role",
+					"userpoolClientLogPolicy": "cognito9850ca53_userpoolclient_lambda_log_policy",
+					"userpoolClientLambdaPolicy": "cognito9850ca53_userpoolclient_lambda_iam_policy",
+					"userpoolClientSetAttributes": false,
+					"useDefault": "default",
+					"unAuthRoleName": "dahood-20181104101446-unauthRole",
+					"authRoleName": "dahood-20181104101446-authRole",
+					"unAuthRoleArn": "arn:aws:iam::986033286205:role/dahood-20181104101446-unauthRole",
+					"authRoleArn": "arn:aws:iam::986033286205:role/dahood-20181104101446-authRole",
+					"resourceName": "cognito9850ca53",
+					"authSelections": "identityPoolAndUserPool"
+				}
+			}
+		},
+		"analyticsndahood": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/dahood-20181104101446-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"Parameters": {
+					"appName": "ndahood",
+					"roleName": "pinpointLambdaRole803be64b",
+					"cloudWatchPolicyName": "cloudWatchPolicy803be64b",
+					"pinpointPolicyName": "pinpointPolicy803be64b",
+					"authPolicyName": "pinpoint_amplify_803be64b",
+					"unauthPolicyName": "pinpoint_amplify_803be64b",
+					"authRoleName": "dahood-20181104101446-authRole",
+					"unauthRoleName": "dahood-20181104101446-unauthRole",
+					"IAMPrefix": "986033286205"
+				}
+			}
+		},
+		"storages39fe930cb": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/dahood-20181104101446-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"Parameters": {
+					"bucketName": "ndahood2911e331951b4151a9ac01eef641ebc8",
+					"authPolicyName": "s3_amplify_9fe930cb",
+					"unauthPolicyName": "s3_amplify_9fe930cb",
+					"authRoleName": "dahood-20181104101446-authRole",
+					"unauthRoleName": "dahood-20181104101446-unauthRole",
+					"authPermissions": "rw",
+					"unauthPermissions": "rw"
+				}
+			}
 		}
 	},
 	"Outputs": {
