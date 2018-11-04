@@ -1,0 +1,32 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "dahood-20181104101446-authRole",
+			"UnauthRoleArn": "arn:aws:iam::986033286205:role/dahood-20181104101446-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::986033286205:role/dahood-20181104101446-authRole",
+			"Region": "us-east-2",
+			"DeploymentBucketName": "dahood-20181104101446-deployment",
+			"UnauthRoleName": "dahood-20181104101446-unauthRole",
+			"StackName": "dahood-20181104101446",
+			"StackId": "arn:aws:cloudformation:us-east-2:986033286205:stack/dahood-20181104101446/218bc450-e055-11e8-be11-0a849e1b5978"
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/dahood-20181104101446-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2018-11-04T17:19:43.609Z",
+			"output": {
+				"S3BucketSecureURL": "https://dahood-20181104101721--hostingbucket.s3.amazonaws.com",
+				"WebsiteURL": "http://dahood-20181104101721--hostingbucket.s3-website.us-east-2.amazonaws.com",
+				"Region": "us-east-2",
+				"HostingBucketName": "dahood-20181104101721--hostingbucket"
+			},
+			"lastPushDirHash": "aSt8kAoGb5R5Osjnt8jsX0aXlmw="
+		}
+	}
+}

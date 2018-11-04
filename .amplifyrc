@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "dahood-20181104101446-authRole",
+            "UnauthRoleArn": "arn:aws:iam::986033286205:role/dahood-20181104101446-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::986033286205:role/dahood-20181104101446-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "dahood-20181104101446-deployment",
+            "UnauthRoleName": "dahood-20181104101446-unauthRole",
+            "StackName": "dahood-20181104101446",
+            "StackId": "arn:aws:cloudformation:us-east-2:986033286205:stack/dahood-20181104101446/218bc450-e055-11e8-be11-0a849e1b5978"
+        }
+    }
+}
