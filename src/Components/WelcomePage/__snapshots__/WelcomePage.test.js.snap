@@ -24,7 +24,7 @@ ShallowWrapper {
           <h1
             className="welcome-heading"
           >
-            Welome to
+            Welcome to
           </h1>
           <h1
             className="welcome-heading"
@@ -73,7 +73,7 @@ ShallowWrapper {
             <h1
               className="welcome-heading"
             >
-              Welome to
+              Welcome to
             </h1>,
             <h1
               className="welcome-heading"
@@ -90,11 +90,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Welome to",
+              "children": "Welcome to",
               "className": "welcome-heading",
             },
             "ref": null,
-            "rendered": "Welome to",
+            "rendered": "Welcome to",
             "type": "h1",
           },
           Object {
@@ -209,7 +209,7 @@ ShallowWrapper {
             <h1
               className="welcome-heading"
             >
-              Welome to
+              Welcome to
             </h1>
             <h1
               className="welcome-heading"
@@ -258,7 +258,7 @@ ShallowWrapper {
               <h1
                 className="welcome-heading"
               >
-                Welome to
+                Welcome to
               </h1>,
               <h1
                 className="welcome-heading"
@@ -275,11 +275,11 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Welome to",
+                "children": "Welcome to",
                 "className": "welcome-heading",
               },
               "ref": null,
-              "rendered": "Welome to",
+              "rendered": "Welcome to",
               "type": "h1",
             },
             Object {

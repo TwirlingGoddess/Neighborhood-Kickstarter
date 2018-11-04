@@ -42,7 +42,6 @@ class CreateProject extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
-
     this.setState({
       [name]: value
     });
@@ -51,8 +50,8 @@ class CreateProject extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (event.target.className === 'submit-project-button') {
-      const { title, description, resources, currentUserId } = this.state; 
+    if(event.target.className === 'submit-project-button') {
+      const { title, description, resources, currentUserId, photo} = this.state; 
 
       const newProject = {
         project: {
@@ -62,6 +61,7 @@ class CreateProject extends Component {
           resources
         }
       };
+      console.log(newProject)
 
       await postNewProject(newProject, currentUserId);
 
@@ -69,8 +69,9 @@ class CreateProject extends Component {
         title: '',
         description: '',
         newResource: '',
-        resources: []
-      });
+        resources: [],
+        photo: null,
+      })
     }
     return;
   }
@@ -138,6 +139,16 @@ class CreateProject extends Component {
               placeholder='Add new material'
               value={this.state.newResource}
               onChange={this.handleChange}
+            />          
+            <label htmlFor="choose-file" className="file-label">Upload Image</label>
+            <input 
+              className="choose-file" 
+              type="file"
+              value=''
+              onChange={this.handlePhoto} 
+              action="http://neighbor-hub-images.s3.amazonaws.com/" 
+              method="post" 
+              encType="multipart/form-data"
             />
             <button className='add-material-button' onClick={(event) => this.addResource(event, this.state.newResource)}>Add Resource</button>
             <label>Pick An Image</label>

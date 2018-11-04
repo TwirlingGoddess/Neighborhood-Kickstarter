@@ -10,7 +10,8 @@
     "react-google-login": "^3.2.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
-    "react-select": "^2.1.1"
+    "react-select": "^2.1.1",
+    "s3fs": "git+https://github.com/RiptideCloud/s3fs.git"
   },
   "scripts": {
     "start": "react-scripts start",
