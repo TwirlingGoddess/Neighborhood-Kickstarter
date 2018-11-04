@@ -20,7 +20,7 @@ class CreateProject extends Component {
       description: '',
       newResource: '',
       resources: [],
-      file: ''
+      photo: ''
     };
   }
 
@@ -58,7 +58,7 @@ class CreateProject extends Component {
         project: {
           title,
           description,
-          file: `https://s3.us-east-2.amazonaws.com/ndahood2911e331951b4151a9ac01eef641ebc8/private/us-east-2%3A211dbd01-1c6e-45db-81b0-1fcc811e5481/${this.state.filename}`,
+          photo: `https://s3.us-east-2.amazonaws.com/ndahood2911e331951b4151a9ac01eef641ebc8/private/us-east-2%3A211dbd01-1c6e-45db-81b0-1fcc811e5481/${this.state.filename}`,
           resources
         }
       };
@@ -104,7 +104,7 @@ class CreateProject extends Component {
     const name = file.name;
 
     Storage.put(name, file).then(() => {
-      this.setState({ file: name });
+      this.setState({ photo: name });
     })
   }
 
