@@ -140,6 +140,12 @@ class CreateProject extends Component {
               onChange={this.handleChange}
             />
             <button className='add-material-button' onClick={(event) => this.addResource(event, this.state.newResource)}>Add Resource</button>
+            <label> Pick a file</label>
+            <input 
+              type="file" 
+              onChange={this.uploadFile} 
+            />
+            <S3Album level="private" path='' />
             <button className='submit-project-button' onClick={this.handleSubmit}>Submit Project</button>
           </form>
           <div className='listed-materials'>
