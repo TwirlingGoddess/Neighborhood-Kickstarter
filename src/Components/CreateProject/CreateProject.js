@@ -104,7 +104,7 @@ class CreateProject extends Component {
     const file = evt.target.files[0];
     const name = file.name;
 
-    Storage.put(name, file).then(() => {
+    Storage.put(name, file, { 'Content-Disposition': 'inline' }).then(() => {
       this.setState({ photo: name });
     })
   }
@@ -154,6 +154,7 @@ class CreateProject extends Component {
             <label>Pick An Image</label>
             <input 
               type="file" 
+              accept="image/*"
               onChange={this.uploadFile} 
             />
             <button className='submit-project-button' onClick={this.handleSubmit}>Submit Project</button>
