@@ -8,6 +8,8 @@ import CreateUser from '../CreateUser/CreateUser';
 import CreateUserGoogle from '../CreateUserGoogle/CreateUserGoogle';
 import Landing from '../Landing/Landing';
 import SignIn from '../SignIn/SignIn';
+import CreateProject from '../CreateProject/CreateProject';
+
 
 
 describe('Contributions', () => {
@@ -70,6 +72,15 @@ describe('Contributions', () => {
     );
     expect(wrapper.find(SignIn)).toHaveLength(1);
   });
+
+  it('should have a valid path to the Landing', () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={[ '/CreateProject' ]}>
+        <App/>
+      </MemoryRouter>
+    );
+    expect(wrapper.find(CreateProject)).toHaveLength(1);
+  });  
 
   // it.only('Should have an initial currentUser state of an empty object', () => {
   //   expected = {};
