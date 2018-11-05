@@ -91,6 +91,15 @@ describe('Contributions', () => {
     expect(wrapper.find(UserProjects)).toHaveLength(1);
   }); 
 
+  it('should have a valid path to the Landing', () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={[ '/Contributions' ]}>
+        <App/>
+      </MemoryRouter>
+    );
+    expect(wrapper.find(Contributions)).toHaveLength(1);
+  });
+
   // it.only('Should have an initial currentUser state of an empty object', () => {
   //   expected = {};
   //   expect(wrapper.state('currentUser')).toEqual(expected)
