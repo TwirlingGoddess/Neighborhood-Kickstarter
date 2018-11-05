@@ -100,15 +100,17 @@ describe('Contributions', () => {
     expect(wrapper.find(Contributions)).toHaveLength(1);
   });
 
-  // it.only('Should have an initial currentUser state of an empty object', () => {
-  //   expected = {};
-  //   expect(wrapper.state('currentUser')).toEqual(expected)
-  // })
 
-  // it('Should update the currentUser in state', () => {
-  //   wrapper = shallow(<App updateUser={jest.fn}/>);
-  //   wrapper.instance()
-
-  // })
+  it('Should update the state when updateUser is invoked', () => {
+    wrapper = shallow(<App updateUser={mockEvent}/>);
+    expect(wrapper).toMatchSnapshot();
+  })
+    
+    // wrapper.instance().updateUser()
+    // expect(mockEvent).toBeCalled();
+    // const user = {user: 'name of user'}
+    // wrapper.setState({ currentUser: user });
+    // // expect(wrapper.find('.foo')).to.have.lengthOf(0);
+    // expect(wrapper.state('currentUser')).toEqual(user)
 
 })
