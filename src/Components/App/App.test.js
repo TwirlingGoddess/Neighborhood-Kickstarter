@@ -20,11 +20,8 @@ describe('Contributions', () => {
   let mockProjectState = {};
   let mockEvent = jest.fn();
 
-  beforeEach(() => {
-    wrapper = shallow(<App />);
-  });
-
   it('should match the snapshot', () => {
+    wrapper = shallow(<App />);
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -100,7 +97,6 @@ describe('Contributions', () => {
     expect(wrapper.find(Contributions)).toHaveLength(1);
   });
 
-
   it('Should update the state when updateUser is invoked', () => {
     wrapper = shallow(<App updateUser={mockEvent}/>);
     expect(wrapper).toMatchSnapshot();
@@ -115,12 +111,5 @@ describe('Contributions', () => {
     wrapper = shallow(<App updateProject={mockEvent}/>);
     expect(wrapper).toMatchSnapshot();
   })
-    
-    // wrapper.instance().updateUser()
-    // expect(mockEvent).toBeCalled();
-    // const user = {user: 'name of user'}
-    // wrapper.setState({ currentUser: user });
-    // // expect(wrapper.find('.foo')).to.have.lengthOf(0);
-    // expect(wrapper.state('currentUser')).toEqual(user)
 
 })
