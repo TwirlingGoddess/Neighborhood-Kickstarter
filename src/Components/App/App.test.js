@@ -105,6 +105,11 @@ describe('Contributions', () => {
     wrapper = shallow(<App updateUser={mockEvent}/>);
     expect(wrapper).toMatchSnapshot();
   })
+
+  it('Should update the state when logOutUser is invoked', () => {
+    wrapper = shallow(<App logOutUser={mockEvent}/>);
+    expect(wrapper).toMatchSnapshot();
+  })
     
     // wrapper.instance().updateUser()
     // expect(mockEvent).toBeCalled();
