@@ -7,6 +7,8 @@ import WelcomePage from '../WelcomePage/WelcomePage';
 import CreateUser from '../CreateUser/CreateUser';
 import CreateUserGoogle from '../CreateUserGoogle/CreateUserGoogle';
 import Landing from '../Landing/Landing';
+import SignIn from '../SignIn/SignIn';
+
 
 describe('Contributions', () => {
   let wrapper;
@@ -58,7 +60,16 @@ describe('Contributions', () => {
       </MemoryRouter>
     );
     expect(wrapper.find(Landing)).toHaveLength(1);
-  });  
+  });
+
+  it('should have a valid path to the Landing', () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={[ '/SignIn' ]}>
+        <App/>
+      </MemoryRouter>
+    );
+    expect(wrapper.find(SignIn)).toHaveLength(1);
+  });
 
   // it.only('Should have an initial currentUser state of an empty object', () => {
   //   expected = {};
