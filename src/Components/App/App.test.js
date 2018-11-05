@@ -9,8 +9,8 @@ import CreateUserGoogle from '../CreateUserGoogle/CreateUserGoogle';
 import Landing from '../Landing/Landing';
 import SignIn from '../SignIn/SignIn';
 import CreateProject from '../CreateProject/CreateProject';
-
-
+import UserProjects from '../UserProjects/UserProjects';
+import Contributions from '../Contributions/Contributions';
 
 describe('Contributions', () => {
   let wrapper;
@@ -81,6 +81,15 @@ describe('Contributions', () => {
     );
     expect(wrapper.find(CreateProject)).toHaveLength(1);
   });  
+
+  it('should have a valid path to the Landing', () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={[ '/UserProjects' ]}>
+        <App/>
+      </MemoryRouter>
+    );
+    expect(wrapper.find(UserProjects)).toHaveLength(1);
+  }); 
 
   // it.only('Should have an initial currentUser state of an empty object', () => {
   //   expected = {};
