@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import CreateUser from '../CreateUser/CreateUser';
+import CreateUserGoogle from '../CreateUserGoogle/CreateUserGoogle';
 
 import Landing from '../Landing/Landing';
 
@@ -40,6 +41,15 @@ describe('Contributions', () => {
       </MemoryRouter>
     );
     expect(wrapper.find(CreateUser)).toHaveLength(1);
+  });
+
+  it('should have a valid path to the Landing', () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={[ '/CreateUserGoogle' ]}>
+        <App/>
+      </MemoryRouter>
+    );
+    expect(wrapper.find(CreateUserGoogle)).toHaveLength(1);
   });
 
   // it.only('Should have an initial currentUser state of an empty object', () => {
