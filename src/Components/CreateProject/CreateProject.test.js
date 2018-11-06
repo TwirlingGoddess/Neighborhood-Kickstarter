@@ -36,6 +36,18 @@ describe('CreateProject', () => {
     expect(wrapper.state('title')).toEqual(userInput);
   });
 
+  it('should call handleSubmit when the submit button is clicked', () => {
+    const mockUser = {id: 1}
+    let mockedEvent = { target: {className: 'add-material-button'}, preventDefault: () => {} };
+    let newResource = 'wood';
+    let resource = { name: newResource};
+    wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
+    wrapper.setState({ newResource })
+    wrapper.find('.submit-project-button').simulate('submit')
+    wrapper.instance().handleSubmit(mockedEvent, resource)
+    expect(wrapper.state('resources')).toHaveLength(0);
+  })
+
   it('should add a resource if the submit resource button is clicked', () => {
     mockCurrentUser = {id: 1};
     let mockedEvent = { target: {className: 'add-material-button'}, preventDefault: () => {} };
