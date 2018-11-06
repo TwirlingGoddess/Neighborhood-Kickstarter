@@ -14,31 +14,33 @@ describe('CreateProject', () => {
     mockCurrentUser = {id: 1};
     let id = mockCurrentUser.id;
     wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
-    
     wrapper.instance().updateCurrentUser();
-
     expect(wrapper.state('currentUserId')).toEqual(id);
   });
 
   it('should not update state if there is not a current user', () => {
     mockCurrentUser = {};
     wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
-    
     wrapper.instance().updateCurrentUser();
-
     expect(wrapper.state('currentUserId')).toEqual('');
+  });
+
+  it('should update state with the input information', () => {
+    mockCurrentUser = {id: 1};
+    let mockEvent = {target: {name: 'title', value: 'Yaassss'}};
+    let userInput = 'Yaassss';
+    wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
+    wrapper.instance().handleChange(mockEvent);
+    expect(wrapper.state('title')).toEqual(userInput);
   });
 
   it('should delete a resource if the delete button is clicked', () => {
     mockCurrentUser = {id: 1};
     wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
-
     wrapper.setState({resources: [{name: 'wood'}]});
     expect(wrapper.state('resources')).toHaveLength(1);
-
     wrapper.find('.delete-material').simulate('click');
     expect(wrapper.state('resources')).toHaveLength(0);
-
   });
 
   it('should add a resource if the submit resource button is clicked', () => {
@@ -47,10 +49,8 @@ describe('CreateProject', () => {
     let newResource = 'wood';
     let resource = { name: newResource};
     wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
-
     wrapper.setState({ newResource });
     wrapper.instance().addResource(mockedEvent, resource);
-    
     expect(wrapper.state('resources')).toHaveLength(1);
   });
 }); 

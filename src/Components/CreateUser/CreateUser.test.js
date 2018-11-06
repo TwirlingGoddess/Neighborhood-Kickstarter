@@ -60,12 +60,4 @@ describe('CreateUser', () => {
     expect(data).toEqual(expected);
   });
 
-  // it('should call handleSubmit when the submit button is clicked', () => {
-  //   const mockEvent = jest.fn()
-  //   wrapper = shallow(<CreateUser onSubmit={mockEvent}/>);
-  //   wrapper.find('.create-user-form').simulate('submit')
-  //   // let submitButton = wrapper.find('.sign-up-button');
-  //   // submitButton.simulate('submit');
-  //   expect(wrapper.instance().handleSubmit()).toHaveBeenCalled();
-  // })
 }); 
