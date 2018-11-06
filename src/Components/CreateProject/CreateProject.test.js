@@ -1,10 +1,12 @@
 import React from 'react';
 import CreateProject from './CreateProject';
+import { postNewProject } from '../../utilities/apiCalls/apiCalls';
 import { shallow } from 'enzyme';
 
 describe('CreateProject', () => {
   let wrapper;
   let mockCurrentUser = {};
+
   it('should match the snapshot', () => {
     wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
     expect(wrapper).toMatchSnapshot();
@@ -34,15 +36,6 @@ describe('CreateProject', () => {
     expect(wrapper.state('title')).toEqual(userInput);
   });
 
-  it('should delete a resource if the delete button is clicked', () => {
-    mockCurrentUser = {id: 1};
-    wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
-    wrapper.setState({resources: [{name: 'wood'}]});
-    expect(wrapper.state('resources')).toHaveLength(1);
-    wrapper.find('.delete-material').simulate('click');
-    expect(wrapper.state('resources')).toHaveLength(0);
-  });
-
   it('should add a resource if the submit resource button is clicked', () => {
     mockCurrentUser = {id: 1};
     let mockedEvent = { target: {className: 'add-material-button'}, preventDefault: () => {} };
@@ -53,4 +46,29 @@ describe('CreateProject', () => {
     wrapper.instance().addResource(mockedEvent, resource);
     expect(wrapper.state('resources')).toHaveLength(1);
   });
+
+  it('should return data from postNewProject fetch', async () => {
+    const expected = undefined
+    mockCurrentUser = {id: 1};
+    let newResource = 'wood';
+    let resource = { name: newResource};
+    const mockProject= {
+          title: 'Love',
+          description: 'Never lasts',
+          photo: 'https://apod.nasa.gov/apod/image/1811/CaliforniaNebula_Falls_960.jpg',
+          resources: [ resource, resource ]
+        }    
+    let data = await postNewProject(mockProject, mockCurrentUser);
+    expect(data).toEqual(undefined);
+  });
+
+  it('should delete a resource if the delete button is clicked', () => {
+    mockCurrentUser = {id: 1};
+    wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
+    wrapper.setState({resources: [{name: 'wood'}]});
+    expect(wrapper.state('resources')).toHaveLength(1);
+    wrapper.find('.delete-material').simulate('click');
+    expect(wrapper.state('resources')).toHaveLength(0);
+  });
+
 }); 
