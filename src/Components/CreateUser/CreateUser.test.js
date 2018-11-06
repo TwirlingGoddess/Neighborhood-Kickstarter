@@ -60,4 +60,15 @@ describe('CreateUser', () => {
     expect(data).toEqual(expected);
   });
 
+  it('should call handleSubmit when the submit button is clicked', () => {
+    const mockUser = {id: 1}
+    let mockedEvent = { target: {className: 'add-material-button'}, preventDefault: () => {} };
+    let userName = 'Tommy'
+    let user = {userName: userName}
+    wrapper.setState({ userName })
+    wrapper = shallow(<CreateUser updateUser={mockUser}/>);
+    wrapper.find('.create-user-form').simulate('submit')
+    wrapper.instance().handleSubmit(mockedEvent, user)
+    expect(wrapper.state('allUsers')).toHaveLength(0);
+  })
 }); 
