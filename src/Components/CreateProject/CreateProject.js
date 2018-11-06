@@ -140,19 +140,9 @@ class CreateProject extends Component {
               value={this.state.newResource}
               onChange={this.handleChange}
             />          
-            <label htmlFor="choose-file" className="file-label">Upload Image</label>
-            <input 
-              className="choose-file" 
-              type="file"
-              value=''
-              onChange={this.handlePhoto} 
-              action="http://neighbor-hub-images.s3.amazonaws.com/" 
-              method="post" 
-              encType="multipart/form-data"
-            />
-            <button className='add-material-button' onClick={(event) => this.addResource(event, this.state.newResource)}>Add Resource</button>
             <label>Pick An Image</label>
             <input 
+              className="choose-file" 
               type="file" 
               accept="image/*"
               onChange={this.uploadFile} 

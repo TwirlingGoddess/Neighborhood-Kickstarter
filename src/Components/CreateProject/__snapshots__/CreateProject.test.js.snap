@@ -61,31 +61,12 @@ ShallowWrapper {
               type="text"
               value=""
             />
-            <label
-              className="file-label"
-              htmlFor="choose-file"
-            >
-              Upload Image
-            </label>
-            <input
-              action="http://neighbor-hub-images.s3.amazonaws.com/"
-              className="choose-file"
-              encType="multipart/form-data"
-              method="post"
-              type="file"
-              value=""
-            />
-            <button
-              className="add-material-button"
-              onClick={[Function]}
-            >
-              Add Resource
-            </button>
             <label>
               Pick An Image
             </label>
             <input
               accept="image/*"
+              className="choose-file"
               onChange={[Function]}
               type="file"
             />
@@ -160,31 +141,12 @@ ShallowWrapper {
                 type="text"
                 value=""
               />
-              <label
-                className="file-label"
-                htmlFor="choose-file"
-              >
-                Upload Image
-              </label>
-              <input
-                action="http://neighbor-hub-images.s3.amazonaws.com/"
-                className="choose-file"
-                encType="multipart/form-data"
-                method="post"
-                type="file"
-                value=""
-              />
-              <button
-                className="add-material-button"
-                onClick={[Function]}
-              >
-                Add Resource
-              </button>
               <label>
                 Pick An Image
               </label>
               <input
                 accept="image/*"
+                className="choose-file"
                 onChange={[Function]}
                 type="file"
               />
@@ -240,31 +202,12 @@ ShallowWrapper {
                   type="text"
                   value=""
                 />,
-                <label
-                  className="file-label"
-                  htmlFor="choose-file"
-                >
-                  Upload Image
-                </label>,
-                <input
-                  action="http://neighbor-hub-images.s3.amazonaws.com/"
-                  className="choose-file"
-                  encType="multipart/form-data"
-                  method="post"
-                  type="file"
-                  value=""
-                />,
-                <button
-                  className="add-material-button"
-                  onClick={[Function]}
-                >
-                  Add Resource
-                </button>,
                 <label>
                   Pick An Image
                 </label>,
                 <input
                   accept="image/*"
+                  className="choose-file"
                   onChange={[Function]}
                   type="file"
                 />,
@@ -343,49 +286,6 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Upload Image",
-                  "className": "file-label",
-                  "htmlFor": "choose-file",
-                },
-                "ref": null,
-                "rendered": "Upload Image",
-                "type": "label",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "action": "http://neighbor-hub-images.s3.amazonaws.com/",
-                  "className": "choose-file",
-                  "encType": "multipart/form-data",
-                  "method": "post",
-                  "onChange": undefined,
-                  "type": "file",
-                  "value": "",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": "input",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Add Resource",
-                  "className": "add-material-button",
-                  "onClick": [Function],
-                },
-                "ref": null,
-                "rendered": "Add Resource",
-                "type": "button",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
                   "children": "Pick An Image",
                 },
                 "ref": null,
@@ -398,6 +298,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "accept": "image/*",
+                  "className": "choose-file",
                   "onChange": [Function],
                   "type": "file",
                 },
@@ -504,31 +405,12 @@ ShallowWrapper {
                 type="text"
                 value=""
               />
-              <label
-                className="file-label"
-                htmlFor="choose-file"
-              >
-                Upload Image
-              </label>
-              <input
-                action="http://neighbor-hub-images.s3.amazonaws.com/"
-                className="choose-file"
-                encType="multipart/form-data"
-                method="post"
-                type="file"
-                value=""
-              />
-              <button
-                className="add-material-button"
-                onClick={[Function]}
-              >
-                Add Resource
-              </button>
               <label>
                 Pick An Image
               </label>
               <input
                 accept="image/*"
+                className="choose-file"
                 onChange={[Function]}
                 type="file"
               />
@@ -603,31 +485,12 @@ ShallowWrapper {
                   type="text"
                   value=""
                 />
-                <label
-                  className="file-label"
-                  htmlFor="choose-file"
-                >
-                  Upload Image
-                </label>
-                <input
-                  action="http://neighbor-hub-images.s3.amazonaws.com/"
-                  className="choose-file"
-                  encType="multipart/form-data"
-                  method="post"
-                  type="file"
-                  value=""
-                />
-                <button
-                  className="add-material-button"
-                  onClick={[Function]}
-                >
-                  Add Resource
-                </button>
                 <label>
                   Pick An Image
                 </label>
                 <input
                   accept="image/*"
+                  className="choose-file"
                   onChange={[Function]}
                   type="file"
                 />
@@ -683,31 +546,12 @@ ShallowWrapper {
                     type="text"
                     value=""
                   />,
-                  <label
-                    className="file-label"
-                    htmlFor="choose-file"
-                  >
-                    Upload Image
-                  </label>,
-                  <input
-                    action="http://neighbor-hub-images.s3.amazonaws.com/"
-                    className="choose-file"
-                    encType="multipart/form-data"
-                    method="post"
-                    type="file"
-                    value=""
-                  />,
-                  <button
-                    className="add-material-button"
-                    onClick={[Function]}
-                  >
-                    Add Resource
-                  </button>,
                   <label>
                     Pick An Image
                   </label>,
                   <input
                     accept="image/*"
+                    className="choose-file"
                     onChange={[Function]}
                     type="file"
                   />,
@@ -786,49 +630,6 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Upload Image",
-                    "className": "file-label",
-                    "htmlFor": "choose-file",
-                  },
-                  "ref": null,
-                  "rendered": "Upload Image",
-                  "type": "label",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "action": "http://neighbor-hub-images.s3.amazonaws.com/",
-                    "className": "choose-file",
-                    "encType": "multipart/form-data",
-                    "method": "post",
-                    "onChange": undefined,
-                    "type": "file",
-                    "value": "",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": "input",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Add Resource",
-                    "className": "add-material-button",
-                    "onClick": [Function],
-                  },
-                  "ref": null,
-                  "rendered": "Add Resource",
-                  "type": "button",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
                     "children": "Pick An Image",
                   },
                   "ref": null,
@@ -841,6 +642,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "accept": "image/*",
+                    "className": "choose-file",
                     "onChange": [Function],
                     "type": "file",
                   },

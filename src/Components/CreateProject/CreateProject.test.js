@@ -48,17 +48,6 @@ describe('CreateProject', () => {
     expect(wrapper.state('resources')).toHaveLength(0);
   })
 
-  it('should add a resource if the submit resource button is clicked', () => {
-    mockCurrentUser = {id: 1};
-    let mockedEvent = { target: {className: 'add-material-button'}, preventDefault: () => {} };
-    let newResource = 'wood';
-    let resource = { name: newResource};
-    wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
-    wrapper.setState({ newResource });
-    wrapper.instance().addResource(mockedEvent, resource);
-    expect(wrapper.state('resources')).toHaveLength(1);
-  });
-
   it('should return data from postNewProject fetch', async () => {
     const expected = undefined
     mockCurrentUser = {id: 1};
@@ -74,6 +63,17 @@ describe('CreateProject', () => {
     expect(data).toEqual(undefined);
   });
 
+  it('should add a resource if the submit resource button is clicked', () => {
+    mockCurrentUser = {id: 1};
+    let mockedEvent = { target: {className: 'add-material-button'}, preventDefault: () => {} };
+    let newResource = 'wood';
+    let resource = { name: newResource};
+    wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
+    wrapper.setState({ newResource });
+    wrapper.instance().addResource(mockedEvent, resource);
+    expect(wrapper.state('resources')).toHaveLength(1);
+  });
+
   it('should delete a resource if the delete button is clicked', () => {
     mockCurrentUser = {id: 1};
     wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
@@ -82,5 +82,16 @@ describe('CreateProject', () => {
     wrapper.find('.delete-material').simulate('click');
     expect(wrapper.state('resources')).toHaveLength(0);
   });
+
+  it('should upload an image file when file upload input is clicked', () => {
+    mockCurrentUser = {id: 1};
+    const initial = ''
+    const expected = 'https://apod.nasa.gov/apod/image/1811/CaliforniaNebula_Falls_960.jpg'
+    wrapper = shallow(<CreateProject currentUser={mockCurrentUser}/>);
+    expect(wrapper.state('photo')).toEqual(initial);
+    wrapper.find('.choose-file').simulate('click');
+    wrapper.setState({photo: expected});
+    expect(wrapper.state('photo')).toEqual(expected);
+  })
 
 }); 
