@@ -17,6 +17,13 @@ describe('CreateUserGoogle', () => {
     expect(data).toEqual(expected);
   });
 
+  it('should return data from sendEmailConfirmation fetch', async () => {
+    const userParam = {name: 'Lee', email: 'graham.la3@gmail.com'};
+    const expected = undefined;
+    let data = await sendEmailConfirmation(userParam);
+    expect(data).toEqual(expected);
+  });
+
   it('should update state with the neighborhood selected', () => {
     let selectedOption = {value: 'Auraria', label: 'Aurarua', id: 1};
     wrapper = shallow(<CreateUserGoogle />);
