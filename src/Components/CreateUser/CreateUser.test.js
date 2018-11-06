@@ -5,6 +5,7 @@ import { shallow } from 'enzyme';
 
 describe('CreateUser', () => {
   let wrapper;
+
   it('should match the snapshot', () => {
     wrapper = shallow(<CreateUser />);
     expect(wrapper).toMatchSnapshot();
@@ -24,7 +25,7 @@ describe('CreateUser', () => {
   });
 
   it('should update state with the input information', () => {
-    let mockEvent = {target: {name: 'firstName', value: 'Bobby'}}
+    let mockEvent = {target: {name: 'firstName', value: 'Bobby'}};
     let userInput = 'Bobby';
     wrapper = shallow(<CreateUser />);
     wrapper.instance().handleChange(mockEvent);
@@ -46,10 +47,18 @@ describe('CreateUser', () => {
   });
 
   it('should return data from addNewUserLocal fetch', async () => {
-    const userParam = {name: 'Lee', email: 'graham.la3@gmail.com'}
-    const expected = {"message": "Incorrect parameters given!"}
+    const userParam = {name: 'Lee', email: 'graham.la3@gmail.com'};
+    const expected = {"message": "Incorrect parameters given!"};
     let data = await addNewUserLocal(userParam);
     expect(data).toEqual(expected);
   });
+
+  it('should return data from sendEmailConfirmation fetch', async () => {
+    const userParam = {name: 'Lee', email: 'graham.la3@gmail.com'};
+    const expected = undefined;
+    let data = await sendEmailConfirmation(userParam);
+    expect(data).toEqual(expected);
+  });
+
 
 }); 
