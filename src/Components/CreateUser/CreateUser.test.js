@@ -23,6 +23,14 @@ describe('CreateUser', () => {
     expect(data).toEqual(expected);
   });
 
+  it('should update state with the input information', () => {
+    let mockEvent = {target: {name: 'firstName', value: 'Bobby'}}
+    let userInput = 'Bobby';
+    wrapper = shallow(<CreateUser />);
+    wrapper.instance().handleChange(mockEvent);
+    expect(wrapper.state('firstName')).toEqual(userInput);
+  });
+
   it('should update state with the neighborhood selected', () => {
     let selectedOption = {value: 'Auraria', label: 'Aurarua', id: 1};
     wrapper = shallow(<CreateUser />);
