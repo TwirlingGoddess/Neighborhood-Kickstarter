@@ -83,7 +83,7 @@ describe('CreateProject', () => {
     expect(wrapper.state('resources')).toHaveLength(0);
   });
 
-  it('should upload an image file when file upload input is clicked', () => {
+  it('should upload an image file when choose-file input is clicked', () => {
     mockCurrentUser = {id: 1};
     const initial = ''
     const expected = 'https://apod.nasa.gov/apod/image/1811/CaliforniaNebula_Falls_960.jpg'
