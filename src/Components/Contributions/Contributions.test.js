@@ -34,15 +34,15 @@ describe('Contributions', () => {
     expect(wrapper.state('comment')).toEqual('a');
   });
 
-  it('should return data from fetch', async () => {
+  it('should return data from postNewComment fetch', async () => {
     let data = await postNewComment();
     expect(data).toBe(undefined);
-  })
+  });
 
-  it('should return data from fetch', async () => {
+  it('should return data from getProjectsComments fetch', async () => {
     const message = {"message": "Project Not Found!"}
     let data = await getProjectsComments();
     expect(data).toEqual(message);
-  })
+  });
   
-}); 
+}) 
