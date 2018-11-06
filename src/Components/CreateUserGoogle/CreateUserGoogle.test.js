@@ -28,7 +28,7 @@ describe('CreateUserGoogle', () => {
     let mockUpdateUser = jest.fn();
     let mockHoods =  [{name: 'Baker'}] 
     wrapper = shallow(<CreateUserGoogle updateUser={mockUpdateUser}/>);
-    expect(wrapper.state('resources')).toEqual(undefined);
+    expect(wrapper.state('neighborhoods')).toHaveLength(0);
     wrapper.instance().setNeighborhoods(mockUpdateUser, mockHoods);
     wrapper.setState({ neighborhoods: mockHoods});
     expect(wrapper.state('neighborhoods')).toHaveLength(1);
@@ -40,18 +40,28 @@ describe('CreateUserGoogle', () => {
     expect(data).toEqual(expected);
   });
 
-  it('should update state with the neighborhood selected', () => {
-    let selectedOption = {value: 'Auraria', label: 'Aurarua', id: 1};
-    wrapper = shallow(<CreateUserGoogle />);
-    wrapper.instance().handleSelectChange(selectedOption);
-    expect(wrapper.state('neighborhood')).toEqual(selectedOption);
-  });
-
   it('should update the input thats being typed in, in state', () => {
     let eventObject = { target: { name: 'userName', value: 'dm' } };
     wrapper = shallow(<CreateUserGoogle/>);
     wrapper.find('.input-fields-google').simulate('change', eventObject);
     expect(wrapper.state('userName')).toEqual('dm');
+  });
+
+  it('should update state when handleChange in invoked', () => {
+    let eventObject = { target: { name: 'neighborhood', value: 'Baker' } };
+    let mockHood =  'Baker'
+    wrapper = shallow(<CreateUserGoogle updateUser={eventObject}/>);
+    expect(wrapper.state('neighborhood')).toEqual('');
+    wrapper.instance().handleChange(eventObject, mockHood);
+    wrapper.setState({ neighborhood: mockHood });
+    expect(wrapper.state('neighborhood')).toEqual(mockHood);
+  }); 
+
+  it('should update state with the neighborhood selected', () => {
+    let selectedOption = {value: 'Auraria', label: 'Aurarua', id: 1};
+    wrapper = shallow(<CreateUserGoogle />);
+    wrapper.instance().handleSelectChange(selectedOption);
+    expect(wrapper.state('neighborhood')).toEqual(selectedOption);
   });
 
   it('should call addNewUser after googleResponse is called', () => {
