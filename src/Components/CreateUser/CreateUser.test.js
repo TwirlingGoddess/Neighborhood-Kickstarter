@@ -1,6 +1,6 @@
 import React from 'react';
 import CreateUser from './CreateUser';
-import { getNeighborhoods } from '../../utilities/apiCalls/apiCalls';
+import { getNeighborhoods, addNewUserLocal, sendEmailConfirmation } from '../../utilities/apiCalls/apiCalls';
 import { shallow } from 'enzyme';
 
 describe('CreateUser', () => {
@@ -43,6 +43,13 @@ describe('CreateUser', () => {
     wrapper = shallow(<CreateUser />);
     wrapper.find('.first-name-input').simulate('change', eventObject);
     expect(wrapper.state('firstName')).toEqual('a');
+  });
+
+  it('should return data from addNewUserLocal fetch', async () => {
+    const userParam = {name: 'Lee', email: 'graham.la3@gmail.com'}
+    const expected = {"message": "Incorrect parameters given!"}
+    let data = await addNewUserLocal(userParam);
+    expect(data).toEqual(expected);
   });
 
 }); 
